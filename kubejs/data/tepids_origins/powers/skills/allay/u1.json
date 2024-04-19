@@ -1,0 +1,1291 @@
+{
+    "type": "origins:multiple",
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "onpickup_action": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:inventory",
+                    "process_mode": "stacks",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    },
+                    "slots": [
+                        "inventory.18",
+                        "inventory.19",
+                        "inventory.20",
+                        "inventory.21",
+                        "inventory.22",
+                        "inventory.23",
+                        "inventory.24",
+                        "inventory.25",
+                        "inventory.26"
+                    ],
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/allay/u1_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "inverted": true,
+                                    "type": "origins:power",
+                                    "power": "tepids_origins:skills/allay/d1"
+                                },
+                                {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                            "comparison": ">=",
+                                            "compare_to": 96
+                                        },
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "comparison": ">=",
+                                            "compare_to": 96
+                                        },
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "comparison": ">=",
+                                            "compare_to": 96
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:power",
+                                    "power": "tepids_origins:skills/allay/d1"
+                                },
+                                {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                            "comparison": "==",
+                                            "compare_to": 120
+                                        },
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "comparison": "==",
+                                            "compare_to": 120
+                                        },
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "comparison": "==",
+                                            "compare_to": 120
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "eggolib:action_on_item_pickup",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:set_resource",
+                "resource": "tepids_origins:skills/allay/u1_boolean",
+                "value": 1
+            }
+        }
+    },
+    "northsouth": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[y_rotation=-45..45]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[y_rotation=135..225]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=15..135]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=180..-45]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/allay/u1_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/allay/search_tracker",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 12,
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:item"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": -2,
+                            "client": true,
+                            "server": true
+                        },
+                        "ticks": 10
+                    }
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:skills/allay/u1_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:skills/allay/u1_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:allay.origin.the_search_begins_break",
+                    "volume": 0.6,
+                    "pitch": 1.4
+                }
+            ]
+        },
+        "block_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 2,
+                    "y": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -2,
+                    "y": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 2,
+                    "y": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -2,
+                    "y": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 2,
+                    "y": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -2,
+                    "y": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 2,
+                    "y": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -2,
+                    "y": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 1,
+                    "y": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -1,
+                    "y": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 1,
+                    "y": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -1,
+                    "y": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": -2
+                }
+            ]
+        },
+        "only_when_harvested": true
+    },
+    "eastwest": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[y_rotation=45..135]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[y_rotation=225..-45]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=15..135]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=180..-45]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/allay/u1_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/allay/search_tracker",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 6,
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:item"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": -2,
+                            "client": true,
+                            "server": true
+                        },
+                        "ticks": 10
+                    }
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:skills/allay/u1_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:skills/allay/u1_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:allay.origin.the_search_begins_break",
+                    "volume": 0.6,
+                    "pitch": 1.4
+                }
+            ]
+        },
+        "block_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": 2,
+                    "y": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": -2,
+                    "y": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": 2,
+                    "y": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": -2,
+                    "y": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": 2,
+                    "y": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": -2,
+                    "y": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": 2,
+                    "y": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": -2,
+                    "y": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": 1,
+                    "y": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": -1,
+                    "y": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": 1,
+                    "y": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": -1,
+                    "y": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": -2
+                }
+            ]
+        },
+        "only_when_harvested": true
+    },
+    "updown": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=15..135]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=180..-45]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/allay/u1_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/allay/search_tracker",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 12,
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:item"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": -2,
+                            "client": true,
+                            "server": true
+                        },
+                        "ticks": 10
+                    }
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:skills/allay/u1_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:skills/allay/u1_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:allay.origin.the_search_begins_break",
+                    "volume": 0.6,
+                    "pitch": 1.4
+                }
+            ]
+        },
+        "block_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 2,
+                    "z": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -2,
+                    "z": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 2,
+                    "z": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -2,
+                    "z": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 2,
+                    "z": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -2,
+                    "z": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 2,
+                    "z": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -2,
+                    "z": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 1,
+                    "z": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -1,
+                    "z": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 1,
+                    "z": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -1,
+                    "z": -2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": 2
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": -2
+                }
+            ]
+        },
+        "block_condition": {
+            "inverted": true,
+            "type": "origins:adjacent",
+            "adjacent_condition": {
+                "type": "origins:blast_resistance",
+                "comparison": ">=",
+                "compare_to": 600
+            },
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "only_when_harvested": true
+    },
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 60
+    }
+}

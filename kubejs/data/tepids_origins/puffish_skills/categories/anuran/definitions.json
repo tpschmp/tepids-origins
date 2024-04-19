@@ -1,0 +1,565 @@
+{
+    "root": {
+        "title": "Anuran",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/item/anuran/item.png"
+            }
+        },
+        "description": "This Origin displays an extraordinary ease of adaptation. As you evolve in this world, it too shall follow..\n \n..But beware, for you may only choose a different path after using an Evolution Encyclopedia.",
+        "size": 2,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "command": "give @s air"
+                }
+            }
+        ],
+        "cost": 0
+    },
+    "a1": {
+        "title": "Fall Damage Taken -1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/a.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/a1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/a1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "a2": {
+        "title": "Fall Damage Taken -1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/a.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/a2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/a2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "a3": {
+        "title": "Fall Damage Taken -1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/a.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/a3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/a3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "a4": {
+        "title": "Fall Damage Taken -1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/a.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/a4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/a4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "b1": {
+        "title": "Movement Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/b.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/b1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/b1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "b2": {
+        "title": "Movement Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/b.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/b2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/b2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "b3": {
+        "title": "Movement Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/b.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/b3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/b3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "b4": {
+        "title": "Movement Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/b.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/b4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/b4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "c1": {
+        "title": "Lick: Range +4",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/c.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/c1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/c1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "c2": {
+        "title": "Lick: Range +4",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/c.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/c2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/c2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "c3": {
+        "title": "Lick: Range +4",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/c.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/c3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/c3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "c4": {
+        "title": "Lick: Range +4",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/c.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/c4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/c4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "u1": {
+        "title": "Slimey",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/u1.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nMining while sneaking can drop Slime Balls, which can be eaten to restore hunger.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/u1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/u1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "u2": {
+        "title": "Sticky Slide",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/u2.png"
+            }
+        },
+        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nYou can slide on walls. Jumping off of walls boosts you forward.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/u2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/u2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 6
+    },
+    "u3": {
+        "title": "Tongue Twister",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/u3.png"
+            }
+        },
+        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nAfter Licking, temporarily gain extra jumps in mid-air until landing. Jumping this way decreases Lick cooldown.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/u3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/u3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 9
+    },
+    "d1": {
+        "title": "Slimey: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/d1.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nSlime Balls additionally regenerate health.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/d1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/d1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "d2": {
+        "title": "Sticky Slide: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/d2.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nSliding is faster and grants you a burst of Movement Speed after jumping off.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/d2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/d2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "d3": {
+        "title": "Tongue Twister: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/anuran/d3.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nThe amount of extra jumps is increased.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/anuran/d3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/anuran/d3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    }
+}

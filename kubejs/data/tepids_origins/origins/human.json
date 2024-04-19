@@ -1,0 +1,13 @@
+{
+    "name": "Human",
+    "description": "A regular human.",
+    "powers": [
+        "tepids_origins:human"
+    ],
+    "icon": {
+        "item": "minecraft:player_head"
+    },
+    "unchoosable": true,
+    "order": 0,
+    "impact": 0
+}

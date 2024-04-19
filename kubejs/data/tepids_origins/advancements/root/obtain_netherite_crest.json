@@ -1,0 +1,31 @@
+{
+    "display": {
+        "icon": {
+            "item": "tepids_origins:netherite_overworld_crest"
+        },
+        "title": "Arms Race",
+        "description": "Obtain a Netherite Crest",
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true
+    },
+    "parent": "tepids_origins:root/obtain_crest",
+    "requirements": [
+        [
+            "crest"
+        ]
+    ],
+    "criteria": {
+        "crest": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "tepids_origins:netherite_crests"
+                    }
+                ],
+                "player": {}
+            }
+        }
+    }
+}

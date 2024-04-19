@@ -1,0 +1,185 @@
+{
+    "name": "Short Limbs",
+    "description": "Blocks are unbreakable without their effective tool. Break speed and range are reduced.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Block Reach: 2.25 blocks\n",
+                "Attack Range: 0.5 blocks\n",
+                "Mining Speed: -60%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "range": {
+        "type": "origins:attribute",
+        "modifiers": [
+            {
+                "attribute": "reach-entity-attributes:reach",
+                "operation": "addition",
+                "value": -1.75
+            },
+            {
+                "attribute": "reach-entity-attributes:attack_range",
+                "operation": "addition",
+                "value": -1.5
+            }
+        ],
+        "update_health": true
+    },
+    "pickaxe": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "c:pickaxes"
+                }
+            }
+        },
+        "type": "origins:modify_break_speed",
+        "block_condition": {
+            "inverted": true,
+            "type": "origins:in_tag",
+            "tag": "minecraft:mineable/pickaxe"
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -101
+        }
+    },
+    "axe": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "c:axes"
+                }
+            }
+        },
+        "type": "origins:modify_break_speed",
+        "block_condition": {
+            "inverted": true,
+            "type": "origins:in_tag",
+            "tag": "minecraft:mineable/axe"
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -101
+        }
+    },
+    "shovel": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "c:shovels"
+                }
+            }
+        },
+        "type": "origins:modify_break_speed",
+        "block_condition": {
+            "inverted": true,
+            "type": "origins:in_tag",
+            "tag": "minecraft:mineable/shovel"
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -101
+        }
+    },
+    "hoe": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "c:hoes"
+                }
+            }
+        },
+        "type": "origins:modify_break_speed",
+        "block_condition": {
+            "inverted": true,
+            "type": "origins:in_tag",
+            "tag": "minecraft:mineable/hoe"
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -101
+        }
+    },
+    "other": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:empty"
+                    },
+                    {
+                        "inverted": true,
+                        "type": "origins:ingredient",
+                        "ingredient": [
+                            {
+                                "tag": "c:pickaxes"
+                            },
+                            {
+                                "tag": "c:axes"
+                            },
+                            {
+                                "tag": "c:shovels"
+                            },
+                            {
+                                "tag": "c:hoes"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "type": "origins:modify_break_speed",
+        "block_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:mineable/pickaxe"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:mineable/axe"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:mineable/shovel"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:mineable/hoe"
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -101
+        }
+    },
+    "debuff": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.6
+        }
+    }
+}

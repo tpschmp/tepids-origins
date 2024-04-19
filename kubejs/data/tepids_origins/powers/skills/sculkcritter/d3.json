@@ -1,0 +1,19 @@
+{
+    "condition": {
+        "type": "origins:block_in_radius",
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "tepids_origins:sculk"
+        },
+        "radius": 4,
+        "shape": "cube",
+        "comparison": ">=",
+        "compare_to": 1
+    },
+    "type": "origins:effect_immunity",
+    "effects": [
+        "tepids_origins:sight_of_a_warden",
+        "minecraft:darkness",
+        "minecraft:blindness"
+    ]
+}

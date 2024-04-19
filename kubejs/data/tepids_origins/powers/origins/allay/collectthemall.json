@@ -1,0 +1,1329 @@
+{
+    "name": "Collect Them All",
+    "description": "You have 3 Collector Meters, each randomly filled by picking up items.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Maximum Points: 96\n",
+                "Fill Rate: +1/16 blocks in drop"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "meter1": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 18
+        }
+    },
+    "meter2": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 19
+        }
+    },
+    "meter3": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 20
+        }
+    },
+    "failsafe": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                "comparison": ">",
+                                "compare_to": 96
+                            },
+                            {
+                                "inverted": true,
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/allay/d1"
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                        "value": 96
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                "comparison": ">",
+                                "compare_to": 96
+                            },
+                            {
+                                "inverted": true,
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/allay/d1"
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                        "value": 96
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                "comparison": ">",
+                                "compare_to": 96
+                            },
+                            {
+                                "inverted": true,
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/allay/d1"
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                        "value": 96
+                    }
+                }
+            ]
+        }
+    },
+    "onpickup_1": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "inventory.0",
+                "inventory.1",
+                "inventory.2",
+                "inventory.3",
+                "inventory.4",
+                "inventory.5",
+                "inventory.6",
+                "inventory.7",
+                "inventory.8",
+                "inventory.9",
+                "inventory.10",
+                "inventory.11",
+                "inventory.12",
+                "inventory.13",
+                "inventory.14",
+                "inventory.15",
+                "inventory.16",
+                "inventory.17",
+                "inventory.18",
+                "inventory.19",
+                "inventory.20",
+                "inventory.21",
+                "inventory.22",
+                "inventory.23",
+                "inventory.24",
+                "inventory.25",
+                "inventory.26"
+            ],
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "eggolib:action_on_item_pickup",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:chance",
+                        "chance": 0.33,
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:modify_resource",
+                                    "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                    "modifier": {
+                                        "operation": "addition",
+                                        "value": 1
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c1"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c2"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c3"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c4"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "fail_action": {
+                            "type": "origins:chance",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c1"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c2"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c3"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c4"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "chance": 0.5,
+                            "fail_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c1"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c2"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c3"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c4"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<",
+                    "compare_to": 16
+                }
+            ]
+        }
+    },
+    "onpickup_2": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "inventory.0",
+                "inventory.1",
+                "inventory.2",
+                "inventory.3",
+                "inventory.4",
+                "inventory.5",
+                "inventory.6",
+                "inventory.7",
+                "inventory.8",
+                "inventory.9",
+                "inventory.10",
+                "inventory.11",
+                "inventory.12",
+                "inventory.13",
+                "inventory.14",
+                "inventory.15",
+                "inventory.16",
+                "inventory.17",
+                "inventory.18",
+                "inventory.19",
+                "inventory.20",
+                "inventory.21",
+                "inventory.22",
+                "inventory.23",
+                "inventory.24",
+                "inventory.25",
+                "inventory.26"
+            ],
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "eggolib:action_on_item_pickup",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:chance",
+                        "chance": 0.33,
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:modify_resource",
+                                    "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                    "modifier": {
+                                        "operation": "addition",
+                                        "value": 2
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c1"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c2"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c3"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c4"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "fail_action": {
+                            "type": "origins:chance",
+                            "chance": 0.5,
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c1"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c2"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c3"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c4"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "fail_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 2
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c1"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c2"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c3"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c4"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 16
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<",
+                    "compare_to": 32
+                }
+            ]
+        }
+    },
+    "onpickup_3": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "inventory.0",
+                "inventory.1",
+                "inventory.2",
+                "inventory.3",
+                "inventory.4",
+                "inventory.5",
+                "inventory.6",
+                "inventory.7",
+                "inventory.8",
+                "inventory.9",
+                "inventory.10",
+                "inventory.11",
+                "inventory.12",
+                "inventory.13",
+                "inventory.14",
+                "inventory.15",
+                "inventory.16",
+                "inventory.17",
+                "inventory.18",
+                "inventory.19",
+                "inventory.20",
+                "inventory.21",
+                "inventory.22",
+                "inventory.23",
+                "inventory.24",
+                "inventory.25",
+                "inventory.26"
+            ],
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "eggolib:action_on_item_pickup",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:chance",
+                        "chance": 0.33,
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:modify_resource",
+                                    "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                    "modifier": {
+                                        "operation": "addition",
+                                        "value": 3
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c1"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c2"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c3"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c4"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "fail_action": {
+                            "type": "origins:chance",
+                            "chance": 0.5,
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c1"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c2"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c3"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c4"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "fail_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c1"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c2"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c3"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c4"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 32
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<",
+                    "compare_to": 48
+                }
+            ]
+        }
+    },
+    "onpickup_4": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "inventory.0",
+                "inventory.1",
+                "inventory.2",
+                "inventory.3",
+                "inventory.4",
+                "inventory.5",
+                "inventory.6",
+                "inventory.7",
+                "inventory.8",
+                "inventory.9",
+                "inventory.10",
+                "inventory.11",
+                "inventory.12",
+                "inventory.13",
+                "inventory.14",
+                "inventory.15",
+                "inventory.16",
+                "inventory.17",
+                "inventory.18",
+                "inventory.19",
+                "inventory.20",
+                "inventory.21",
+                "inventory.22",
+                "inventory.23",
+                "inventory.24",
+                "inventory.25",
+                "inventory.26"
+            ],
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "eggolib:action_on_item_pickup",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:chance",
+                        "chance": 0.33,
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:modify_resource",
+                                    "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                    "modifier": {
+                                        "operation": "addition",
+                                        "value": 4
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c1"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c2"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c3"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/c4"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 1
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "fail_action": {
+                            "type": "origins:chance",
+                            "chance": 0.5,
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c1"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c2"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c3"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c4"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "fail_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 4
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c1"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c2"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c3"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/c4"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                            "modifier": {
+                                                "operation": "addition",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 48
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 64
+                }
+            ]
+        }
+    }
+}

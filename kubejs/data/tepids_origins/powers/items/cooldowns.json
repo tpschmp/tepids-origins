@@ -1,0 +1,480 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "anuran_4pc": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1
+        }
+    },
+    "anuran_active": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0
+        }
+    },
+    "allay_active": {
+        "type": "origins:cooldown",
+        "cooldown": 300,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0
+        }
+    },
+    "merrow_equip": {
+        "type": "origins:cooldown",
+        "cooldown": 600
+    },
+    "druid_equip": {
+        "type": "origins:cooldown",
+        "cooldown": 100
+    },
+    "lycan_active": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0
+        }
+    },
+    "dummy_2pc": {
+        "type": "origins:cooldown",
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1
+        }
+    },
+    "guard_2pc": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1
+        }
+    },
+    "allay_4pc": {
+        "type": "origins:cooldown",
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1
+        }
+    },
+    "creeper_4pc": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:power",
+                "power": "tepids_origins:items/creeper/4pc"
+            }
+        }
+    },
+    "creeper_active": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0
+        }
+    },
+    "lycan_4pc": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:power",
+                "power": "tepids_origins:items/lycan/4pc"
+            }
+        }
+    },
+    "anuran_4pc_boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:power",
+                        "power": "tepids_origins:items/anuran/4pc"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_anuran_4pc",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_anuran_4pc_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        }
+    },
+    "chelonian_active": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0
+        }
+    },
+    "chelonian_active_boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_chelonian_active",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_chelonian_active_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "tepids_origins:items/chelonian/active"
+                    }
+                ]
+            }
+        }
+    },
+    "druid_4pc": {
+        "type": "origins:cooldown",
+        "cooldown": 300,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1
+        }
+    },
+    "villager_4pc": {
+        "type": "origins:cooldown",
+        "cooldown": 300,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1
+        }
+    },
+    "lycan_active_boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_lycan_active",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_lycan_active_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "tepids_origins:items/lycan/active"
+                    }
+                ]
+            }
+        }
+    },
+    "villager_active": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0
+        }
+    },
+    "villager_active_boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_villager_active",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_villager_active_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "tepids_origins:items/villager/active"
+                    }
+                ]
+            }
+        }
+    },
+    "anuran_active_boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:power",
+                        "power": "tepids_origins:items/anuran/active"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_anuran_active",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_anuran_active_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        }
+    },
+    "allay_active_boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:power",
+                        "power": "tepids_origins:items/allay/active"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_allay_active",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_allay_active_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        }
+    },
+    "druid_active_boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:power",
+                        "power": "tepids_origins:items/druid/active"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_druid_active",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_druid_active_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        }
+    },
+    "guard_2pc_boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_guard_2pc",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_guard_2pc_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "tepids_origins:items/generic/guard"
+                    }
+                ]
+            }
+        }
+    },
+    "sculkcritter_4pc": {
+        "type": "origins:cooldown",
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1
+        }
+    },
+    "sculkcritter_equip": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "sculkcritter_active": {
+        "type": "origins:cooldown",
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0
+        }
+    },
+    "druid_active": {
+        "type": "origins:cooldown",
+        "cooldown": 300,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0
+        }
+    },
+    "merrow_active": {
+        "type": "origins:cooldown",
+        "cooldown": 600,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0
+        }
+    },
+    "merrow_active_boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:power",
+                        "power": "tepids_origins:items/merrow/active"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_merrow_active",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_merrow_active_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        }
+    }
+}

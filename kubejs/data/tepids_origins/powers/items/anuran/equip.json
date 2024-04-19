@@ -1,0 +1,49 @@
+{
+    "hidden": true,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:on_block"
+            },
+            {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "inverted": true,
+                        "type": "origins:submerged_in",
+                        "fluid": "minecraft:water"
+                    },
+                    {
+                        "inverted": true,
+                        "type": "origins:submerged_in",
+                        "fluid": "minecraft:lava"
+                    }
+                ]
+            }
+        ]
+    },
+    "type": "origins:modify_jump",
+    "entity_action": {
+        "type": "origins:chance",
+        "chance": 0.2,
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:anuran.item.equip",
+                    "volume": 1,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:give",
+                    "stack": {
+                        "item": "minecraft:slime_ball",
+                        "amount": 1
+                    }
+                }
+            ]
+        }
+    }
+}

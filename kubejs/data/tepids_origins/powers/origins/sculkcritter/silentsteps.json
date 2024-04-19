@@ -1,0 +1,39 @@
+{
+    "name": "Silent Steps",
+    "description": "Some of your actions do not emit any vibrations.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Muted Actions: walking, swimming, eating, flying, equipping gear"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "preventsound": {
+        "type": "origins:prevent_game_event",
+        "events": [
+            "minecraft:step",
+            "minecraft:flap",
+            "minecraft:swim",
+            "minecraft:splash",
+            "minecraft:hit_ground",
+            "minecraft:eat",
+            "minecraft:equip",
+            "minecraft:shear"
+        ]
+    },
+    "mutefootstep": {
+        "type": "apugli:custom_footstep",
+        "muted": true
+    },
+    "mutedeath": {
+        "type": "apugli:custom_death_sound",
+        "muted": true
+    },
+    "mutehurt": {
+        "type": "apugli:custom_hurt_sound",
+        "muted": true
+    }
+}

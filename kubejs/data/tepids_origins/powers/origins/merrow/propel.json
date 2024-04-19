@@ -1,0 +1,338 @@
+{
+    "name": "Propel",
+    "description": "Consume hunger to dash through water in a chosen direction, restoring air for nearby friendly entities. \n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                {
+                    "color": "dark_purple",
+                    "text": "Active ability. Activate with "
+                },
+                {
+                    "color": "gold",
+                    "keybind": "key.origins.primary_active"
+                },
+                {
+                    "color": "dark_purple",
+                    "text": "."
+                }
+            ],
+            "sprite": "origins:textures/gui/badge/active.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Hunger Threshold: 8\n",
+                "Hunger Cost: 6\n",
+                "Restored Air: +5 seconds\n",
+                "Cooldown: 10 seconds"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 13
+        }
+    },
+    "activate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/merrow/propel_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:submerged_in",
+                    "fluid": "minecraft:water"
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "apugli:key_pressed",
+                            "key": {
+                                "key": "key.forward",
+                                "continuous": true
+                            }
+                        },
+                        {
+                            "type": "apugli:key_pressed",
+                            "key": {
+                                "key": "key.back",
+                                "continuous": true
+                            }
+                        },
+                        {
+                            "type": "apugli:key_pressed",
+                            "key": {
+                                "key": "key.right",
+                                "continuous": true
+                            }
+                        },
+                        {
+                            "type": "apugli:key_pressed",
+                            "key": {
+                                "key": "key.left",
+                                "continuous": true
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 16,
+                    "include_target": true,
+                    "bientity_condition": {
+                        "inverted": true,
+                        "type": "origins:undirected",
+                        "condition": {
+                            "type": "origins:attack_target"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:gain_air",
+                                    "value": 100
+                                }
+                            },
+                            {
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/merrow/u2"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/merrow/d2"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:apply_effect",
+                                                "effect": {
+                                                    "effect": "minecraft:dolphins_grace",
+                                                    "duration": 200,
+                                                    "amplifier": 2,
+                                                    "show_particles": true,
+                                                    "show_icon": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/merrow/u2"
+                                                    },
+                                                    {
+                                                        "inverted": true,
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/merrow/d2"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:apply_effect",
+                                                "effect": {
+                                                    "effect": "minecraft:dolphins_grace",
+                                                    "duration": 100,
+                                                    "amplifier": 0,
+                                                    "show_particles": true,
+                                                    "show_icon": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:origins/merrow/propel_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:merrow.origin.propel",
+                    "volume": 1,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:feed",
+                    "food": -6,
+                    "saturation": 0
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/merrow/c1"
+                    },
+                    "if_action": {
+                        "type": "origins:feed",
+                        "food": 1,
+                        "saturation": 0
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/merrow/c2"
+                    },
+                    "if_action": {
+                        "type": "origins:feed",
+                        "food": 1,
+                        "saturation": 0
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/merrow/c3"
+                    },
+                    "if_action": {
+                        "type": "origins:feed",
+                        "food": 1,
+                        "saturation": 0
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/merrow/c4"
+                    },
+                    "if_action": {
+                        "type": "origins:feed",
+                        "food": 1,
+                        "saturation": 0
+                    }
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "apugli:key_pressed",
+                                "key": {
+                                    "key": "key.forward",
+                                    "continuous": true
+                                }
+                            },
+                            "action": {
+                                "type": "origins:add_velocity",
+                                "z": 2,
+                                "space": "local",
+                                "client": true,
+                                "server": true
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "apugli:key_pressed",
+                                "key": {
+                                    "key": "key.back",
+                                    "continuous": true
+                                }
+                            },
+                            "action": {
+                                "type": "origins:add_velocity",
+                                "z": -2,
+                                "space": "local",
+                                "client": true,
+                                "server": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "apugli:key_pressed",
+                                "key": {
+                                    "key": "key.left",
+                                    "continuous": true
+                                }
+                            },
+                            "action": {
+                                "type": "origins:add_velocity",
+                                "x": 2,
+                                "space": "local",
+                                "client": true,
+                                "server": true
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "apugli:key_pressed",
+                                "key": {
+                                    "key": "key.right",
+                                    "continuous": true
+                                }
+                            },
+                            "action": {
+                                "type": "origins:add_velocity",
+                                "x": -2,
+                                "space": "local",
+                                "client": true,
+                                "server": true
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    }
+}

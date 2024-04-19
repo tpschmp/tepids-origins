@@ -1,0 +1,678 @@
+{
+    "name": "Here! Take my Stuff!",
+    "description": "Spend hunger to briefly lend your currently equipped weapon to an entity within range, disabling your main hand and granting a decaying damage buff based on a portion of your weapon's Attack Damage.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                {
+                    "color": "dark_purple",
+                    "text": "Active ability. Toggle with "
+                },
+                {
+                    "color": "gold",
+                    "keybind": "key.origins.primary_active"
+                },
+                {
+                    "color": "dark_purple",
+                    "text": "."
+                }
+            ],
+            "sprite": "origins:textures/gui/badge/active.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Hunger Threshold: 8\n",
+                "Hunger Cost: 6\n",
+                "Attack Damage Ratio: 37.5%\n",
+                "Additional Damage: +1/+2/+3/+4/+5/+6\n(dependant on tool tier)\n",
+                "Buff Duration: 10 seconds\n",
+                "Disable Duration: 5 seconds\n",
+                "Cooldown: 10 seconds"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 11
+        }
+    },
+    "cast": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/villager/takemystuff_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:stats_distance",
+                            "comparison": "<=",
+                            "compare_to": 160
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/villager/c1"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/villager/c2"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/villager/c3"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/villager/c4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 200
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c2"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c3"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c4"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 240
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c3"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c3"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/villager/c4"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 280
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/villager/c1"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/villager/c2"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/villager/c3"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/villager/c4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 320
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 32,
+            "block": false,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard objectives add villagerRatio dummy"
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/villager/u3"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "scoreboard players set @s villagerRatio 1"
+                                    },
+                                    "else_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "scoreboard players set @s villagerRatio 2"
+                                    }
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard objectives add villagerAttack dummy"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute store result score @s villagerAttack run attribute @s minecraft:generic.attack_damage get"
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:command",
+                                        "command": "scoreboard players get @s villagerAttack",
+                                        "comparison": ">",
+                                        "compare_to": 20
+                                    },
+                                    "if_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "scoreboard players set @s villagerAttack 20"
+                                    }
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard objectives add villagerFlat dummy"
+                                },
+                                {
+                                    "type": "origins:if_else_list",
+                                    "actions": [
+                                        {
+                                            "condition": {
+                                                "type": "origins:equipped_item",
+                                                "equipment_slot": "mainhand",
+                                                "item_condition": {
+                                                    "inverted": true,
+                                                    "type": "origins:ingredient",
+                                                    "ingredient": {
+                                                        "tag": "c:tools"
+                                                    }
+                                                }
+                                            },
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "scoreboard players set @s villagerFlat 0"
+                                            }
+                                        },
+                                        {
+                                            "condition": {
+                                                "type": "origins:equipped_item",
+                                                "equipment_slot": "mainhand",
+                                                "item_condition": {
+                                                    "type": "origins:ingredient",
+                                                    "ingredient": [
+                                                        {
+                                                            "tag": "tepids_origins:wooden_tier"
+                                                        },
+                                                        {
+                                                            "tag": "tepids_origins:golden_tier"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "scoreboard players set @s villagerFlat 1"
+                                            }
+                                        },
+                                        {
+                                            "condition": {
+                                                "type": "origins:equipped_item",
+                                                "equipment_slot": "mainhand",
+                                                "item_condition": {
+                                                    "type": "origins:ingredient",
+                                                    "ingredient": {
+                                                        "tag": "tepids_origins:stone_tier"
+                                                    }
+                                                }
+                                            },
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "scoreboard players set @s villagerFlat 2"
+                                            }
+                                        },
+                                        {
+                                            "condition": {
+                                                "type": "origins:equipped_item",
+                                                "equipment_slot": "mainhand",
+                                                "item_condition": {
+                                                    "type": "origins:ingredient",
+                                                    "ingredient": {
+                                                        "tag": "tepids_origins:iron_tier"
+                                                    }
+                                                }
+                                            },
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "scoreboard players set @s villagerFlat 3"
+                                            }
+                                        },
+                                        {
+                                            "condition": {
+                                                "type": "origins:equipped_item",
+                                                "equipment_slot": "mainhand",
+                                                "item_condition": {
+                                                    "type": "origins:ingredient",
+                                                    "ingredient": {
+                                                        "tag": "tepids_origins:diamond_tier"
+                                                    }
+                                                }
+                                            },
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "scoreboard players set @s villagerFlat 4"
+                                            }
+                                        },
+                                        {
+                                            "condition": {
+                                                "type": "origins:equipped_item",
+                                                "equipment_slot": "mainhand",
+                                                "item_condition": {
+                                                    "type": "origins:ingredient",
+                                                    "ingredient": {
+                                                        "tag": "tepids_origins:netherite_tier"
+                                                    }
+                                                }
+                                            },
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "scoreboard players set @s villagerFlat 5"
+                                            }
+                                        },
+                                        {
+                                            "condition": {
+                                                "type": "origins:equipped_item",
+                                                "equipment_slot": "mainhand",
+                                                "item_condition": {
+                                                    "type": "origins:ingredient",
+                                                    "ingredient": {
+                                                        "tag": "tepids_origins:origin_items"
+                                                    }
+                                                }
+                                            },
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "scoreboard players set @s villagerFlat 6"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add villagerTemp"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/villager/u3"
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:grant_power",
+                                "power": "tepids_origins:skills/villager/u3_buff",
+                                "source": "tepids_origins:villager/takemystuff"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/villager/d2"
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:grant_power",
+                                "power": "tepids_origins:skills/villager/d2_buff",
+                                "source": "tepids_origins:villager/takemystuff"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/villager/d3"
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:grant_power",
+                                "power": "tepids_origins:skills/villager/d3_buff",
+                                "source": "tepids_origins:villager/takemystuff"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:grant_power",
+                                    "power": "tepids_origins:origins/villager/takemystuff_buff",
+                                    "source": "tepids_origins:villager/takemystuff"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "resource operation @s tepids_origins:origins/villager/takemystuff_buff_ratio = @e[limit=1,tag=villagerTemp] villagerRatio"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "resource operation @s tepids_origins:origins/villager/takemystuff_buff_atk = @e[limit=1,tag=villagerTemp] villagerAttack"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "resource operation @s tepids_origins:origins/villager/takemystuff_buff_flat = @e[limit=1,tag=villagerTemp] villagerFlat"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "hit_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "tag @s remove villagerTemp"
+                        },
+                        "ticks": 1
+                    },
+                    {
+                        "type": "origins:feed",
+                        "food": -6,
+                        "saturation": 0
+                    },
+                    {
+                        "type": "origins:play_sound",
+                        "sound": "tepids_origins:villager.origin.take_my_stuff",
+                        "volume": 0.6,
+                        "pitch": 1
+                    },
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:origins/villager/takemystuff_cooldown"
+                    },
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:origins/villager/takemystuff_disable"
+                    }
+                ]
+            }
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "disable": {
+        "type": "origins:cooldown",
+        "cooldown": 100
+    },
+    "preventattack": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/villager/takemystuff_disable",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "eggolib:prevent_key_use",
+        "key": "key.attack"
+    },
+    "preventrender": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/villager/takemystuff_disable",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:prevent_feature_render",
+        "feature": "held_item"
+    },
+    "preventplace": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/villager/takemystuff_disable",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "eggolib:prevent_block_place",
+        "hands": "main_hand"
+    },
+    "hidehand": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/villager/takemystuff_disable",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.attack_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1000
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "Blend In",
+    "description": "Hostile entities ignore you when in a crowd.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Entity Requirement: 12\n",
+                "Range: 16 blocks"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "condition": {
+        "type": "origins:command",
+        "command": "execute if entity @e[distance=..16,type=!minecraft:item]",
+        "comparison": ">=",
+        "compare_to": 13
+    },
+    "type": "apugli:mobs_ignore",
+    "bientity_condition": {
+        "type": "origins:undirected",
+        "condition": {
+            "inverted": true,
+            "type": "origins:attack_target"
+        }
+    }
+}

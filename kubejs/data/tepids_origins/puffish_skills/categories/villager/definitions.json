@@ -1,0 +1,565 @@
+{
+    "root": {
+        "title": "Villager",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/item/villager/item.png"
+            }
+        },
+        "description": "This Origins displays an extraordinary ease of adaptation. As you evolve in this world, it too shall follow..\n \n..But beware, for you may only choose a different path after using an Evolution Encyclopedia.",
+        "size": 2,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "command": "give @s air"
+                }
+            }
+        ],
+        "cost": 0
+    },
+    "a1": {
+        "title": "Melee Damage Taken -8%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/a.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/a1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/a1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "a2": {
+        "title": "Melee Damage Taken -8%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/a.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/a2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/a2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "a3": {
+        "title": "Melee Damage Taken -8%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/a.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/a3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/a3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "a4": {
+        "title": "Melee Damage Taken -8%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/a.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/a4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/a4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "b1": {
+        "title": "Attack Damage +0.5",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/b.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/b1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/b1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "b2": {
+        "title": "Attack Damage +0.5",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/b.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/b2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/b2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "b3": {
+        "title": "Attack Damage +0.5",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/b.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/b3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/b3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "b4": {
+        "title": "Attack Damage +0.5",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/b.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/b4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/b4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "c1": {
+        "title": "Here! Take my Stuff: Range +4",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/c.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/c1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/c1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "c2": {
+        "title": "Here! Take my Stuff: Range +4",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/c.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/c2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/c2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "c3": {
+        "title": "Here! Take my Stuff: Range +4",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/c.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/c3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/c3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "c4": {
+        "title": "Here! Take my Stuff: Range +4",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/c.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/c4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/c4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "u1": {
+        "title": "Social Networking",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/u1.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nInteracting with villagers repeatedly will gradually increase bonuses incurred by The Basics of Trading.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/u1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/u1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "u2": {
+        "title": "Quid Pro Quo",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/u2.png"
+            }
+        },
+        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nEntities affected by Here! Take my Stuff! have a chance of restoring hunger for nearby players when attacking enemies.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/u2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/u2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 6
+    },
+    "u3": {
+        "title": "You're a Hero!",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/u3.png"
+            }
+        },
+        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nDouble Attack Damage inherited by entities affected by Here! Take my Stuff!\nWhen the entity kills in this state, all entities nearby receive Hero of the Village.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/u3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/u3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 9
+    },
+    "d1": {
+        "title": "Social Networking: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/d1.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nNetworking happens faster. Reaching the maximum discount applies a discount to all players.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/d1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/d1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "d2": {
+        "title": "Quid Pro Quo: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/d2.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nThe hunger regeneration chance and area of effect is increased.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/d2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/d2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "d3": {
+        "title": "You're a Hero: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/villager/d3.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nEntities affected by Here! Take my Stuff! have their Damage Dealt increased.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/villager/d3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/villager/d3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    }
+}

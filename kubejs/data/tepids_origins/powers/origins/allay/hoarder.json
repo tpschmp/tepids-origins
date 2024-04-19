@@ -1,0 +1,715 @@
+{
+    "name": "Hoarder",
+    "description": "For each filled slot in your hotbar, gain mining speed.\nFor each empty slot, take more damage.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Mining Speed: +3%/slot\n",
+                "Damage Taken: +5%/slot"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "dmgdebuff": {
+        "type": "origins:modify_damage_taken",
+        "modifiers": [
+            {
+                "operation": "multiply_total",
+                "value": 0,
+                "resource": "tepids_origins:origins/allay/hoarder_itemtracker"
+            },
+            {
+                "operation": "multiply_total",
+                "value": -0.99
+            }
+        ]
+    },
+    "itemtracker": {
+        "type": "origins:resource",
+        "min": 99,
+        "max": 149,
+        "start_value": 149
+    },
+    "2slots": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "inverted": true,
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "weapon.offhand"
+            ],
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -10
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 6
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 10
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -6
+                    }
+                }
+            ]
+        }
+    },
+    "1slot": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "inverted": true,
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "weapon.offhand"
+            ],
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -5
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 3
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 5
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -3
+                    }
+                }
+            ]
+        }
+    },
+    "3slots": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "inverted": true,
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "weapon.offhand"
+            ],
+            "comparison": "==",
+            "compare_to": 3
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -15
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 9
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 15
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -9
+                    }
+                }
+            ]
+        }
+    },
+    "4slots": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "inverted": true,
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "weapon.offhand"
+            ],
+            "comparison": "==",
+            "compare_to": 4
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 12
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -12
+                    }
+                }
+            ]
+        }
+    },
+    "5slots": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "inverted": true,
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "weapon.offhand"
+            ],
+            "comparison": "==",
+            "compare_to": 5
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -25
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 15
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 25
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -15
+                    }
+                }
+            ]
+        }
+    },
+    "6slots": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "inverted": true,
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "weapon.offhand"
+            ],
+            "comparison": "==",
+            "compare_to": 6
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -30
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 18
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 30
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -18
+                    }
+                }
+            ]
+        }
+    },
+    "7slots": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "inverted": true,
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "weapon.offhand"
+            ],
+            "comparison": "==",
+            "compare_to": 7
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -35
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 21
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 35
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -21
+                    }
+                }
+            ]
+        }
+    },
+    "8slots": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "inverted": true,
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "weapon.offhand"
+            ],
+            "comparison": "==",
+            "compare_to": 8
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -40
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 24
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 40
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -24
+                    }
+                }
+            ]
+        }
+    },
+    "9slots": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "inverted": true,
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "weapon.offhand"
+            ],
+            "comparison": "==",
+            "compare_to": 9
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -45
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 27
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 45
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -27
+                    }
+                }
+            ]
+        }
+    },
+    "10slots": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "stacks",
+            "item_condition": {
+                "inverted": true,
+                "type": "origins:empty"
+            },
+            "slots": [
+                "hotbar.0",
+                "hotbar.1",
+                "hotbar.2",
+                "hotbar.3",
+                "hotbar.4",
+                "hotbar.5",
+                "hotbar.6",
+                "hotbar.7",
+                "hotbar.8",
+                "weapon.offhand"
+            ],
+            "comparison": "==",
+            "compare_to": 10
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -50
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 30
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/hoarder_itemtracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 50
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_minespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -30
+                    }
+                }
+            ]
+        }
+    }
+}

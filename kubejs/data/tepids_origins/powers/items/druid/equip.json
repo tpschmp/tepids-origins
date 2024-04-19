@@ -1,0 +1,96 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "aot": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/cooldowns_druid_equip",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:items/cooldowns_druid_equip"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:druid.item.equip",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:block_action_at",
+                    "block_action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 10,
+                        "shape": "sphere",
+                        "block_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:offset",
+                                    "condition": {
+                                        "type": "origins:block",
+                                        "block": "minecraft:farmland"
+                                    },
+                                    "y": -1
+                                },
+                                {
+                                    "type": "origins:block_state",
+                                    "property": "age"
+                                }
+                            ]
+                        },
+                        "block_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:modify_block_state",
+                                    "property": "age",
+                                    "operation": "add",
+                                    "change": 1
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:composter ~ ~-0.5 ~ 0 0.625 0.625 0.125 15 normal"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "xp": {
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "summon experience_orb ~ ~ ~ {Value:1}"
+        },
+        "block_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:offset",
+                    "condition": {
+                        "type": "origins:block",
+                        "block": "minecraft:farmland"
+                    },
+                    "y": -1
+                },
+                {
+                    "type": "origins:block_state",
+                    "property": "age",
+                    "comparison": ">=",
+                    "compare_to": 3
+                }
+            ]
+        },
+        "only_when_harvested": true
+    }
+}

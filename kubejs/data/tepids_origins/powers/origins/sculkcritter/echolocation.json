@@ -1,0 +1,154 @@
+{
+    "name": "Echolocation",
+    "description": "Inside caves, movement speed is increased near walls, and decreased otherwise.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Movement Speed Boost: +20%\n",
+                "Movement Speed Reduction: -20%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "fastcheck": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:block_in_radius",
+                    "block_condition": {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:base_stone_overworld"
+                    },
+                    "radius": 4,
+                    "shape": "sphere",
+                    "comparison": ">",
+                    "compare_to": 48
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": 0.5,
+                            "offset_y": 0,
+                            "offset_z": 0
+                        },
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": -0.5,
+                            "offset_y": 0,
+                            "offset_z": 0
+                        },
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": 0,
+                            "offset_y": 0,
+                            "offset_z": 0.5
+                        },
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": 0,
+                            "offset_y": 0,
+                            "offset_z": -0.5
+                        }
+                    ]
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:exposed_to_sky"
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        }
+    },
+    "slowcheck": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:block_in_radius",
+                    "block_condition": {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:base_stone_overworld"
+                    },
+                    "radius": 4,
+                    "shape": "sphere",
+                    "comparison": ">",
+                    "compare_to": 48
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": 0.5,
+                            "offset_y": 0,
+                            "offset_z": 0
+                        },
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": -0.5,
+                            "offset_y": 0,
+                            "offset_z": 0
+                        },
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": 0,
+                            "offset_y": 0,
+                            "offset_z": 0.5
+                        },
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": 0,
+                            "offset_y": 0,
+                            "offset_z": -0.5
+                        }
+                    ]
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:exposed_to_sky"
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        }
+    }
+}

@@ -1,0 +1,127 @@
+{
+    "name": "Hunter",
+    "description": "You can only eat meat.\nCritical strikes can restore hunger and make Skeletons and Strays drop extra bones.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Chance: 40%\n",
+                "Hunger Restored: 2\n",
+                "Bones Dropped: 2"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "restrictfood": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food"
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:meat"
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "c:drinks"
+                    }
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "c:potions"
+                    }
+                }
+            ]
+        }
+    },
+    "action_oncrit": {
+        "condition": {
+            "type": "eggolib:chance",
+            "chance": 0.4
+        },
+        "type": "eggolib:action_on_critical_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:skeleton"
+                                },
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:stray"
+                                }
+                            ]
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:give",
+                                    "stack": {
+                                        "item": "minecraft:bone",
+                                        "amount": 2
+                                    }
+                                },
+                                {
+                                    "type": "origins:drop_inventory",
+                                    "inventory_type": "inventory",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "minecraft:bone"
+                                        }
+                                    },
+                                    "slots": [],
+                                    "amount": 2,
+                                    "throw_randomly": true,
+                                    "retain_ownership": false
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:feed",
+                        "food": 2,
+                        "saturation": 0
+                    }
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "mob"
+                }
+            ]
+        },
+        "cooldown": 10
+    }
+}

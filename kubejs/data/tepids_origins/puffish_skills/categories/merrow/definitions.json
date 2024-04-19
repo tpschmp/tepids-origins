@@ -1,0 +1,565 @@
+{
+    "root": {
+        "title": "Merrow",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/item/merrow/item.png"
+            }
+        },
+        "description": "This Origin displays an extraordinary ease of adaptation. As you evolve in this world, it too shall follow..\n \n..But beware, for you may only choose a different path after using an Evolution Encyclopedia.",
+        "size": 2,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "command": "give @s air"
+                }
+            }
+        ],
+        "cost": 0
+    },
+    "a1": {
+        "title": "Swimming Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/a.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/a1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/a1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "a2": {
+        "title": "Swimming Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/a.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/a2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/a2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "a3": {
+        "title": "Swimming Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/a.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/a3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/a3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "a4": {
+        "title": "Swimming Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/a.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/a4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/a4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "b1": {
+        "title": "Luck +0.25",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/b.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/b1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/b1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "b2": {
+        "title": "Luck +0.25",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/b.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/b2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/b2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "b3": {
+        "title": "Luck +0.25",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/b.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/b3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/b3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "b4": {
+        "title": "Luck +0.25",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/b.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/b4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/b4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "c1": {
+        "title": "Propel: Hunger Cost -1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/c.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/c1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/c1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "c2": {
+        "title": "Propel: Hunger Cost -1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/c.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/c2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/c2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "c3": {
+        "title": "Propel: Hunger Cost -1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/c.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/c3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/c3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "c4": {
+        "title": "Propel: Hunger Cost -1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/c.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/c4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/c4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "u1": {
+        "title": "Advanced Acclimation",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/u1.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nDepth no longer affects buff strength, which will be at its maximum, permanently.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/u1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/u1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "u2": {
+        "title": "Delphine Heritage",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/u2.png"
+            }
+        },
+        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nUsing Propel will grant nearby entities (including yourself) Dolphin's Grace.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/u2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/u2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 6
+    },
+    "u3": {
+        "title": "Gift of the Sea",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/u3.png"
+            }
+        },
+        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nPropelling periodically grants Conduit Power to nearby entities and allows you to stand on the water's surface.\nWalking on water Propels you.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/u3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/u3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 9
+    },
+    "d1": {
+        "title": "Advanced Acclimation: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/d1.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nGain Luck when swimming in any body of water.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/d1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/d1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "d2": {
+        "title": "Delphine Heritage: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/d2.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nThe effect granted is improved and lasts longer.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/d2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/d2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "d3": {
+        "title": "Gift of the Sea: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/merrow/d3.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nConduit Power lets you swim in mid-air.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/merrow/d3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/merrow/d3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    }
+}

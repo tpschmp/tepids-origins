@@ -1,0 +1,326 @@
+{
+    "name": "The Basics of Trading",
+    "description": "Villagers have discounted trades. Interacting with villagers grants a similar bonus to nearby players.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Discount: avg. 30%\n(dependant on base price)\n",
+                "Discount Inheritance: 50%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 900,
+        "start_value": 0
+    },
+    "aot": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/villager/basicsoftrading_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        }
+    },
+    "interact": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:origins/villager/basicsoftrading_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": 60
+                }
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:villager"
+            }
+        },
+        "action_result": "pass",
+        "priority": 0
+    },
+    "discount": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "inverted": true,
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/villager/u1"
+                            },
+                            {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/villager/u1"
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "tepids_origins:origins/villager/basicsoftrading_tracker",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "tepids_origins:origins/villager/basicsoftrading_tracker",
+                                        "comparison": "<=",
+                                        "compare_to": 300
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify storage villager villager set value {Type: \"trading\", Value: 50}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify storage villager villager.Target set from entity @s UUID"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=minecraft:villager,distance=..128] run data modify entity @s Gossips append from storage minecraft:villager villager"
+                            },
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 32,
+                                "bientity_condition": {
+                                    "type": "origins:undirected",
+                                    "condition": {
+                                        "inverted": true,
+                                        "type": "origins:attack_target"
+                                    }
+                                },
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "data modify storage villager villager set value {Type: \"trading\", Value: 25}"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "data modify storage villager villager.Target set from entity @s UUID"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute as @e[type=minecraft:villager,distance=..32] run data modify entity @s Gossips append from storage minecraft:villager villager"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/villager/u1"
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/villager/basicsoftrading_tracker",
+                                "comparison": ">",
+                                "compare_to": 300
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/villager/basicsoftrading_tracker",
+                                "comparison": "<=",
+                                "compare_to": 600
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify storage villager villager set value {Type: \"trading\", Value: 75}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify storage villager villager.Target set from entity @s UUID"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=minecraft:villager,distance=..128] run data modify entity @s Gossips append from storage minecraft:villager villager"
+                            },
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 32,
+                                "bientity_condition": {
+                                    "type": "origins:undirected",
+                                    "condition": {
+                                        "inverted": true,
+                                        "type": "origins:attack_target"
+                                    }
+                                },
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "data modify storage villager villager set value {Type: \"trading\", Value: 38}"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "data modify storage villager villager.Target set from entity @s UUID"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute as @e[type=minecraft:villager,distance=..32] run data modify entity @s Gossips append from storage minecraft:villager villager"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/villager/u1"
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/villager/basicsoftrading_tracker",
+                                "comparison": ">",
+                                "compare_to": 600
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/villager/basicsoftrading_tracker",
+                                "comparison": "<=",
+                                "compare_to": 900
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify storage villager villager set value {Type: \"trading\", Value: 100}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify storage villager villager.Target set from entity @s UUID"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=minecraft:villager,distance=..128] run data modify entity @s Gossips append from storage minecraft:villager villager"
+                            },
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 32,
+                                "bientity_condition": {
+                                    "type": "origins:undirected",
+                                    "condition": {
+                                        "inverted": true,
+                                        "type": "origins:attack_target"
+                                    }
+                                },
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "data modify storage villager villager set value {Type: \"trading\", Value: 50}"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "data modify storage villager villager.Target set from entity @s UUID"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute as @e[type=minecraft:villager,distance=..32] run data modify entity @s Gossips append from storage minecraft:villager villager"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/villager/d1"
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/villager/basicsoftrading_tracker",
+                                "comparison": "==",
+                                "compare_to": 900
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify storage villager villager set value {Type: \"trading\", Value: 75}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify storage villager villager.Target set from entity @s UUID"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=minecraft:villager,distance=..128] run data modify entity @s Gossips append from storage minecraft:villager villager"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @a tepids_origins:skills/villager/d1_buff tepids_origins:villager/basicsoftrading"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

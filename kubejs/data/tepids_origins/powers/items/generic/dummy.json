@@ -1,0 +1,118 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "hit_tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:heal",
+                        "amount": 8
+                    },
+                    "ticks": 1
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/generic/dummy_hit_tracker",
+                    "value": 0
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:items/cooldowns_dummy_2pc"
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/generic/dummy_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/generic/dummy_boolean",
+                        "value": 1
+                    },
+                    "ticks": 100
+                }
+            ]
+        }
+    },
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_dummy_2pc",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/generic/dummy_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        }
+    },
+    "onhit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:set_resource",
+                "resource": "tepids_origins:items/generic/dummy_hit_tracker",
+                "value": 0
+            }
+        },
+        "cooldown": 10
+    },
+    "whenhit": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_dummy_2pc",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/generic/dummy_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:action_when_hit",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:items/generic/dummy_hit_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": 1
+                }
+            }
+        },
+        "cooldown": 10
+    }
+}

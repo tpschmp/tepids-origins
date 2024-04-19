@@ -1,0 +1,21 @@
+{
+    "name": "Villager",
+    "description": "Uninterested in getting in trouble, Villagers scurry to trade with anything that doesn't see them as prey.\n　",
+    "powers": [
+        "tepids_origins:labels/dimensions/overworld",
+        "tepids_origins:labels/archetypes/utility",
+        "tepids_origins:origins/villager/skills",
+        "tepids_origins:origins/villager/nitwit",
+        "tepids_origins:origins/villager/basicsoftrading",
+        "tepids_origins:origins/villager/nomanisanisland",
+        "tepids_origins:origins/villager/alongstory",
+        "tepids_origins:origins/villager/wahhelp",
+        "tepids_origins:origins/villager/takemystuff"
+    ],
+    "icon": {
+        "item": "tepids_origins:exquisite_stick"
+    },
+    "order": 5,
+    "impact": 2,
+    "loading_priority": 0
+}

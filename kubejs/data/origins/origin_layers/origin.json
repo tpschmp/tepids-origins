@@ -1,0 +1,21 @@
+{
+    "order": 0,
+    "origins": [
+        "tepids_origins:human",
+        "tepids_origins:overworld/chelonian",
+        "tepids_origins:overworld/druid",
+        "tepids_origins:overworld/anuran",
+        "tepids_origins:overworld/lycan",
+        "tepids_origins:overworld/villager",
+        "tepids_origins:overworld/merrow",
+        "tepids_origins:overworld/creeper",
+        "tepids_origins:overworld/allay",
+        "tepids_origins:overworld/sculkcritter"
+    ],
+    "enabled": true,
+    "replace": true,
+    "loading_priority": 0,
+    "missing_name": "None",
+    "missing_description": "You have yet to choose an Origin.",
+    "default_origin": "tepids_origins:human"
+}

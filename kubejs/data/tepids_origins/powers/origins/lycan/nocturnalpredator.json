@@ -1,0 +1,55 @@
+{
+    "name": "Nocturnal Predator",
+    "description": "Take increased damage during the day.\nGain Night Vision during the night.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Diurnal Damage Taken: +64%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "nightvision": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:daytime"
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:submerged_in",
+                    "fluid": "minecraft:water"
+                }
+            ]
+        },
+        "type": "origins:night_vision",
+        "strength": 0.66
+    },
+    "dmgtaken_tracker": {
+        "type": "origins:resource",
+        "min": 99,
+        "max": 163,
+        "start_value": 163
+    },
+    "dmgtaken_modifier": {
+        "condition": {
+            "type": "origins:daytime"
+        },
+        "type": "origins:modify_damage_taken",
+        "modifiers": [
+            {
+                "operation": "multiply_total",
+                "value": 0,
+                "resource": "tepids_origins:origins/lycan/nocturnalpredator_dmgtaken_tracker"
+            },
+            {
+                "operation": "multiply_total",
+                "value": -0.99
+            }
+        ]
+    }
+}

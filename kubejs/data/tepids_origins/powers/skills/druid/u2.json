@@ -1,0 +1,125 @@
+{
+    "type": "origins:multiple",
+    "harvestmeter": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 4
+        }
+    },
+    "harvest": {
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/druid/d2"
+                    },
+                    "if_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 4
+                        }
+                    },
+                    "else_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 2
+                        }
+                    }
+                },
+                {
+                    "type": "origins:feed",
+                    "food": 0,
+                    "saturation": 0.05
+                }
+            ]
+        },
+        "block_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:offset",
+                    "condition": {
+                        "type": "origins:block",
+                        "block": "minecraft:farmland"
+                    },
+                    "y": -1
+                },
+                {
+                    "type": "origins:block_state",
+                    "property": "age",
+                    "comparison": ">=",
+                    "compare_to": 3
+                }
+            ]
+        },
+        "only_when_harvested": true
+    },
+    "plant": {
+        "type": "origins:action_on_block_use",
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:dirt"
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": [
+                {
+                    "tag": "minecraft:saplings"
+                },
+                {
+                    "tag": "tepids_origins:seeds"
+                }
+            ]
+        },
+        "directions": [
+            "up"
+        ],
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/druid/d2"
+                    },
+                    "if_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 2
+                        }
+                    },
+                    "else_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 1
+                        }
+                    }
+                },
+                {
+                    "type": "origins:feed",
+                    "food": 0,
+                    "saturation": 0.025
+                }
+            ]
+        },
+        "action_result": "success"
+    }
+}

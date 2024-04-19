@@ -1,0 +1,63 @@
+{
+    "name": "Tiny Wings",
+    "description": "You are smaller compared to other beings and have permanent slow fall.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Size: 50%\n",
+                "Jump Height: +40%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "jumpheight": {
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.4
+        }
+    },
+    "size": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale divide pehkui:base 2 @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale persist set true @s"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale reset @s"
+                }
+            ]
+        }
+    },
+    "slowfall": {
+        "type": "origins:modify_falling",
+        "velocity": 0.04,
+        "take_fall_damage": true
+    },
+    "falldmg": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:from_falling"
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": -3
+        }
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "name": "Metabolic Demand",
+    "description": "Required hunger to sprint is increased. Starvation damage starts earlier, and you die when hunger is fully depleted.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Sprinting Hunger Threshold: 12\n",
+                "Starvation Hunger Threshold: 6"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "preventsprint": {
+        "condition": {
+            "type": "origins:food_level",
+            "comparison": "<=",
+            "compare_to": 12
+        },
+        "type": "origins:prevent_sprinting"
+    },
+    "starve": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": "<=",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:damage_over_time",
+        "interval": 80,
+        "onset_delay": 0,
+        "damage": 1,
+        "damage_source": {
+            "name": "starve"
+        },
+        "protection_effectiveness": 0
+    },
+    "kill": {
+        "condition": {
+            "type": "origins:food_level",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:damage",
+            "amount": 999999,
+            "source": {
+                "name": "starve"
+            }
+        }
+    }
+}

@@ -1,0 +1,291 @@
+{
+    "name": "Express Delivery",
+    "description": "Consume hunger to swap the items outside your hotbar for dropped items nearby.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                {
+                    "color": "dark_purple",
+                    "text": "Active ability. Activate with "
+                },
+                {
+                    "color": "gold",
+                    "keybind": "key.origins.secondary_active"
+                },
+                {
+                    "color": "dark_purple",
+                    "text": "."
+                }
+            ],
+            "sprite": "origins:textures/gui/badge/active.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Hunger Threshold: 8\n",
+                "Hunger Cost: 2\n",
+                "Range: 18 blocks\n",
+                "Cooldown: 3 seconds"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 60,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 22
+        }
+    },
+    "activate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/allay/delivery_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 18,
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:item"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "data modify entity @e[type=item,distance=..18,limit=1] PickupDelay set value 0s"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @e[type=item,distance=..18] @s"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/allay/u3"
+                            },
+                            {
+                                "inverted": true,
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/allay/search_tracker",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:drop_inventory",
+                        "inventory_type": "inventory",
+                        "slots": [
+                            "hotbar.0",
+                            "hotbar.1",
+                            "hotbar.2",
+                            "hotbar.3",
+                            "hotbar.4",
+                            "hotbar.5",
+                            "hotbar.6",
+                            "hotbar.7",
+                            "hotbar.8",
+                            "inventory.0",
+                            "inventory.1",
+                            "inventory.2",
+                            "inventory.3",
+                            "inventory.4",
+                            "inventory.5",
+                            "inventory.6",
+                            "inventory.7",
+                            "inventory.8",
+                            "inventory.9",
+                            "inventory.10",
+                            "inventory.11",
+                            "inventory.12",
+                            "inventory.13",
+                            "inventory.14",
+                            "inventory.15",
+                            "inventory.16",
+                            "inventory.17",
+                            "inventory.18",
+                            "inventory.19",
+                            "inventory.20",
+                            "inventory.21",
+                            "inventory.22",
+                            "inventory.23",
+                            "inventory.24",
+                            "inventory.25",
+                            "inventory.26"
+                        ],
+                        "retain_ownership": true
+                    },
+                    "else_action": {
+                        "type": "origins:drop_inventory",
+                        "inventory_type": "inventory",
+                        "slots": [
+                            "inventory.18",
+                            "inventory.19",
+                            "inventory.20",
+                            "inventory.21",
+                            "inventory.22",
+                            "inventory.23",
+                            "inventory.24",
+                            "inventory.25",
+                            "inventory.26"
+                        ],
+                        "retain_ownership": true
+                    }
+                },
+                {
+                    "type": "origins:feed",
+                    "food": -2,
+                    "saturation": 0
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:allay.origin.express_delivery",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:origins/allay/delivery_cooldown"
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "inverted": true,
+                                        "type": "origins:resource",
+                                        "resource": "tepids_origins:origins/allay/search_tracker",
+                                        "comparison": "==",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/allay/u2"
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 6
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 6
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 6
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/allay/search_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 30
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/allay/d2"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:modify_resource",
+                                                    "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                    "modifier": {
+                                                        "operation": "addition",
+                                                        "value": 6
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:modify_resource",
+                                                    "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                    "modifier": {
+                                                        "operation": "addition",
+                                                        "value": 6
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:modify_resource",
+                                                    "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                    "modifier": {
+                                                        "operation": "addition",
+                                                        "value": 6
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:modify_resource",
+                                                    "resource": "tepids_origins:origins/allay/search_tracker",
+                                                    "modifier": {
+                                                        "operation": "addition",
+                                                        "value": 30
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    }
+}

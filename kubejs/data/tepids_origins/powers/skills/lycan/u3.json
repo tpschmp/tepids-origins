@@ -1,0 +1,105 @@
+{
+    "type": "origins:multiple",
+    "grant": {
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "inverted": true,
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/lycan/d3"
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "power has @e[distance=..16,type=minecraft:wolf] tepids_origins:origins/lycan/kinship_wolf_dmgbuff",
+                            "comparison": ">=",
+                            "compare_to": 3
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/lycan/d3"
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "power has @e[distance=..16,type=minecraft:wolf] tepids_origins:origins/lycan/kinship_wolf_dmgbuff",
+                            "comparison": ">=",
+                            "compare_to": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 16,
+            "include_target": true,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:tamed"
+                                },
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:wolf"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "tepids_origins:overworld/lycan"
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "tepids_origins:skills/lycan/u3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:grant_power",
+                            "power": "tepids_origins:skills/lycan/u3_buff",
+                            "source": "tepids_origins:skills/lycan/u3"
+                        },
+                        {
+                            "type": "origins:set_resource",
+                            "resource": "tepids_origins:skills/lycan/u3_buff_tracker",
+                            "value": 3
+                        }
+                    ]
+                }
+            }
+        },
+        "rising_action": {
+            "type": "origins:play_sound",
+            "sound": "tepids_origins:lycan.origin.ambush",
+            "volume": 0.6,
+            "pitch": 0.6
+        }
+    }
+}

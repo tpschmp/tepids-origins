@@ -1,0 +1,37 @@
+{
+    "name": "Achilles’ Heel",
+    "description": "Magic and Incendiary damage is more effective against you, and can't be mitigated by Fortify.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Magic Damage Taken: +50%\n",
+                "Incendiary Damage Taken: +50%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:action_on_callback",
+    "execute_chosen_when_orb": true,
+    "entity_action_gained": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_magic_dmgtaken_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": 50
+                }
+            },
+            {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_incendiary_dmgtaken_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": 50
+                }
+            }
+        ]
+    }
+}

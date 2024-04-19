@@ -1,0 +1,125 @@
+{
+    "name": "Rudimentary Expertise",
+    "description": "Hoe damage is increased, but all other tool damage is decreased.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Tool Damage: -80%\n",
+                "Hoe Damage: +1/+1.5/+2\n(dependant on hoe tier)"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "nothoe": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "inverted": true,
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "c:hoes"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "c:tools"
+                        }
+                    }
+                ]
+            }
+        },
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.8
+        }
+    },
+    "hoedmg_tracker": {
+        "type": "origins:resource",
+        "min": 99,
+        "max": 139,
+        "start_value": 99
+    },
+    "hoedmg_modifier": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "c:hoes"
+                }
+            }
+        },
+        "type": "origins:modify_damage_dealt",
+        "modifiers": [
+            {
+                "operation": "multiply_base_multiplicative",
+                "value": 0,
+                "resource": "tepids_origins:origins/druid/rudimentaryexpertise_hoedmg_tracker"
+            },
+            {
+                "operation": "multiply_base_multiplicative",
+                "value": -0.99
+            }
+        ]
+    },
+    "hoetier": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "c:hoes"
+                }
+            }
+        },
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "addition",
+            "value": 1
+        }
+    },
+    "hoetier1": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:netherite_hoe"
+                }
+            }
+        },
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "addition",
+            "value": 0.5
+        }
+    },
+    "hoetier2": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "tepids_origins:druid_item"
+                }
+            }
+        },
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "addition",
+            "value": 1
+        }
+    }
+}

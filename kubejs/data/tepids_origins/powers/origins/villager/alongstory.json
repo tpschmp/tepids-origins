@@ -1,0 +1,67 @@
+{
+    "name": "A Long Story",
+    "description": "Gain different bonuses from nearby entities based on your relationship with them.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Duration: 3 seconds\n",
+                "Amplifier: II"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "illager": {
+        "type": "origins:action_when_hit",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:apply_effect",
+                "effect": {
+                    "effect": "minecraft:weakness",
+                    "duration": 60,
+                    "amplifier": 1,
+                    "show_particles": true,
+                    "show_icon": true
+                }
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:entity_group",
+                "group": "illager"
+            }
+        },
+        "cooldown": 10
+    },
+    "undead": {
+        "type": "origins:action_when_hit",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:apply_effect",
+                "effect": {
+                    "effect": "minecraft:hunger",
+                    "duration": 60,
+                    "amplifier": 1,
+                    "show_particles": true,
+                    "show_icon": true
+                }
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:entity_group",
+                "group": "undead"
+            }
+        },
+        "damage_condition": {
+            "inverted": true,
+            "type": "origins:projectile"
+        },
+        "cooldown": 10
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "name": "Shifting Buoyancy",
+    "description": "Wearing armor that is too heavy will cause you to sink to the bottom of the ocean.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Armor Threshold: 15"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "ignorewater": {
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.armor",
+            "comparison": ">",
+            "compare_to": 15
+        },
+        "type": "origins:ignore_water"
+    },
+    "slow": {
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.armor",
+            "comparison": ">",
+            "compare_to": 15
+        },
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.99
+        }
+    }
+}

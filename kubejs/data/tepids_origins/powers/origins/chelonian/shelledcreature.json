@@ -1,0 +1,62 @@
+{
+    "name": "Shelled Creature",
+    "description": "You have more health, but spend more hunger when moving. You can't equip shields.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Max Health: +2\n",
+                "Exhaustion Rate: +100%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "morehp": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.max_health",
+        "modifier": {
+            "operation": "addition",
+            "value": 0,
+            "resource": "tepids_origins:origins/chelonian/shelledcreature_hptracker"
+        }
+    },
+    "hptracker": {
+        "type": "origins:resource",
+        "min": 2,
+        "max": 6,
+        "start_value": 2
+    },
+    "moreexhaustion": {
+        "condition": {
+            "type": "origins:moving"
+        },
+        "type": "origins:modify_exhaustion",
+        "modifiers": [
+            {
+                "operation": "multiply_total",
+                "value": 0,
+                "resource": "tepids_origins:origins/chelonian/shelledcreature_exhaustiontracker"
+            },
+            {
+                "operation": "multiply_total",
+                "value": -0.99
+            }
+        ]
+    },
+    "exhaustiontracker": {
+        "type": "origins:resource",
+        "min": 99,
+        "max": 199,
+        "start_value": 199
+    },
+    "noshield": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "c:shields"
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "condition": {
+        "type": "origins:submerged_in",
+        "fluid": "minecraft:water"
+    },
+    "type": "origins:modify_attribute",
+    "attribute": "minecraft:generic.luck",
+    "modifier": {
+        "operation": "addition",
+        "value": 1
+    }
+}

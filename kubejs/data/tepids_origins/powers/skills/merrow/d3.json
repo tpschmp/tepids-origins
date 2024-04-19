@@ -1,0 +1,17 @@
+{
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "inverted": true,
+                "type": "origins:submerged_in",
+                "fluid": "minecraft:water"
+            },
+            {
+                "type": "origins:status_effect",
+                "effect": "minecraft:conduit_power"
+            }
+        ]
+    },
+    "type": "origins:swimming"
+}

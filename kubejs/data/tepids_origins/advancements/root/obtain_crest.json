@@ -1,0 +1,53 @@
+{
+    "display": {
+        "icon": {
+            "item": "tepids_origins:golden_overworld_crest"
+        },
+        "title": "Golden Age",
+        "description": "Obtain a Golden Crest",
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true
+    },
+    "parent": "tepids_origins:root/root",
+    "requirements": [
+        [
+            "crest"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "tepids_origins:low_skill_book",
+            "tepids_origins:medium_skill_book",
+            "tepids_origins:high_skill_book",
+            "tepids_origins:overworld_skill_book",
+            "tepids_origins:nether_skill_book",
+            "tepids_origins:end_skill_book",
+            "tepids_origins:combat_skill_book",
+            "tepids_origins:utility_skill_book",
+            "tepids_origins:exploration_skill_book",
+            "tepids_origins:netherite_low_crest",
+            "tepids_origins:netherite_medium_crest",
+            "tepids_origins:netherite_high_crest",
+            "tepids_origins:netherite_overworld_crest",
+            "tepids_origins:netherite_nether_crest",
+            "tepids_origins:netherite_end_crest",
+            "tepids_origins:netherite_combat_crest",
+            "tepids_origins:netherite_utility_crest",
+            "tepids_origins:netherite_exploration_crest"
+        ]
+    },
+    "criteria": {
+        "crest": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "tepids_origins:golden_crests"
+                    }
+                ],
+                "player": {}
+            }
+        }
+    }
+}

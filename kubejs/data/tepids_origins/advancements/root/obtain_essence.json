@@ -1,0 +1,34 @@
+{
+    "display": {
+        "icon": {
+            "item": "tepids_origins:origin_essence"
+        },
+        "title": "The Beginning of All Things",
+        "description": "Obtain Origin Essence",
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "parent": "tepids_origins:root/obtain_netherite_crest",
+    "requirements": [
+        [
+            "essence"
+        ]
+    ],
+    "criteria": {
+        "essence": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "tepids_origins:origin_essence"
+                        ]
+                    }
+                ],
+                "player": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,303 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "dash": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/cooldowns_lycan_active",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:items/cooldowns_lycan_active"
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/cooldowns_lycan_active_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:lycan.item.active",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/lycan/pounce_cooldown",
+                    "value": 1000
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 0.75,
+                    "space": "local",
+                    "client": true,
+                    "server": true
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "tepids_origins:enhanced_protector_of_a_kin"
+                                    }
+                                }
+                            },
+                            "action": {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 10
+                                }
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "offhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "tepids_origins:enhanced_protector_of_a_kin"
+                                    }
+                                }
+                            },
+                            "action": {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "offhand",
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 10
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.use"
+        }
+    },
+    "dmg": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/cooldowns_lycan_active",
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:area_of_effect",
+            "radius": 3,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "inverted": true,
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:tamed"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:wolf"
+                        }
+                    ]
+                }
+            },
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:damage",
+                        "amount": 14,
+                        "source": {
+                            "name": "player"
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "inverted": true,
+                                        "type": "origins:resource",
+                                        "resource": "tepids_origins:origins/lycan/preyontheweak_duration",
+                                        "comparison": "==",
+                                        "compare_to": 0
+                                    }
+                                },
+                                {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:origins/lycan/preyontheweak_debuff"
+                                    }
+                                }
+                            ]
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/lycan/preyontheweak_duration",
+                                                "value": 200
+                                            },
+                                            {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:and",
+                                                    "conditions": [
+                                                        {
+                                                            "inverted": true,
+                                                            "type": "origins:resource",
+                                                            "resource": "tepids_origins:origins/lycan/preyontheweak_duration",
+                                                            "comparison": "==",
+                                                            "compare_to": 0
+                                                        },
+                                                        {
+                                                            "type": "origins:or",
+                                                            "conditions": [
+                                                                {
+                                                                    "type": "origins:and",
+                                                                    "conditions": [
+                                                                        {
+                                                                            "inverted": true,
+                                                                            "type": "origins:power",
+                                                                            "power": "tepids_origins:skills/lycan/u2"
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:resource",
+                                                                            "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
+                                                                            "comparison": "<",
+                                                                            "compare_to": 5
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "type": "origins:and",
+                                                                    "conditions": [
+                                                                        {
+                                                                            "type": "origins:power",
+                                                                            "power": "tepids_origins:skills/lycan/u2"
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:resource",
+                                                                            "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
+                                                                            "comparison": "<",
+                                                                            "compare_to": 10
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:modify_resource",
+                                                            "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
+                                                            "modifier": {
+                                                                "operation": "addition",
+                                                                "value": 1
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:modify_resource",
+                                                            "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                                                            "modifier": {
+                                                                "operation": "addition",
+                                                                "value": 4
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:if_else",
+                                                            "condition": {
+                                                                "type": "origins:power",
+                                                                "power": "tepids_origins:skills/lycan/d2"
+                                                            },
+                                                            "if_action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:modify_resource",
+                                                                        "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                                                                        "modifier": {
+                                                                            "operation": "addition",
+                                                                            "value": 2
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:grant_power",
+                                                "power": "tepids_origins:origins/lycan/preyontheweak_debuff",
+                                                "source": "tepids_origins:lycan/preyontheweak"
+                                            },
+                                            {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/lycan/preyontheweak_debuff_tracker",
+                                                "value": 100
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "falling_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:items/cooldowns_lycan_active_boolean",
+            "value": 1
+        }
+    },
+    "failsafe": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:items/cooldowns_lycan_active_boolean",
+            "value": 1
+        }
+    }
+}

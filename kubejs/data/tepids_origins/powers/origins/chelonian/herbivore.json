@@ -1,0 +1,120 @@
+{
+    "name": "Herbivore",
+    "description": "You may only consume Dried Kelp. It restores much more hunger.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Dried Kelp Hunger: 4\n",
+                "Dried Kelp Saturation: 1"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "restrictfood": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food"
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:dried_kelp"
+                    }
+                }
+            ]
+        }
+    },
+    "restrictblocks": {
+        "type": "origins:prevent_block_use",
+        "block_condition": {
+            "type": "origins:block_state",
+            "property": "bites"
+        }
+    },
+    "kelp": {
+        "type": "origins:modify_food",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:dried_kelp"
+            }
+        },
+        "food_modifier": {
+            "operation": "addition",
+            "value": 3
+        },
+        "saturation_modifier": {
+            "operation": "addition",
+            "value": 0.2
+        },
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/chelonian/u1"
+                    },
+                    "action": {
+                        "type": "origins:feed",
+                        "food": 2,
+                        "saturation": 0.1
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/chelonian/d1"
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:delay",
+                                "action": {
+                                    "type": "origins:feed",
+                                    "food": 1,
+                                    "saturation": 0
+                                },
+                                "ticks": 20
+                            },
+                            {
+                                "type": "origins:delay",
+                                "action": {
+                                    "type": "origins:feed",
+                                    "food": 1,
+                                    "saturation": 0
+                                },
+                                "ticks": 30
+                            },
+                            {
+                                "type": "origins:delay",
+                                "action": {
+                                    "type": "origins:feed",
+                                    "food": 1,
+                                    "saturation": 0
+                                },
+                                "ticks": 40
+                            },
+                            {
+                                "type": "origins:delay",
+                                "action": {
+                                    "type": "origins:feed",
+                                    "food": 1,
+                                    "saturation": 0
+                                },
+                                "ticks": 50
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

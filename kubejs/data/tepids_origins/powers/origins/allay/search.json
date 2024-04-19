@@ -1,0 +1,1810 @@
+{
+    "name": "The Search Begins",
+    "description": "Enter the Block Hunter state for a period of time. While in this state, you will be able to mine multiple blocks at once.\nWhen the effect expires, consume all Collector Meter points to grant additional Hunger, Damage, and Movement Speed to nearby friendly entities based on the amount of points in each Collector Meter.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                {
+                    "color": "dark_purple",
+                    "text": "Active ability. Activate with "
+                },
+                {
+                    "color": "gold",
+                    "keybind": "key.origins.primary_active"
+                },
+                {
+                    "color": "dark_purple",
+                    "text": "."
+                }
+            ],
+            "sprite": "origins:textures/gui/badge/active.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Meter Point Threshold: 24\n",
+                "Block Hunter Duration: 10 seconds\n",
+                "Damage Dealt: +2/24 points\n",
+                "Hunger: +3/24 points\n",
+                "Movement Speed: +20%/24 points\n",
+                "Range: 32 blocks\n",
+                "Buff Duration: 20 seconds\n",
+                "Cooldown: 30 seconds"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "northsouth": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[y_rotation=-45..45]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[y_rotation=135..225]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=15..135]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=180..-45]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "inverted": true,
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/allay/search_tracker",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:skills/allay/u1_boolean",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "tepids_origins:skills/allay/u1"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/allay/u1_boolean",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/allay/u1"
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 12,
+                                "bientity_condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:entity_type",
+                                        "entity_type": "minecraft:item"
+                                    }
+                                },
+                                "bientity_action": {
+                                    "type": "origins:delay",
+                                    "action": {
+                                        "type": "origins:add_velocity",
+                                        "z": -2,
+                                        "client": true,
+                                        "server": true
+                                    },
+                                    "ticks": 10
+                                }
+                            },
+                            {
+                                "type": "origins:set_resource",
+                                "resource": "tepids_origins:skills/allay/u1_boolean",
+                                "value": 0
+                            },
+                            {
+                                "type": "origins:trigger_cooldown",
+                                "power": "tepids_origins:skills/allay/u1_cooldown"
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "tepids_origins:allay.origin.the_search_begins_break",
+                                "volume": 0.6,
+                                "pitch": 1.4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:allay.origin.the_search_begins_break",
+                    "volume": 0.6,
+                    "pitch": 1
+                }
+            ]
+        },
+        "block_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "inverted": true,
+                        "type": "origins:blast_resistance",
+                        "comparison": ">=",
+                        "compare_to": 600
+                    },
+                    "if_action": {
+                        "type": "apugli:destroy",
+                        "drop_block": true
+                    }
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 1,
+                    "y": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -1,
+                    "y": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 1,
+                    "y": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -1,
+                    "y": -1
+                }
+            ]
+        },
+        "only_when_harvested": true
+    },
+    "westeast": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[y_rotation=45..135]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[y_rotation=225..-45]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=15..135]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=180..-45]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "inverted": true,
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/allay/search_tracker",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:skills/allay/u1_boolean",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "tepids_origins:skills/allay/u1"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/allay/u1_boolean",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/allay/u1"
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 12,
+                                "bientity_condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:entity_type",
+                                        "entity_type": "minecraft:item"
+                                    }
+                                },
+                                "bientity_action": {
+                                    "type": "origins:delay",
+                                    "action": {
+                                        "type": "origins:add_velocity",
+                                        "z": -2,
+                                        "client": true,
+                                        "server": true
+                                    },
+                                    "ticks": 10
+                                }
+                            },
+                            {
+                                "type": "origins:set_resource",
+                                "resource": "tepids_origins:skills/allay/u1_boolean",
+                                "value": 0
+                            },
+                            {
+                                "type": "origins:trigger_cooldown",
+                                "power": "tepids_origins:skills/allay/u1_cooldown"
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "tepids_origins:allay.origin.the_search_begins_break",
+                                "volume": 0.6,
+                                "pitch": 1.4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:allay.origin.the_search_begins_break",
+                    "volume": 0.6,
+                    "pitch": 1
+                }
+            ]
+        },
+        "block_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "inverted": true,
+                        "type": "origins:blast_resistance",
+                        "comparison": ">=",
+                        "compare_to": 600
+                    },
+                    "if_action": {
+                        "type": "apugli:destroy",
+                        "drop_block": true
+                    }
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": 1,
+                    "z": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": -1,
+                    "z": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": 1,
+                    "z": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "y": -1,
+                    "z": -1
+                }
+            ]
+        },
+        "only_when_harvested": true
+    },
+    "updown": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=15..135]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[x_rotation=180..-45]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "inverted": true,
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/allay/search_tracker",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:skills/allay/u1_boolean",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "tepids_origins:skills/allay/u1"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/allay/u1_boolean",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/allay/u1"
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 12,
+                                "bientity_condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:entity_type",
+                                        "entity_type": "minecraft:item"
+                                    }
+                                },
+                                "bientity_action": {
+                                    "type": "origins:delay",
+                                    "action": {
+                                        "type": "origins:add_velocity",
+                                        "z": -2,
+                                        "client": true,
+                                        "server": true
+                                    },
+                                    "ticks": 10
+                                }
+                            },
+                            {
+                                "type": "origins:set_resource",
+                                "resource": "tepids_origins:skills/allay/u1_boolean",
+                                "value": 0
+                            },
+                            {
+                                "type": "origins:trigger_cooldown",
+                                "power": "tepids_origins:skills/allay/u1_cooldown"
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "tepids_origins:allay.origin.the_search_begins_break",
+                                "volume": 0.6,
+                                "pitch": 1.4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:allay.origin.the_search_begins_break",
+                    "volume": 0.6,
+                    "pitch": 1
+                }
+            ]
+        },
+        "block_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "inverted": true,
+                        "type": "origins:blast_resistance",
+                        "comparison": ">=",
+                        "compare_to": 600
+                    },
+                    "if_action": {
+                        "type": "apugli:destroy",
+                        "drop_block": true
+                    }
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "z": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 1,
+                    "z": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -1,
+                    "z": 1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": 1,
+                    "z": -1
+                },
+                {
+                    "type": "origins:offset",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:blast_resistance",
+                            "comparison": ">=",
+                            "compare_to": 600
+                        },
+                        "if_action": {
+                            "type": "apugli:destroy",
+                            "drop_block": true
+                        }
+                    },
+                    "x": -1,
+                    "z": -1
+                }
+            ]
+        },
+        "only_when_harvested": true
+    },
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 21,
+            "condition": {
+                "inverted": true,
+                "type": "origins:resource",
+                "resource": "tepids_origins:origins/allay/search_tracker",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 600,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 21
+        }
+    },
+    "activate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/allay/search_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/allay/search_tracker",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                            "comparison": ">=",
+                            "compare_to": 24
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                            "comparison": ">=",
+                            "compare_to": 24
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                            "comparison": ">=",
+                            "compare_to": 24
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/allay/search_tracker",
+                    "value": 200
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:allay.origin.the_search_begins",
+                    "volume": 0.6,
+                    "pitch": 1
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "aot": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/allay/search_tracker",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/search_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -1
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 32,
+                    "include_target": true,
+                    "bientity_condition": {
+                        "type": "origins:undirected",
+                        "condition": {
+                            "inverted": true,
+                            "type": "origins:attack_target"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:grant_power",
+                                    "power": "tepids_origins:origins/allay/search_buff",
+                                    "source": "tepids_origins:origins/allay/search_buff"
+                                }
+                            },
+                            {
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                        "comparison": ">=",
+                                                        "compare_to": 24
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                        "comparison": ">=",
+                                                        "compare_to": 24
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                        "comparison": ">=",
+                                                        "compare_to": 24
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:play_sound",
+                                                        "sound": "tepids_origins:allay.origin.the_search_begins_buff_1",
+                                                        "volume": 0.2,
+                                                        "pitch": 1
+                                                    },
+                                                    {
+                                                        "type": "origins:play_sound",
+                                                        "sound": "tepids_origins:allay.origin.the_search_begins_buff_2",
+                                                        "volume": 0.2,
+                                                        "pitch": 1
+                                                    },
+                                                    {
+                                                        "type": "origins:play_sound",
+                                                        "sound": "tepids_origins:allay.origin.the_search_begins_buff_3",
+                                                        "volume": 0.2,
+                                                        "pitch": 1
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:and",
+                                                        "conditions": [
+                                                            {
+                                                                "type": "origins:resource",
+                                                                "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                                "comparison": ">=",
+                                                                "compare_to": 24
+                                                            },
+                                                            {
+                                                                "type": "origins:resource",
+                                                                "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                                "comparison": ">=",
+                                                                "compare_to": 24
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type": "origins:and",
+                                                        "conditions": [
+                                                            {
+                                                                "type": "origins:resource",
+                                                                "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                                "comparison": ">=",
+                                                                "compare_to": 24
+                                                            },
+                                                            {
+                                                                "type": "origins:resource",
+                                                                "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                                "comparison": ">=",
+                                                                "compare_to": 24
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type": "origins:and",
+                                                        "conditions": [
+                                                            {
+                                                                "type": "origins:resource",
+                                                                "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                                "comparison": ">=",
+                                                                "compare_to": 24
+                                                            },
+                                                            {
+                                                                "type": "origins:resource",
+                                                                "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                                "comparison": ">=",
+                                                                "compare_to": 24
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:play_sound",
+                                                        "sound": "tepids_origins:allay.origin.the_search_begins_buff_1",
+                                                        "volume": 0.2,
+                                                        "pitch": 1
+                                                    },
+                                                    {
+                                                        "type": "origins:play_sound",
+                                                        "sound": "tepids_origins:allay.origin.the_search_begins_buff_2",
+                                                        "volume": 0.2,
+                                                        "pitch": 1
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                        "comparison": ">=",
+                                                        "compare_to": 24
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                        "comparison": ">=",
+                                                        "compare_to": 24
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                        "comparison": ">=",
+                                                        "compare_to": 24
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:play_sound",
+                                                        "sound": "tepids_origins:allay.origin.the_search_begins_buff_1",
+                                                        "volume": 0.2,
+                                                        "pitch": 1
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                        "comparison": ">",
+                                                        "compare_to": 96
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                        "comparison": "<=",
+                                                        "compare_to": 120
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_1",
+                                                "value": 5
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                        "comparison": ">",
+                                                        "compare_to": 72
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                        "comparison": "<=",
+                                                        "compare_to": 96
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_1",
+                                                "value": 4
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                        "comparison": ">",
+                                                        "compare_to": 48
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                        "comparison": "<=",
+                                                        "compare_to": 72
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_1",
+                                                "value": 3
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                        "comparison": ">",
+                                                        "compare_to": 24
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                        "comparison": "<=",
+                                                        "compare_to": 48
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_1",
+                                                "value": 2
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:resource",
+                                                "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                                                "comparison": "==",
+                                                "compare_to": 24
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_1",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                        "comparison": ">",
+                                                        "compare_to": 96
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                        "comparison": "<=",
+                                                        "compare_to": 120
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_2",
+                                                "value": 5
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                        "comparison": ">",
+                                                        "compare_to": 72
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                        "comparison": "<=",
+                                                        "compare_to": 96
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_2",
+                                                "value": 4
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                        "comparison": ">",
+                                                        "compare_to": 48
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                        "comparison": "<=",
+                                                        "compare_to": 72
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_2",
+                                                "value": 3
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                        "comparison": ">",
+                                                        "compare_to": 24
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                        "comparison": "<=",
+                                                        "compare_to": 48
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_2",
+                                                "value": 2
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:resource",
+                                                "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                                                "comparison": "==",
+                                                "compare_to": 24
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_2",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                        "comparison": ">",
+                                                        "compare_to": 96
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                        "comparison": "<=",
+                                                        "compare_to": 120
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_3",
+                                                "value": 5
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                        "comparison": ">",
+                                                        "compare_to": 72
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                        "comparison": "<=",
+                                                        "compare_to": 96
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_3",
+                                                "value": 4
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                        "comparison": ">",
+                                                        "compare_to": 48
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                        "comparison": "<=",
+                                                        "compare_to": 72
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_3",
+                                                "value": 3
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                        "comparison": ">",
+                                                        "compare_to": 24
+                                                    },
+                                                    {
+                                                        "type": "origins:resource",
+                                                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                        "comparison": "<=",
+                                                        "compare_to": 48
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_3",
+                                                "value": 2
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:actor_condition",
+                                            "condition": {
+                                                "type": "origins:resource",
+                                                "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                                                "comparison": "==",
+                                                "compare_to": 24
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:set_resource",
+                                                "resource": "tepids_origins:origins/allay/search_buff_tracker_3",
+                                                "value": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/allay/search_dmgboolean",
+                    "value": 1
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:origins/allay/search_dmgboolean",
+                        "value": 0
+                    },
+                    "ticks": 5
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                        "comparison": ">=",
+                        "compare_to": 24
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "summon firework_rocket ~ ~0.5 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,tag:{Fireworks:{Explosions:[{Type:1,Flicker:1b,Colors:[I;16739013,11954943],FadeColors:[I;2361391]}]}},Count:1}}"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                        "comparison": ">=",
+                        "compare_to": 24
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "summon firework_rocket ~ ~0.5 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,tag:{Fireworks:{Explosions:[{Type:1,Flicker:1b,Colors:[I;7012209,3596417],FadeColors:[I;536351]}]}},Count:1}}"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                        "comparison": ">=",
+                        "compare_to": 24
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "summon firework_rocket ~ ~0.5 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,tag:{Fireworks:{Explosions:[{Type:1,Flicker:1b,Colors:[I;7012329,6984703],FadeColors:[I;532015]}]}},Count:1}}"
+                    }
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/allay/collectthemall_meter1",
+                    "value": 0
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/allay/collectthemall_meter2",
+                    "value": 0
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/allay/collectthemall_meter3",
+                    "value": 0
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:origins/allay/search_cooldown"
+                }
+            ]
+        }
+    },
+    "deactivate": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/allay/search_tracker",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/allay/search_tracker",
+                    "value": 0
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:origins/allay/search_cooldown"
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "iframes": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/allay/search_dmgboolean",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:explosive"
+        },
+        "modifier": {
+            "operation": "set_total",
+            "value": 0
+        }
+    },
+    "dmgboolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    }
+}

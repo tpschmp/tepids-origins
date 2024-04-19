@@ -1,0 +1,292 @@
+{
+    "name": "Climatic Adaptation",
+    "description": "Gain certain buffs depending on the temperature of the ocean you are in. Buff strength is affected by current depth.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Lukewarm Ocean Boost: +20/40% Swimming Speed\n",
+                "Warm Ocean Boost: +20/40% Mining Speed\n",
+                "Cold Ocean Boost: -20/40% Exhaustion Rate\n",
+                "Frozen Ocean Boost: -20/40% Melee Damage Taken"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "ocean_lukewarm": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:power",
+                    "power": "tepids_origins:skills/merrow/u1"
+                },
+                {
+                    "type": "origins:biome",
+                    "biome": "minecraft:lukewarm_ocean"
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_swimspd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_swimspd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        }
+    },
+    "ocean_warm": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:power",
+                    "power": "tepids_origins:skills/merrow/u1"
+                },
+                {
+                    "type": "origins:biome",
+                    "biome": "minecraft:warm_ocean"
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_minespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_minespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        }
+    },
+    "deepocean_lukewarm": {
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "inverted": true,
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/merrow/u1"
+                        },
+                        {
+                            "type": "origins:biome",
+                            "biome": "minecraft:deep_lukewarm_ocean"
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/merrow/u1"
+                        },
+                        {
+                            "type": "origins:biome",
+                            "biomes": [
+                                "minecraft:deep_lukewarm_ocean",
+                                "minecraft:lukewarm_ocean"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_swimspd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 40
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_swimspd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -40
+            }
+        }
+    },
+    "ocean_cold": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:power",
+                    "power": "tepids_origins:skills/merrow/u1"
+                },
+                {
+                    "type": "origins:biome",
+                    "biome": "minecraft:cold_ocean"
+                }
+            ]
+        },
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.2
+        }
+    },
+    "deepocean_cold": {
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "inverted": true,
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/merrow/u1"
+                        },
+                        {
+                            "type": "origins:biome",
+                            "biome": "minecraft:deep_cold_ocean"
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/merrow/u1"
+                        },
+                        {
+                            "type": "origins:biome",
+                            "biomes": [
+                                "minecraft:deep_cold_ocean",
+                                "minecraft:cold_ocean"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.4
+        }
+    },
+    "ocean_frozen": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:power",
+                    "power": "tepids_origins:skills/merrow/u1"
+                },
+                {
+                    "type": "origins:biome",
+                    "biome": "minecraft:frozen_ocean"
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_melee_dmgtaken",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_melee_dmgtaken",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        }
+    },
+    "deepocean_frozen": {
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "inverted": true,
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/merrow/u1"
+                        },
+                        {
+                            "type": "origins:biome",
+                            "biome": "minecraft:deep_frozen_ocean"
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/merrow/u1"
+                        },
+                        {
+                            "type": "origins:biome",
+                            "biomes": [
+                                "minecraft:deep_frozen_ocean",
+                                "minecraft:frozen_ocean"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_melee_dmgtaken",
+            "modifier": {
+                "operation": "addition",
+                "value": -40
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_melee_dmgtaken",
+            "modifier": {
+                "operation": "addition",
+                "value": 40
+            }
+        }
+    }
+}

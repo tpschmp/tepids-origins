@@ -1,0 +1,180 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "drownrate": {
+        "condition": {
+            "type": "origins:air",
+            "comparison": "<=",
+            "compare_to": 300
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:gain_air",
+            "value": 13
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        }
+    },
+    "aot2": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_incendiary_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_magic_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_incendiary_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_magic_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                }
+            ]
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:submerged_in",
+                "fluid": "minecraft:water"
+            },
+            "if_action": {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": -20
+                }
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 20
+                        }
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 20
+                        }
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_incendiary_dmgtaken_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 20
+                        }
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_magic_dmgtaken_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 20
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

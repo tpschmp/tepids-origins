@@ -1,0 +1,31 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "armor": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.armor",
+        "modifier": {
+            "operation": "addition",
+            "value": 4
+        }
+    },
+    "sound": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_gained": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:attribute",
+                "attribute": "minecraft:generic.armor",
+                "comparison": "<",
+                "compare_to": 20
+            },
+            "if_action": {
+                "type": "origins:play_sound",
+                "sound": "tepids_origins:chelonian.item.equip",
+                "volume": 0.3,
+                "pitch": 1
+            }
+        }
+    }
+}

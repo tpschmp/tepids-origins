@@ -1,0 +1,835 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "falldmg_taken": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+            "comparison": "==",
+            "compare_to": -1
+        },
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:from_falling"
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": -20
+        }
+    },
+    "explosion": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+            "comparison": "==",
+            "compare_to": -1
+        },
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:origins/creeper/lightfuse_cooldown"
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:explode",
+                                "power": 0.643,
+                                "destruction_type": "none",
+                                "damage_self": false
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:explode",
+                                "power": 1.715,
+                                "destruction_type": "none",
+                                "damage_self": false
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:explode",
+                                "power": 3.143,
+                                "destruction_type": "none",
+                                "damage_self": false
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:explode",
+                                "power": 4.929,
+                                "destruction_type": "none",
+                                "damage_self": false
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                                "comparison": "==",
+                                "compare_to": 5
+                            },
+                            "action": {
+                                "type": "origins:explode",
+                                "power": 7.072,
+                                "destruction_type": "none",
+                                "damage_self": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/creeper/c1"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/creeper/c2"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/creeper/c3"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/creeper/c4"
+                                        }
+                                    ]
+                                },
+                                "action": {
+                                    "type": "origins:area_of_effect",
+                                    "radius": 16,
+                                    "bientity_action": {
+                                        "type": "origins:damage",
+                                        "amount": 12,
+                                        "source": {
+                                            "name": "explosion.player",
+                                            "fire": true
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c3"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c3"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c4"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "action": {
+                                    "type": "origins:area_of_effect",
+                                    "radius": 16,
+                                    "bientity_action": {
+                                        "type": "origins:damage",
+                                        "amount": 9,
+                                        "source": {
+                                            "name": "explosion.player",
+                                            "fire": true
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c2"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c3"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/creeper/c4"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "action": {
+                                    "type": "origins:area_of_effect",
+                                    "radius": 16,
+                                    "bientity_action": {
+                                        "type": "origins:damage",
+                                        "amount": 6,
+                                        "source": {
+                                            "name": "explosion.player",
+                                            "fire": true
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/creeper/c1"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/creeper/c2"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/creeper/c3"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/creeper/c4"
+                                        }
+                                    ]
+                                },
+                                "action": {
+                                    "type": "origins:area_of_effect",
+                                    "radius": 16,
+                                    "bientity_action": {
+                                        "type": "origins:damage",
+                                        "amount": 3,
+                                        "source": {
+                                            "name": "explosion.player",
+                                            "fire": true
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "ticks": 10
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/creeper/u1"
+                                    },
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @e[distance=..16,type=!minecraft:item]",
+                                        "comparison": "==",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:feed",
+                                "food": 1,
+                                "saturation": 0
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/creeper/u1"
+                                    },
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @e[distance=..16,type=!minecraft:item]",
+                                        "comparison": "==",
+                                        "compare_to": 2
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:feed",
+                                "food": 2,
+                                "saturation": 0
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/creeper/u1"
+                                    },
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @e[distance=..16,type=!minecraft:item]",
+                                        "comparison": "==",
+                                        "compare_to": 3
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:feed",
+                                "food": 3,
+                                "saturation": 0
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/creeper/u1"
+                                            },
+                                            {
+                                                "inverted": true,
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/creeper/d1"
+                                            },
+                                            {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @e[distance=..16,type=!minecraft:item]",
+                                                "comparison": ">=",
+                                                "compare_to": 4
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/creeper/u1"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/creeper/d1"
+                                            },
+                                            {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @e[distance=..16,type=!minecraft:item]",
+                                                "comparison": "==",
+                                                "compare_to": 4
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:feed",
+                                "food": 4,
+                                "saturation": 0
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/creeper/u1"
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/creeper/d1"
+                                    },
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @e[distance=..16,type=!minecraft:item]",
+                                        "comparison": "==",
+                                        "compare_to": 5
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:feed",
+                                "food": 5,
+                                "saturation": 0
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/creeper/u1"
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/creeper/d1"
+                                    },
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @e[distance=..16,type=!minecraft:item]",
+                                        "comparison": ">=",
+                                        "compare_to": 6
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:feed",
+                                "food": 6,
+                                "saturation": 0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/creeper/u2"
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 16,
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:area_of_effect",
+                                        "radius": 16,
+                                        "include_target": true,
+                                        "bientity_condition": {
+                                            "inverted": true,
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:origin",
+                                                "origin": "tepids_origins:overworld/creeper"
+                                            }
+                                        },
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:delay",
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:damage",
+                                                                    "amount": 4,
+                                                                    "source": {
+                                                                        "name": "explosion",
+                                                                        "fire": true
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:play_sound",
+                                                                    "sound": "entity.generic.explode",
+                                                                    "volume": 0.1,
+                                                                    "pitch": 0.6
+                                                                },
+                                                                {
+                                                                    "type": "origins:spawn_particles",
+                                                                    "particle": "minecraft:explosion_emitter",
+                                                                    "count": 3,
+                                                                    "spread": {
+                                                                        "x": 16,
+                                                                        "y": 1,
+                                                                        "z": 16
+                                                                    },
+                                                                    "offset_y": 0.5
+                                                                }
+                                                            ]
+                                                        },
+                                                        "ticks": 20
+                                                    },
+                                                    {
+                                                        "type": "origins:delay",
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:damage",
+                                                                    "amount": 4,
+                                                                    "source": {
+                                                                        "name": "explosion",
+                                                                        "fire": true
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:play_sound",
+                                                                    "sound": "entity.generic.explode",
+                                                                    "volume": 0.1,
+                                                                    "pitch": 0
+                                                                },
+                                                                {
+                                                                    "type": "origins:spawn_particles",
+                                                                    "particle": "minecraft:explosion_emitter",
+                                                                    "count": 3,
+                                                                    "spread": {
+                                                                        "x": 16,
+                                                                        "y": 1,
+                                                                        "z": 16
+                                                                    },
+                                                                    "offset_y": 0.5
+                                                                }
+                                                            ]
+                                                        },
+                                                        "ticks": 30
+                                                    },
+                                                    {
+                                                        "type": "origins:delay",
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:damage",
+                                                                    "amount": 4,
+                                                                    "source": {
+                                                                        "name": "explosion",
+                                                                        "fire": true
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:play_sound",
+                                                                    "sound": "entity.generic.explode",
+                                                                    "volume": 0.1,
+                                                                    "pitch": 1
+                                                                },
+                                                                {
+                                                                    "type": "origins:spawn_particles",
+                                                                    "particle": "minecraft:explosion_emitter",
+                                                                    "count": 3,
+                                                                    "spread": {
+                                                                        "x": 16,
+                                                                        "y": 1,
+                                                                        "z": 16
+                                                                    },
+                                                                    "offset_y": 0.5
+                                                                }
+                                                            ]
+                                                        },
+                                                        "ticks": 40
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/creeper/u2"
+                            },
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/creeper/d2"
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 16,
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:area_of_effect",
+                                        "radius": 16,
+                                        "include_target": true,
+                                        "bientity_condition": {
+                                            "inverted": true,
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:origin",
+                                                "origin": "tepids_origins:overworld/creeper"
+                                            }
+                                        },
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:delay",
+                                                "action": {
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:damage",
+                                                            "amount": 4,
+                                                            "source": {
+                                                                "name": "explosion",
+                                                                "fire": true
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:play_sound",
+                                                            "sound": "entity.generic.explode",
+                                                            "volume": 0.1,
+                                                            "pitch": 1.2
+                                                        },
+                                                        {
+                                                            "type": "origins:spawn_particles",
+                                                            "particle": "minecraft:explosion_emitter",
+                                                            "count": 3,
+                                                            "spread": {
+                                                                "x": 16,
+                                                                "y": 1,
+                                                                "z": 16
+                                                            },
+                                                            "offset_y": 0.5
+                                                        }
+                                                    ]
+                                                },
+                                                "ticks": 50
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/creeper/u3"
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/creeper/u3_boolean",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/creeper/u3_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:skills/creeper/u3_boolean",
+                        "value": 1
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "entity.generic.explode",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": "minecraft:explosion_emitter",
+                    "count": 6,
+                    "spread": {
+                        "x": 16,
+                        "y": 1,
+                        "z": 16
+                    },
+                    "offset_y": 0.5
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:set_resource",
+                                "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                                "value": 0
+                            },
+                            {
+                                "type": "origins:set_resource",
+                                "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                                "value": 0
+                            }
+                        ]
+                    },
+                    "ticks": 1
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "display": {
+        "icon": {
+            "item": "tepids_origins:sturdy_caraplate"
+        },
+        "title": "Gotta Snatch Them All!",
+        "description": "Obtain an Origin armor piece",
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "parent": "tepids_origins:root/obtain_crest",
+    "requirements": [
+        [
+            "origin"
+        ]
+    ],
+    "criteria": {
+        "origin": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "tepids_origins:origin_armor"
+                    }
+                ],
+                "player": {}
+            }
+        }
+    }
+}

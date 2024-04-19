@@ -1,0 +1,565 @@
+{
+    "root": {
+        "title": "Allay",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/item/allay/item.png"
+            }
+        },
+        "description": "This Origin displays an extraordinary ease of adaptation. As you evolve in this world, it too shall follow..\n \n..But beware, for you may only choose a different path after using an Evolution Encyclopedia.",
+        "size": 2,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "command": "give @s air"
+                }
+            }
+        ],
+        "cost": 0
+    },
+    "a1": {
+        "title": "Movement Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/a.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/a1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/a1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "a2": {
+        "title": "Movement Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/a.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/a2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/a2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "a3": {
+        "title": "Movement Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/a.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/a3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/a3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "a4": {
+        "title": "Movement Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/a.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/a4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/a4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "b1": {
+        "title": "Mining Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/b.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/b1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/b1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "b2": {
+        "title": "Mining Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/b.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/b2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/b2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "b3": {
+        "title": "Mining Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/b.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/b3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/b3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "b4": {
+        "title": "Mining Speed +5%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/b.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/b4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/b4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "c1": {
+        "title": "Collect Them All: Meter Fill Rate +1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/c.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/c1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/c1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "c2": {
+        "title": "Collect Them All: Meter Fill Rate +1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/c.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/c2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/c2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "c3": {
+        "title": "Collect Them All: Meter Fill Rate +1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/c.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/c3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/c3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "c4": {
+        "title": "Collect Them All: Meter Fill Rate +1",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/c.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/c4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/c4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "u1": {
+        "title": "Orders Received",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/u1.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nGaining points above the limit makes the next block mined break more blocks around it and pull items towards you.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/u1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/u1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "u2": {
+        "title": "Collecting Spree",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/u2.png"
+            }
+        },
+        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nWhile in the Block Hunter state, using Express Delivery gives points to all Collector Meters and extends the duration of the state.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/u2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/u2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 6
+    },
+    "u3": {
+        "title": "There's Always Room For More",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/u3.png"
+            }
+        },
+        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nUsing The Search Begins increases your inventory size and periodically pulls items towards you.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/u3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/u3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 9
+    },
+    "d1": {
+        "title": "Orders Received: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/d1.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nThe maximum amount of Collector Meter points is increased.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/d1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/d1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "d2": {
+        "title": "Collecting Spree: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/d2.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nThe amount of points given and state duration extension is increased.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/d2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/d2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "d3": {
+        "title": "There's Always Room For More: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/allay/d3.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nThe interval between instances of pulling items is decreased.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/allay/d3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/allay/d3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    }
+}

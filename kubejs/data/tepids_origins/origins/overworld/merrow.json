@@ -1,0 +1,21 @@
+{
+    "name": "Merrow",
+    "description": "As the remains of a sunken era, Merrows wish to regain their reign over the vast seas.\n　",
+    "powers": [
+        "tepids_origins:labels/dimensions/overworld",
+        "tepids_origins:labels/archetypes/exploration",
+        "tepids_origins:origins/merrow/skills",
+        "tepids_origins:origins/merrow/aquaticaffinity",
+        "tepids_origins:origins/merrow/fishoutofwater",
+        "tepids_origins:origins/merrow/climaticadaptation",
+        "tepids_origins:origins/merrow/tightfit",
+        "tepids_origins:origins/merrow/shiftingbuoyancy",
+        "tepids_origins:origins/merrow/propel"
+    ],
+    "icon": {
+        "item": "tepids_origins:archaic_conduit"
+    },
+    "order": 6,
+    "impact": 2,
+    "loading_priority": 0
+}

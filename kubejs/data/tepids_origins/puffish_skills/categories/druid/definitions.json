@@ -1,0 +1,565 @@
+{
+    "root": {
+        "title": "Druid",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/item/druid/item.png"
+            }
+        },
+        "description": "This Origin displays an extraordinary ease of adaptation. As you evolve in this world, it too shall follow..\n \n..But beware, for you may only choose a different path after using an Evolution Encyclopedia.",
+        "size": 2,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "command": "give @s air"
+                }
+            }
+        ],
+        "cost": 0
+    },
+    "a1": {
+        "title": "Hoe Damage +20%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/a.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/a1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/a1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "a2": {
+        "title": "Hoe Damage +20%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/a.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/a2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/a2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "a3": {
+        "title": "Hoe Damage +20%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/a.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/a3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/a3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "a4": {
+        "title": "Hoe Damage +20%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/a.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/a4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/a4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "b1": {
+        "title": "Healing Received +15%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/b.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/b1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/b1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "b2": {
+        "title": "Healing Received +15%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/b.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/b2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/b2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "b3": {
+        "title": "Healing Received +15%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/b.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/b3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/b3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "b4": {
+        "title": "Healing Received +15%",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/b.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/b4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/b4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "c1": {
+        "title": "Revitalize: Cooldown -1s",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/c.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/c1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/c1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "c2": {
+        "title": "Revitalize: Cooldown -1s",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/c.png"
+            }
+        },
+        "description": "Costs 2 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/c2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/c2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 2
+    },
+    "c3": {
+        "title": "Revitalize: Cooldown -1s",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/c.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/c3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/c3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "c4": {
+        "title": "Revitalize: Cooldown -1s",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_regular.png",
+                "available": "tepids_origins:textures/icons/frames/available_regular.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_regular.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_regular.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/c.png"
+            }
+        },
+        "description": "Costs 1 Skill Point.",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/c4 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/c4 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 1
+    },
+    "u1": {
+        "title": "Rooted Connection",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/u1.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nWhile One With Nature is active, create a Nature Field around you that increases XP Gain and Healing Received.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/u1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/u1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "u2": {
+        "title": "Life's Dividends",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/u2.png"
+            }
+        },
+        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nGain a Harvest Meter, filled by farming actions (planting/harvesting). Restores saturation on fill, and may be used to cast Revitalize instead of consuming hunger for a better effect.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/u2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/u2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 6
+    },
+    "u3": {
+        "title": "Cleansing of the World",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/u3.png"
+            }
+        },
+        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nTargets healed by Revitalize gain a brief speed boost and immunity to debuffs and damage.",
+        "size": 1.5,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/u3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/u3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 9
+    },
+    "d1": {
+        "title": "Rooted Connection: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/d1.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nThe size of the Nature Field is increased.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/d1 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/d1 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "d2": {
+        "title": "Life's Dividends: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/d2.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nThe Harvest Meter is filled faster.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/d2 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/d2 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    },
+    "d3": {
+        "title": "Cleansing of the World: Boost",
+        "frame": {
+            "type": "texture",
+            "data": {
+                "unlocked": "tepids_origins:textures/icons/frames/unlocked_fancy.png",
+                "available": "tepids_origins:textures/icons/frames/available_fancy.png",
+                "locked": "tepids_origins:textures/icons/frames/locked_fancy.png",
+                "excluded": "tepids_origins:textures/icons/frames/excluded_fancy.png"
+            }
+        },
+        "icon": {
+            "type": "texture",
+            "data": {
+                "texture": "tepids_origins:textures/icons/skills/druid/d3.png"
+            }
+        },
+        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
+        "extra_description": "\n \nThe immunity to damage provided by Revitalize lasts longer.",
+        "size": 1.25,
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "power grant @s tepids_origins:skills/druid/d3 tepids_origins:skills",
+                    "lock_command": "power revoke @s tepids_origins:skills/druid/d3 tepids_origins:skills"
+                }
+            }
+        ],
+        "cost": 3
+    }
+}

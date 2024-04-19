@@ -1,0 +1,211 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "activate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_creeper_active",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:attribute",
+                                    "attribute": "reach-entity-attributes:reach",
+                                    "comparison": ">=",
+                                    "compare_to": -2
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 25
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:attribute",
+                                    "attribute": "reach-entity-attributes:reach",
+                                    "comparison": ">=",
+                                    "compare_to": -1
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 35
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:attribute",
+                                    "attribute": "reach-entity-attributes:reach",
+                                    "comparison": ">=",
+                                    "compare_to": 0
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 45
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:attribute",
+                                    "attribute": "reach-entity-attributes:reach",
+                                    "comparison": ">=",
+                                    "compare_to": 1
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 55
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 6,
+            "block": true,
+            "entity": false,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "block_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:lightning_bolt ~ ~0.5 ~"
+                    },
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "summon minecraft:lightning_bolt ~ ~0.5 ~"
+                        },
+                        "ticks": 5
+                    },
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "summon minecraft:lightning_bolt ~ ~0.5 ~"
+                        },
+                        "ticks": 10
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:tnt ~ ~0.5 ~ {Fuse:20,Motion:[0.0d,0.33d,0.15d]}"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:tnt ~ ~0.5 ~ {Fuse:20,Motion:[0.15d,0.33d,-0.15d]}"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:tnt ~ ~0.5 ~ {Fuse:20,Motion:[-0.15d,0.33d,-0.15d]}"
+                    }
+                ]
+            },
+            "hit_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:items/cooldowns_creeper_active"
+                    },
+                    {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "condition": {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "mainhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "tepids_origins:enhanced_supercharged_flint_and_steel"
+                                        }
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:damage",
+                                        "amount": 10
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "offhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "tepids_origins:enhanced_supercharged_flint_and_steel"
+                                        }
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "offhand",
+                                    "action": {
+                                        "type": "origins:damage",
+                                        "amount": 10
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.use"
+        }
+    },
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_creeper_active",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    }
+}

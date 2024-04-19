@@ -1,0 +1,203 @@
+{
+    "type": "origins:multiple",
+    "aot": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:skills/druid/u1_duration",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:skills/druid/u1_duration",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_xpgain_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_healbonus_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_xpgain_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_healbonus_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                },
+                {
+                    "type": "origins:revoke_power",
+                    "power": "tepids_origins:skills/druid/u1_duration",
+                    "source": "tepids_origins:druid/u1"
+                },
+                {
+                    "type": "origins:revoke_power",
+                    "power": "tepids_origins:skills/druid/u1_aot",
+                    "source": "tepids_origins:druid/u1"
+                }
+            ]
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 2
+    },
+    "naturefield": {
+        "condition": {
+            "type": "origins:block_in_radius",
+            "block_condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:block",
+                        "block": "minecraft:farmland"
+                    },
+                    {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:crops"
+                    },
+                    {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:saplings"
+                    }
+                ]
+            },
+            "radius": 16,
+            "shape": "sphere",
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:power",
+                "power": "tepids_origins:skills/druid/d1"
+            },
+            "if_action": {
+                "type": "origins:area_of_effect",
+                "radius": 32,
+                "include_target": true,
+                "bientity_condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:player"
+                    }
+                },
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function tepids_origins:origins/druid_2"
+                                    },
+                                    {
+                                        "type": "origins:grant_power",
+                                        "power": "tepids_origins:skills/druid/u1_duration",
+                                        "source": "tepids_origins:druid/u1"
+                                    },
+                                    {
+                                        "type": "origins:grant_power",
+                                        "power": "tepids_origins:skills/druid/u1_aot",
+                                        "source": "tepids_origins:druid/u1"
+                                    },
+                                    {
+                                        "type": "origins:set_resource",
+                                        "resource": "tepids_origins:skills/druid/u1_duration",
+                                        "value": 100
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "else_action": {
+                "type": "origins:area_of_effect",
+                "radius": 16,
+                "include_target": true,
+                "bientity_condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:player"
+                    }
+                },
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function tepids_origins:origins/druid_1"
+                                    },
+                                    {
+                                        "type": "origins:grant_power",
+                                        "power": "tepids_origins:skills/druid/u1_duration",
+                                        "source": "tepids_origins:druid/u1"
+                                    },
+                                    {
+                                        "type": "origins:grant_power",
+                                        "power": "tepids_origins:skills/druid/u1_aot",
+                                        "source": "tepids_origins:druid/u1"
+                                    },
+                                    {
+                                        "type": "origins:set_resource",
+                                        "resource": "tepids_origins:skills/druid/u1_duration",
+                                        "value": 100
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

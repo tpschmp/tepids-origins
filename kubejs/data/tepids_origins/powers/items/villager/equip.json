@@ -1,0 +1,371 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "aot": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/villager/equip_boolean",
+            "comparison": "!=",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 40,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 16,
+                    "include_target": true,
+                    "bientity_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:undirected",
+                            "condition": {
+                                "inverted": true,
+                                "type": "origins:attack_target"
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:feed",
+                                        "food": 0,
+                                        "saturation": 0.25
+                                    },
+                                    {
+                                        "type": "origins:if_else_list",
+                                        "actions": [
+                                            {
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "tepids_origins:items/villager/equip_tracker",
+                                                    "comparison": "==",
+                                                    "compare_to": 0
+                                                },
+                                                "action": {
+                                                    "type": "origins:chance",
+                                                    "chance": 0.07,
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:chance",
+                                                                "chance": 0.67,
+                                                                "action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 1,
+                                                                    "saturation": 0
+                                                                },
+                                                                "fail_action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 2,
+                                                                    "saturation": 0
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:play_sound",
+                                                                "sound": "tepids_origins:villager.item.equip",
+                                                                "volume": 0.6,
+                                                                "pitch": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "tepids_origins:items/villager/equip_tracker",
+                                                    "comparison": "==",
+                                                    "compare_to": 1
+                                                },
+                                                "action": {
+                                                    "type": "origins:chance",
+                                                    "chance": 0.14,
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:chance",
+                                                                "chance": 0.67,
+                                                                "action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 1,
+                                                                    "saturation": 0
+                                                                },
+                                                                "fail_action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 2,
+                                                                    "saturation": 0
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:play_sound",
+                                                                "sound": "tepids_origins:villager.item.equip",
+                                                                "volume": 0.6,
+                                                                "pitch": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "tepids_origins:items/villager/equip_tracker",
+                                                    "comparison": "==",
+                                                    "compare_to": 2
+                                                },
+                                                "action": {
+                                                    "type": "origins:chance",
+                                                    "chance": 0.21,
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:chance",
+                                                                "chance": 0.67,
+                                                                "action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 1,
+                                                                    "saturation": 0
+                                                                },
+                                                                "fail_action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 2,
+                                                                    "saturation": 0
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:play_sound",
+                                                                "sound": "tepids_origins:villager.item.equip",
+                                                                "volume": 0.6,
+                                                                "pitch": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "tepids_origins:items/villager/equip_tracker",
+                                                    "comparison": "==",
+                                                    "compare_to": 3
+                                                },
+                                                "action": {
+                                                    "type": "origins:chance",
+                                                    "chance": 0.28,
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:chance",
+                                                                "chance": 0.67,
+                                                                "action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 1,
+                                                                    "saturation": 0
+                                                                },
+                                                                "fail_action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 2,
+                                                                    "saturation": 0
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:play_sound",
+                                                                "sound": "tepids_origins:villager.item.equip",
+                                                                "volume": 0.6,
+                                                                "pitch": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "tepids_origins:items/villager/equip_tracker",
+                                                    "comparison": "==",
+                                                    "compare_to": 4
+                                                },
+                                                "action": {
+                                                    "type": "origins:chance",
+                                                    "chance": 0.35,
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:chance",
+                                                                "chance": 0.67,
+                                                                "action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 1,
+                                                                    "saturation": 0
+                                                                },
+                                                                "fail_action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 2,
+                                                                    "saturation": 0
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:play_sound",
+                                                                "sound": "tepids_origins:villager.item.equip",
+                                                                "volume": 0.6,
+                                                                "pitch": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "tepids_origins:items/villager/equip_tracker",
+                                                    "comparison": "==",
+                                                    "compare_to": 5
+                                                },
+                                                "action": {
+                                                    "type": "origins:chance",
+                                                    "chance": 0.42,
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:chance",
+                                                                "chance": 0.67,
+                                                                "action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 1,
+                                                                    "saturation": 0
+                                                                },
+                                                                "fail_action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 2,
+                                                                    "saturation": 0
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:play_sound",
+                                                                "sound": "tepids_origins:villager.item.equip",
+                                                                "volume": 0.6,
+                                                                "pitch": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "tepids_origins:items/villager/equip_tracker",
+                                                    "comparison": "==",
+                                                    "compare_to": 6
+                                                },
+                                                "action": {
+                                                    "type": "origins:chance",
+                                                    "chance": 0.49,
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:chance",
+                                                                "chance": 0.67,
+                                                                "action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 1,
+                                                                    "saturation": 0
+                                                                },
+                                                                "fail_action": {
+                                                                    "type": "origins:feed",
+                                                                    "food": 2,
+                                                                    "saturation": 0
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:play_sound",
+                                                                "sound": "tepids_origins:villager.item.equip",
+                                                                "volume": 0.6,
+                                                                "pitch": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:items/villager/equip_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 1
+                    }
+                }
+            ]
+        }
+    },
+    "combatcheck": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 35,
+                    "bientity_condition": {
+                        "type": "origins:undirected",
+                        "condition": {
+                            "type": "origins:attack_target"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:set_resource",
+                            "resource": "tepids_origins:items/villager/equip_boolean",
+                            "value": 20
+                        }
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:items/villager/equip_boolean",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -1
+                    }
+                }
+            ]
+        }
+    },
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 6,
+        "start_value": 0
+    },
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 20,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:items/villager/equip_tracker",
+            "value": 0
+        }
+    }
+}

@@ -1,0 +1,197 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "movespd_buff": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        },
+        "entity_action_gained": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        }
+    },
+    "falldmg_actions": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_anuran_4pc",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_anuran_4pc_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:prevent_death",
+        "damage_condition": {
+            "type": "origins:from_falling"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:heal",
+                        "amount": 7
+                    },
+                    "ticks": 1
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/cooldowns_anuran_4pc_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/anuran/4pc_duration",
+                    "value": 100
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:anuran.item.4pc",
+                    "volume": 0.6,
+                    "pitch": 1
+                }
+            ]
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_anuran_4pc_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/anuran/4pc_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_anuran_4pc_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/anuran/4pc_duration",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_movespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/anuran/4pc_duration",
+                    "value": 100
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/cooldowns_anuran_4pc_boolean",
+                    "value": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:items/cooldowns_anuran_4pc"
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_movespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                }
+            ]
+        }
+    },
+    "failsafe": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_anuran_4pc_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:items/cooldowns_anuran_4pc"
+                    },
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/cooldowns_anuran_4pc_boolean",
+                        "value": 1
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_movespd_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

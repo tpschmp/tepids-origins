@@ -1,0 +1,341 @@
+{
+    "type": "origins:multiple",
+    "key0": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/merrow/propel_cooldown",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 16,
+                    "bientity_condition": {
+                        "inverted": true,
+                        "type": "origins:undirected",
+                        "condition": {
+                            "type": "origins:attack_target"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:apply_effect",
+                            "effect": {
+                                "effect": "minecraft:conduit_power",
+                                "duration": 100,
+                                "amplifier": 0,
+                                "show_particles": true,
+                                "show_icon": true
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "waterwalk": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:swimming"
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "<=",
+                    "compare_to": 0.4
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/merrow/propel_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:walk_on_fluid",
+        "fluid": "minecraft:water"
+    },
+    "autopropel": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:swimming"
+                },
+                {
+                    "type": "origins:on_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:in_tag",
+                            "tag": "minecraft:water"
+                        }
+                    }
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/merrow/propel_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "apugli:key_pressed",
+                            "key": {
+                                "key": "key.forward",
+                                "continuous": true
+                            }
+                        },
+                        {
+                            "type": "apugli:key_pressed",
+                            "key": {
+                                "key": "key.back",
+                                "continuous": true
+                            }
+                        },
+                        {
+                            "type": "apugli:key_pressed",
+                            "key": {
+                                "key": "key.right",
+                                "continuous": true
+                            }
+                        },
+                        {
+                            "type": "apugli:key_pressed",
+                            "key": {
+                                "key": "key.left",
+                                "continuous": true
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 16,
+                    "include_target": true,
+                    "bientity_condition": {
+                        "inverted": true,
+                        "type": "origins:undirected",
+                        "condition": {
+                            "type": "origins:attack_target"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:gain_air",
+                                    "value": 100
+                                }
+                            },
+                            {
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "condition": {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:actor_condition",
+                                                    "condition": {
+                                                        "type": "origins:and",
+                                                        "conditions": [
+                                                            {
+                                                                "type": "origins:power",
+                                                                "power": "tepids_origins:skills/merrow/u2"
+                                                            },
+                                                            {
+                                                                "type": "origins:power",
+                                                                "power": "tepids_origins:skills/merrow/d2"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:target_condition",
+                                                    "condition": {
+                                                        "type": "origins:status_effect",
+                                                        "effect": "minecraft:dolphins_grace"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:apply_effect",
+                                                "effect": {
+                                                    "effect": "minecraft:dolphins_grace",
+                                                    "duration": 200,
+                                                    "amplifier": 2,
+                                                    "show_particles": true,
+                                                    "show_icon": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:actor_condition",
+                                                    "condition": {
+                                                        "type": "origins:and",
+                                                        "conditions": [
+                                                            {
+                                                                "type": "origins:power",
+                                                                "power": "tepids_origins:skills/merrow/u2"
+                                                            },
+                                                            {
+                                                                "inverted": true,
+                                                                "type": "origins:power",
+                                                                "power": "tepids_origins:skills/merrow/d2"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:target_condition",
+                                                    "condition": {
+                                                        "type": "origins:status_effect",
+                                                        "effect": "minecraft:dolphins_grace"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:apply_effect",
+                                                "effect": {
+                                                    "effect": "minecraft:dolphins_grace",
+                                                    "duration": 100,
+                                                    "amplifier": 0,
+                                                    "show_particles": true,
+                                                    "show_icon": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:merrow.origin.propel",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "apugli:key_pressed",
+                                "key": {
+                                    "key": "key.forward",
+                                    "continuous": true
+                                }
+                            },
+                            "action": {
+                                "type": "origins:add_velocity",
+                                "z": 1,
+                                "space": "local",
+                                "client": true,
+                                "server": true
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "apugli:key_pressed",
+                                "key": {
+                                    "key": "key.back",
+                                    "continuous": true
+                                }
+                            },
+                            "action": {
+                                "type": "origins:add_velocity",
+                                "z": -1,
+                                "space": "local",
+                                "client": true,
+                                "server": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "apugli:key_pressed",
+                                "key": {
+                                    "key": "key.left",
+                                    "continuous": true
+                                }
+                            },
+                            "action": {
+                                "type": "origins:add_velocity",
+                                "x": 1,
+                                "space": "local",
+                                "client": true,
+                                "server": true
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "apugli:key_pressed",
+                                "key": {
+                                    "key": "key.right",
+                                    "continuous": true
+                                }
+                            },
+                            "action": {
+                                "type": "origins:add_velocity",
+                                "x": -1,
+                                "space": "local",
+                                "client": true,
+                                "server": true
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

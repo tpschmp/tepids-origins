@@ -1,0 +1,77 @@
+{
+    "type": "origins:multiple",
+    "luck": {
+        "condition": {
+            "type": "origins:block_in_radius",
+            "block_condition": {
+                "type": "origins:fluid",
+                "fluid_condition": {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:water"
+                }
+            },
+            "radius": 8,
+            "shape": "sphere",
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.luck",
+        "modifier": {
+            "operation": "addition",
+            "value": 1
+        }
+    },
+    "drownrate": {
+        "condition": {
+            "type": "origins:block_in_radius",
+            "block_condition": {
+                "type": "origins:fluid",
+                "fluid_condition": {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:water"
+                }
+            },
+            "radius": 8,
+            "shape": "sphere",
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:gain_air",
+            "value": 7
+        }
+    },
+    "revoke": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/merrow/active_buff_timer",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/merrow/active_buff_timer",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        },
+        "falling_action": {
+            "type": "origins:revoke_power",
+            "power": "tepids_origins:items/merrow/active_buff",
+            "source": "tepids_origins:set_bonuses"
+        }
+    },
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "type": "origins:multiple",
+    "aot": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/sculkcritter/takeflight_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/sculkcritter/u1_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 40,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:sculkcritter.origin.take_flight_sonar",
+                    "volume": 0.4,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:emit_game_event",
+                    "event": "minecraft:resonate_4"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/sculkcritter/d1"
+                    },
+                    "if_action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 35,
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:grant_power",
+                                        "power": "tepids_origins:origins/sculkcritter/sculksense_debuff",
+                                        "source": "tepids_origins:origins/sculkcritter/sculksense"
+                                    },
+                                    {
+                                        "type": "origins:set_resource",
+                                        "resource": "tepids_origins:origins/sculkcritter/sculksense_debuff_tracker",
+                                        "value": 50
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:skills/sculkcritter/u1_boolean",
+            "value": 0
+        }
+    },
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    }
+}

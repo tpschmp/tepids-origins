@@ -1,0 +1,99 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 50
+    },
+    "proc": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:skills/villager/u2_buff_cooldown",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:actor_condition",
+                "condition": {
+                    "type": "origins:power",
+                    "power": "tepids_origins:skills/villager/d2_buff"
+                }
+            },
+            "if_action": {
+                "type": "origins:chance",
+                "chance": 0.8,
+                "action": {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:trigger_cooldown",
+                                "power": "tepids_origins:skills/villager/u2_buff_cooldown"
+                            },
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 16,
+                                "include_target": true,
+                                "bientity_condition": {
+                                    "inverted": true,
+                                    "type": "origins:undirected",
+                                    "condition": {
+                                        "type": "origins:attack_target"
+                                    }
+                                },
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:feed",
+                                        "food": 2,
+                                        "saturation": 0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "else_action": {
+                "type": "origins:chance",
+                "chance": 0.4,
+                "action": {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:trigger_cooldown",
+                                "power": "tepids_origins:skills/villager/u2_buff_cooldown"
+                            },
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 16,
+                                "include_target": true,
+                                "bientity_condition": {
+                                    "inverted": true,
+                                    "type": "origins:undirected",
+                                    "condition": {
+                                        "type": "origins:attack_target"
+                                    }
+                                },
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:feed",
+                                        "food": 2,
+                                        "saturation": 0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "cooldown": 10
+    }
+}

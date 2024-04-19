@@ -1,0 +1,740 @@
+{
+    "type": "origins:multiple",
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 11,
+        "start_value": 0
+    },
+    "aot_1": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:power",
+                    "power": "tepids_origins:skills/chelonian/d2"
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                "comparison": "<",
+                "compare_to": 11
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -3
+                        }
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -3
+                        }
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 1
+                        }
+                    }
+                ]
+            }
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 3
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 6
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 6
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 9
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 9
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 12
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 12
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 5
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 15
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 15
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 6
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 18
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 18
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 7
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 21
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 21
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 8
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 24
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 24
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 9
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 27
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 27
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 10
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 30
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 30
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    "aot_2": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:power",
+                    "power": "tepids_origins:skills/chelonian/d2"
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                "comparison": "<",
+                "compare_to": 10
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -3
+                        }
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -3
+                        }
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 1
+                        }
+                    },
+                    {
+                        "type": "origins:play_sound",
+                        "sound": "block.bell.resonate",
+                        "volume": 0.6,
+                        "pitch": 2
+                    }
+                ]
+            }
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 3
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 3
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 6
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 6
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 9
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 9
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 12
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 12
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 5
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 15
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 15
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 6
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 18
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 18
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 7
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 21
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 21
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 8
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 24
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 24
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 9
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 27
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 27
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                                "comparison": "==",
+                                "compare_to": 10
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 30
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": 30
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:skills/chelonian/u2_tracker",
+                    "value": 0
+                }
+            ]
+        }
+    }
+}

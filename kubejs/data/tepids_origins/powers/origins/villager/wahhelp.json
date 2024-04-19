@@ -1,0 +1,121 @@
+{
+    "name": "Wah! Help!",
+    "description": "Melee damage received has extra knockback. You may randomly lose XP when hit this way.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "XP Loss: -50\n",
+                "Chance: 20%\n",
+                "Cooldown: 1.5 seconds"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "knockback": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "mob"
+                }
+            ]
+        },
+        "bientity_action": {
+            "type": "origins:add_velocity",
+            "y": 0.4,
+            "z": 1,
+            "client": true,
+            "server": true
+        }
+    },
+    "xpdrop": {
+        "type": "origins:action_when_damage_taken",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "mob"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:chance",
+            "chance": 0.2,
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "xp add @s -50 points"
+                    },
+                    {
+                        "type": "origins:play_sound",
+                        "sound": "minecraft:entity.villager.hurt",
+                        "volume": 0.6,
+                        "pitch": 1
+                    },
+                    {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "minecraft:experience_orb",
+                        "tag": "{Value:5,Count:10}",
+                        "entity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:chance",
+                                    "chance": 0.5,
+                                    "action": {
+                                        "type": "origins:add_velocity",
+                                        "z": 0.6,
+                                        "space": "local",
+                                        "client": true,
+                                        "server": true
+                                    },
+                                    "fail_action": {
+                                        "type": "origins:add_velocity",
+                                        "z": -0.6,
+                                        "space": "local",
+                                        "client": true,
+                                        "server": true
+                                    }
+                                },
+                                {
+                                    "type": "origins:chance",
+                                    "chance": 0.5,
+                                    "action": {
+                                        "type": "origins:add_velocity",
+                                        "x": 0.6,
+                                        "space": "local",
+                                        "client": true,
+                                        "server": true
+                                    },
+                                    "fail_action": {
+                                        "type": "origins:add_velocity",
+                                        "x": -0.6,
+                                        "space": "local",
+                                        "client": true,
+                                        "server": true
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "cooldown": 30
+    }
+}

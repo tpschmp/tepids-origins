@@ -1,0 +1,274 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_allay_active_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/allay/active_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_allay_active_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/allay/active_duration",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/allay/active_duration",
+                    "value": 200
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/cooldowns_allay_active_boolean",
+                    "value": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:items/cooldowns_allay_active"
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/allay/active_tracker",
+                    "value": 0
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_movespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                }
+            ]
+        }
+    },
+    "failsafe": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_allay_active_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:items/cooldowns_allay_active"
+                    },
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/cooldowns_allay_active_boolean",
+                        "value": 1
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_movespd_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "activate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_allay_active",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_allay_active_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/cooldowns_allay_active_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/allay/active_duration",
+                    "value": 100
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:allay.item.active",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "tepids_origins:enhanced_collectors_special"
+                                    }
+                                }
+                            },
+                            "action": {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 10
+                                }
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "offhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "tepids_origins:enhanced_collectors_special"
+                                    }
+                                }
+                            },
+                            "action": {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "offhand",
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 10
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_movespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.use"
+        }
+    },
+    "breakspd": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/allay/active_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_allay_active_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0,
+            "resource": "tepids_origins:items/allay/active_tracker"
+        }
+    },
+    "onbreak_effects": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/allay/active_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_allay_active_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/allay/active_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 1
+            }
+        },
+        "only_when_harvested": true
+    },
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0
+    }
+}

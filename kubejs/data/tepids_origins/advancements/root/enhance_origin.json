@@ -1,0 +1,32 @@
+{
+    "display": {
+        "icon": {
+            "item": "tepids_origins:enhanced_sturdy_caraplate"
+        },
+        "title": "Huh? Someone is Evolving!",
+        "description": "Obtain an Enhanced Origin armor piece",
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "parent": "tepids_origins:root/obtain_origin",
+    "requirements": [
+        [
+            "enhance"
+        ]
+    ],
+    "criteria": {
+        "enhance": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "tepids_origins:enhanced_origin_armor"
+                    }
+                ],
+                "player": {}
+            }
+        }
+    }
+}

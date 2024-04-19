@@ -1,0 +1,251 @@
+{
+    "name": "Ethereal Storage",
+    "description": "Your inventory size is reduced but does not drop on death.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Inventory Slots: 18"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "reducedinv": {
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:power",
+                    "power": "tepids_origins:skills/allay/u3"
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/allay/u3"
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/allay/search_tracker",
+                            "comparison": "==",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:drop_inventory",
+                    "inventory_type": "inventory",
+                    "item_condition": {
+                        "inverted": true,
+                        "type": "origins:nbt",
+                        "nbt": "{display:{Name:'{\"text\":\"Inaccessible Slot\"}'},Tags:[\"noPickups\"]}"
+                    },
+                    "slots": [
+                        "inventory.0",
+                        "inventory.1",
+                        "inventory.2",
+                        "inventory.3",
+                        "inventory.4",
+                        "inventory.5",
+                        "inventory.6",
+                        "inventory.7",
+                        "inventory.8",
+                        "inventory.9",
+                        "inventory.10",
+                        "inventory.11",
+                        "inventory.12",
+                        "inventory.13",
+                        "inventory.14",
+                        "inventory.15",
+                        "inventory.16",
+                        "inventory.17"
+                    ],
+                    "retain_ownership": true
+                },
+                {
+                    "type": "origins:replace_inventory",
+                    "inventory_type": "inventory",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    },
+                    "slots": [
+                        "inventory.0",
+                        "inventory.1",
+                        "inventory.2",
+                        "inventory.3",
+                        "inventory.4",
+                        "inventory.5",
+                        "inventory.6",
+                        "inventory.7",
+                        "inventory.8",
+                        "inventory.9",
+                        "inventory.10",
+                        "inventory.11",
+                        "inventory.12",
+                        "inventory.13",
+                        "inventory.14",
+                        "inventory.15",
+                        "inventory.16",
+                        "inventory.17"
+                    ],
+                    "stack": {
+                        "item": "minecraft:barrier",
+                        "amount": 1,
+                        "tag": "{display:{Name:'{\"text\":\"Inaccessible Slot\"}'},Tags:[\"noPickups\"]}"
+                    }
+                },
+                {
+                    "type": "origins:modify_inventory",
+                    "inventory_type": "inventory",
+                    "item_action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    },
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:[\"noPickups\"]}"
+                    },
+                    "slots": [
+                        "hotbar.0",
+                        "hotbar.1",
+                        "hotbar.2",
+                        "hotbar.3",
+                        "hotbar.4",
+                        "hotbar.5",
+                        "hotbar.6",
+                        "hotbar.7",
+                        "hotbar.8",
+                        "inventory.18",
+                        "inventory.19",
+                        "inventory.20",
+                        "inventory.21",
+                        "inventory.22",
+                        "inventory.23",
+                        "inventory.24",
+                        "inventory.25",
+                        "inventory.26"
+                    ],
+                    "process_mode": "items",
+                    "limit": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[type=item,nbt={Item:{tag:{Tags:[\"noPickups\"]}}}]"
+                }
+            ]
+        }
+    },
+    "keepinv": {
+        "type": "origins:keep_inventory",
+        "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40
+        ]
+    },
+    "invcallback": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:replace_inventory",
+            "inventory_type": "inventory",
+            "slots": [
+                "inventory.0",
+                "inventory.1",
+                "inventory.2",
+                "inventory.3",
+                "inventory.4",
+                "inventory.5",
+                "inventory.6",
+                "inventory.7",
+                "inventory.8",
+                "inventory.9",
+                "inventory.10",
+                "inventory.11",
+                "inventory.12",
+                "inventory.13",
+                "inventory.14",
+                "inventory.15",
+                "inventory.16",
+                "inventory.17"
+            ],
+            "stack": {
+                "item": "minecraft:air",
+                "amount": 1
+            }
+        },
+        "entity_action_gained": {
+            "type": "origins:drop_inventory",
+            "inventory_type": "inventory",
+            "slots": [
+                "inventory.0",
+                "inventory.1",
+                "inventory.2",
+                "inventory.3",
+                "inventory.4",
+                "inventory.5",
+                "inventory.6",
+                "inventory.7",
+                "inventory.8",
+                "inventory.9",
+                "inventory.10",
+                "inventory.11",
+                "inventory.12",
+                "inventory.13",
+                "inventory.14",
+                "inventory.15",
+                "inventory.16",
+                "inventory.17"
+            ],
+            "retain_ownership": true
+        }
+    }
+}

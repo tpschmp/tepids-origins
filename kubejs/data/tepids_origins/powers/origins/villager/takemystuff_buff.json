@@ -1,0 +1,304 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 12
+        },
+        "min_action": {
+            "type": "origins:revoke_power",
+            "power": "tepids_origins:origins/villager/takemystuff_buff",
+            "source": "tepids_origins:villager/takemystuff"
+        }
+    },
+    "aot": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/villager/takemystuff_buff_duration",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        }
+    },
+    "ratio": {
+        "type": "origins:resource",
+        "min": 1,
+        "max": 2,
+        "start_value": 2
+    },
+    "atk": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 999,
+        "start_value": 0
+    },
+    "flat": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 6,
+        "start_value": 0
+    },
+    "decay": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_flat",
+                "comparison": ">",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_flat",
+                "modifier": {
+                    "operation": "addition",
+                    "value": -2
+                }
+            },
+            "else_action": {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk",
+                "modifier": {
+                    "operation": "addition",
+                    "value": -2
+                }
+            }
+        }
+    },
+    "dmgdealt_2": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/villager/takemystuff_buff_ratio",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "type": "origins:modify_damage_dealt",
+        "modifiers": [
+            {
+                "operation": "multiply_base_multiplicative",
+                "value": 7
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "multiply_total_multiplicative",
+                "value": -0.875
+            },
+            {
+                "operation": "addition",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_flat"
+            }
+        ],
+        "target_action": {
+            "type": "origins:chance",
+            "chance": 0.5,
+            "action": {
+                "type": "origins:execute_command",
+                "command": "execute positioned ~ ~1 ~ run function tepids_origins:origins/villager_1"
+            },
+            "fail_action": {
+                "type": "origins:execute_command",
+                "command": "execute positioned ~ ~1 ~ run function tepids_origins:origins/villager_2"
+            }
+        }
+    },
+    "dmgdealt_1": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/villager/takemystuff_buff_ratio",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:modify_damage_dealt",
+        "modifiers": [
+            {
+                "operation": "multiply_base_multiplicative",
+                "value": 3
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "multiply_total_multiplicative",
+                "value": -0.75
+            },
+            {
+                "operation": "addition",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_flat"
+            }
+        ],
+        "target_action": {
+            "type": "origins:chance",
+            "chance": 0.5,
+            "action": {
+                "type": "origins:execute_command",
+                "command": "execute positioned ~ ~1 ~ run function tepids_origins:origins/villager_1"
+            },
+            "fail_action": {
+                "type": "origins:execute_command",
+                "command": "execute positioned ~ ~1 ~ run function tepids_origins:origins/villager_2"
+            }
+        }
+    },
+    "dmgdealt_proj_1": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/villager/takemystuff_buff_ratio",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:modify_projectile_damage",
+        "modifiers": [
+            {
+                "operation": "multiply_base_multiplicative",
+                "value": 3
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "multiply_total_multiplicative",
+                "value": -0.75
+            },
+            {
+                "operation": "addition",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_flat"
+            }
+        ],
+        "target_action": {
+            "type": "origins:chance",
+            "chance": 0.5,
+            "action": {
+                "type": "origins:execute_command",
+                "command": "execute positioned ~ ~1 ~ run function tepids_origins:origins/villager_1"
+            },
+            "fail_action": {
+                "type": "origins:execute_command",
+                "command": "execute positioned ~ ~1 ~ run function tepids_origins:origins/villager_2"
+            }
+        }
+    },
+    "dmgdealt_proj_2": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/villager/takemystuff_buff_ratio",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "type": "origins:modify_projectile_damage",
+        "modifiers": [
+            {
+                "operation": "multiply_base_multiplicative",
+                "value": 7
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_atk"
+            },
+            {
+                "operation": "multiply_total_multiplicative",
+                "value": -0.875
+            },
+            {
+                "operation": "addition",
+                "value": 0,
+                "resource": "tepids_origins:origins/villager/takemystuff_buff_flat"
+            }
+        ],
+        "target_action": {
+            "type": "origins:chance",
+            "chance": 0.5,
+            "action": {
+                "type": "origins:execute_command",
+                "command": "execute positioned ~ ~1 ~ run function tepids_origins:origins/villager_1"
+            },
+            "fail_action": {
+                "type": "origins:execute_command",
+                "command": "execute positioned ~ ~1 ~ run function tepids_origins:origins/villager_2"
+            }
+        }
+    },
+    "glow": {
+        "type": "origins:self_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "tepids_origins:overworld/villager"
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0,
+        "green": 1,
+        "blue": 0
+    }
+}

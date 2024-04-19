@@ -1,0 +1,210 @@
+{
+    "name": "Green Thumb",
+    "description": "You may use your bare hands while sneaking to expend Bone Meal in inventory for a better effect. \nHunger will be used instead if you do not have any.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Hunger Threshold: 8\n",
+                "Hunger Cost: 2"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "bonemeal1": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "clear @s minecraft:bone_meal 0",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:action_on_block_use",
+        "block_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:exposed_to_sky"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:crops"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:flowers"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:saplings"
+                },
+                {
+                    "type": "origins:block",
+                    "block": "minecraft:grass_block"
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "directions": [
+            "up"
+        ],
+        "hands": [
+            "main_hand"
+        ],
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 4.5,
+            "block": true,
+            "entity": false,
+            "shape_type": "outline",
+            "fluid_handling": "none",
+            "block_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:bonemeal",
+                        "effects": true
+                    },
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:bonemeal",
+                            "effects": true
+                        },
+                        "ticks": 10
+                    },
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:bonemeal",
+                            "effects": true
+                        },
+                        "ticks": 20
+                    }
+                ]
+            },
+            "hit_action": {
+                "type": "origins:modify_inventory",
+                "inventory_type": "inventory",
+                "item_action": {
+                    "type": "origins:consume",
+                    "amount": 1
+                },
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:bone_meal"
+                    }
+                },
+                "slots": [],
+                "process_mode": "items",
+                "limit": 0
+            }
+        },
+        "action_result": "success"
+    },
+    "bonemeal2": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "clear @s minecraft:bone_meal 0",
+                    "comparison": "<",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:action_on_block_use",
+        "block_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:exposed_to_sky"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:crops"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:flowers"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:saplings"
+                },
+                {
+                    "type": "origins:block",
+                    "block": "minecraft:grass_block"
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "directions": [
+            "up"
+        ],
+        "hands": [
+            "main_hand"
+        ],
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 4.5,
+            "block": true,
+            "entity": false,
+            "shape_type": "outline",
+            "fluid_handling": "none",
+            "block_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:bonemeal",
+                        "effects": true
+                    },
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:bonemeal",
+                            "effects": true
+                        },
+                        "ticks": 10
+                    },
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:bonemeal",
+                            "effects": true
+                        },
+                        "ticks": 20
+                    }
+                ]
+            },
+            "hit_action": {
+                "type": "origins:feed",
+                "food": -2,
+                "saturation": 0
+            }
+        },
+        "action_result": "success"
+    }
+}

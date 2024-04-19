@@ -1,0 +1,203 @@
+{
+    "type": "origins:multiple",
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 17,
+            "condition": {
+                "inverted": true,
+                "type": "origins:resource",
+                "resource": "tepids_origins:skills/creeper/u3_duration",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 400,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 17
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/creeper/u3_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/creeper/u3_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/creeper/d3"
+                    },
+                    "if_action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:skills/creeper/u3_duration",
+                        "value": 300
+                    },
+                    "else_action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:skills/creeper/u3_duration",
+                        "value": 200
+                    }
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                    "value": 1
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_cooldown",
+                    "value": 999
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:creeper.origin.light_fuse",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon firework_rocket ~ ~0.5 ~ {LifeTime:1,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:3,Flicker:0,Trail:0,Colors:[I;1973019,4312372,15790320],FadeColors:[I;1973019,3887386,11250603]},{Type:1,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;3887386]}]}}}}"
+                }
+            ]
+        }
+    },
+    "supercharged": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/creeper/u3_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/creeper/u3_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:skills/creeper/u3_duration",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -1
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                                "comparison": "<",
+                                "compare_to": 5
+                            },
+                            {
+                                "inverted": true,
+                                "type": "origins:sneaking"
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 1
+                        }
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:skills/creeper/u3_cooldown"
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:skills/creeper/u3_boolean",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    "vfx": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/creeper/u3_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/creeper/u3_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "apugli:energy_swirl",
+        "texture_location": "minecraft:textures/entity/creeper/creeper_armor.png",
+        "speed": 0.05
+    }
+}

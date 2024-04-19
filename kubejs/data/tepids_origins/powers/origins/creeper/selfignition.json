@@ -1,0 +1,118 @@
+{
+    "name": "Self Ignition",
+    "description": "Being struck by lightning or set on fire will cause an explosion that consumes your health.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Self Damage; 5\n",
+                "Explosive Power: 3.857"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:explode",
+                    "power": 3.857,
+                    "destruction_type": "none",
+                    "damage_self": false
+                },
+                {
+                    "type": "origins:damage",
+                    "amount": 5,
+                    "source": {
+                        "name": "generic"
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "entity.generic.explode",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": "minecraft:explosion_emitter",
+                    "count": 6,
+                    "spread": {
+                        "x": 16,
+                        "y": 1,
+                        "z": 16
+                    },
+                    "offset_y": 0.5
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/creeper/u3"
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/creeper/u3_boolean",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/creeper/u3_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:creeper/upgrades/bombs_ahoy_resource",
+                        "value": 1
+                    }
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/creeper/selfignition_tracker",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:on_fire"
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/creeper/selfignition_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 1
+            }
+        }
+    },
+    "lightningstrike": {
+        "type": "origins:self_action_when_hit",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "lightningBolt"
+        },
+        "entity_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:origins/creeper/selfignition_tracker",
+            "value": 3
+        },
+        "cooldown": 1
+    }
+}

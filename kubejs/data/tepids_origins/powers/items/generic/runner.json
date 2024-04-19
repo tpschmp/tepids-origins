@@ -1,0 +1,123 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "failsafe": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/generic/runner_tracker",
+                        "comparison": ">=",
+                        "compare_to": 5
+                    },
+                    "action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_movespd_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -15
+                        }
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/generic/runner_tracker",
+                        "comparison": "==",
+                        "compare_to": 10
+                    },
+                    "action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_movespd_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:sprinting"
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/generic/runner_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 1
+            }
+        },
+        "falling_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:items/generic/runner_tracker",
+            "value": 0
+        }
+    },
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 0
+    },
+    "trigger1": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/generic/runner_tracker",
+            "comparison": ">=",
+            "compare_to": 5
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 10
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -10
+            }
+        }
+    },
+    "trigger2": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/generic/runner_tracker",
+            "comparison": "==",
+            "compare_to": 10
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 10
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -10
+            }
+        }
+    }
+}

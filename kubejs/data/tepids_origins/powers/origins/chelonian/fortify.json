@@ -1,0 +1,278 @@
+{
+    "name": "Fortify",
+    "description": "Expend hunger every second and lower movement speed in exchange for heightened defense.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                {
+                    "color": "dark_purple",
+                    "text": "Active ability. Toggle with "
+                },
+                {
+                    "color": "gold",
+                    "keybind": "key.origins.primary_active"
+                },
+                {
+                    "color": "dark_purple",
+                    "text": "."
+                }
+            ],
+            "sprite": "origins:textures/gui/badge/toggle.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Hunger Threshold: 8\n",
+                "Hunger Cost: 2/s\n",
+                "Damage Reduction: -33%\n",
+                "Movement Speed: -33%\n",
+                "Cooldown: 3 seconds"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 60,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 2
+        }
+    },
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 2,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                "comparison": "==",
+                "compare_to": 1
+            }
+        }
+    },
+    "activate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:chelonian.origin.fortify_activate",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                        "value": 1
+                    },
+                    "ticks": 1
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "deactivate": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:chelonian.origin.fortify_deactivate",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:origins/chelonian/fortify_cooldown"
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                    "value": 0
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "fortify": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:feed",
+                    "food": -2,
+                    "saturation": 0
+                }
+            ]
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_movespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -33
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -33
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -33
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_movespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 33
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 33
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 33
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:chelonian.origin.fortify_deactivate",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:origins/chelonian/fortify_cooldown"
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    "dmgtaken": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "addition",
+            "value": 0,
+            "resource": "tepids_origins:origins/chelonian/fortify_dmgtaken_tracker"
+        }
+    },
+    "dmgtaken_tracker": {
+        "type": "origins:resource",
+        "min": -5,
+        "max": -1,
+        "start_value": -1
+    },
+    "vfx": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "apugli:entity_texture_overlay",
+        "texture_location": "tepids_origins:textures/icons/overlays/chelonian_fortify.png",
+        "render_player_outer_layer": true
+    }
+}

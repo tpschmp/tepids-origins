@@ -1,0 +1,116 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:items/generic/pacifist_boolean",
+            "value": 1
+        }
+    },
+    "whenhit": {
+        "type": "origins:self_action_when_hit",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "mob"
+                },
+                {
+                    "type": "origins:projectile"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "wither"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "magic"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "indirectMagic"
+                },
+                {
+                    "type": "origins:explosive"
+                },
+                {
+                    "type": "origins:fire"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:items/generic/pacifist_boolean",
+            "value": 0
+        },
+        "cooldown": 10
+    },
+    "aot1": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/generic/pacifist_boolean",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:absorption",
+                "duration": 30,
+                "amplifier": 0,
+                "show_particles": false,
+                "show_icon": false
+            }
+        }
+    },
+    "onhit": {
+        "type": "origins:self_action_on_hit",
+        "entity_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:items/generic/pacifist_boolean",
+            "value": 0
+        },
+        "cooldown": 10
+    },
+    "aot2": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/generic/pacifist_boolean",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/generic/pacifist_cooldown",
+            "modifier": {
+                "operation": "addition",
+                "value": 1
+            }
+        },
+        "falling_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:items/generic/pacifist_cooldown",
+            "value": 0
+        }
+    }
+}

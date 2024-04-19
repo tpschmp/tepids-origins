@@ -1,0 +1,82 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 30,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 5
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:revoke_power",
+                    "power": "tepids_origins:skills/druid/u3_buff",
+                    "source": "tepids_origins:skills/druid/u3_buff"
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_movespd_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                }
+            ]
+        }
+    },
+    "aot": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:skills/druid/u3_buff_duration",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        },
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        }
+    },
+    "dmg_immunity": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "effect_immunity": {
+        "type": "origins:effect_immunity",
+        "effects": [
+            "minecraft:slowness",
+            "minecraft:mining_fatigue",
+            "minecraft:nausea",
+            "minecraft:blindness",
+            "minecraft:hunger",
+            "minecraft:weakness",
+            "minecraft:poison",
+            "minecraft:wither",
+            "minecraft:levitation",
+            "minecraft:unluck",
+            "minecraft:darkness",
+            "minecraft:bad_omen",
+            "tepids_origins:sight_of_a_warden"
+        ]
+    },
+    "shader": {
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/color_convolve.json",
+        "toggleable": false
+    }
+}

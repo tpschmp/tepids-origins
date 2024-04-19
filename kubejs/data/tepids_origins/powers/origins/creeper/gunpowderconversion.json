@@ -1,0 +1,23 @@
+{
+    "name": "Gunpowder Conversion",
+    "description": "Food consumed restores less hunger and saturation.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Food Efficacy: -40%\n",
+                "Saturation Efficacy: -20%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:modify_food",
+    "food_modifier": {
+        "operation": "multiply_total",
+        "value": -0.4
+    },
+    "saturation_modifier": {
+        "operation": "multiply_total",
+        "value": -0.2
+    }
+}

@@ -1,0 +1,100 @@
+{
+    "name": "Tight Fit",
+    "description": "Helmets will slowly suffocate you.\n　",
+    "badges": [
+        {
+            "type": "origins:crafting_recipe",
+            "recipe": {
+                "id": "tepids_origins:crown_of_rising_tides",
+                "type": "minecraft:crafting_shaped",
+                "pattern": [
+                    "ABC",
+                    "OX ",
+                    "   "
+                ],
+                "key": {
+                    "A": {
+                        "item": "tepids_origins:golden_medium_crest"
+                    },
+                    "B": {
+                        "item": "tepids_origins:golden_overworld_crest"
+                    },
+                    "C": {
+                        "item": "tepids_origins:golden_exploration_crest"
+                    },
+                    "O": {
+                        "item": "minecraft:diamond_helmet"
+                    },
+                    "X": {
+                        "item": "minecraft:netherite_ingot"
+                    }
+                },
+                "result": {
+                    "item": "tepids_origins:crown_of_rising_tides",
+                    "count": 1
+                }
+            },
+            "suffix": "The Crown of Rising Tides bypasses this effect",
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1
+    },
+    "drown": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/merrow/tightfit_boolean",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "eggolib:modify_breathing",
+        "breathable_block_condition": {
+            "type": "origins:block",
+            "block": "minecraft:bedrock"
+        },
+        "priority": 2,
+        "breathing_status_effects": [
+            "minecraft:water_breathing",
+            "minecraft:conduit_power"
+        ]
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "inverted": true,
+                        "type": "origins:empty"
+                    },
+                    {
+                        "inverted": true,
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "tepids_origins:merrow_set"
+                        }
+                    }
+                ]
+            }
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:origins/merrow/tightfit_boolean",
+            "value": 0
+        },
+        "falling_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:origins/merrow/tightfit_boolean",
+            "value": 1
+        }
+    }
+}

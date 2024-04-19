@@ -1,0 +1,266 @@
+{
+    "name": "Kinship",
+    "description": "Maximum health is decreased, but increases based on the number of tamed wolves nearby.\nTamed wolves are better at combat.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Max Health: -8\n",
+                "Health Increase: +2/wolf\n",
+                "Range: 16 blocks\n",
+                "Wolf Damage Dealt: +20% "
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "maxhp_modifier": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.max_health",
+        "modifier": {
+            "operation": "addition",
+            "value": 0,
+            "resource": "tepids_origins:origins/lycan/kinship_maxhp_tracker"
+        }
+    },
+    "maxhp_tracker": {
+        "type": "origins:resource",
+        "min": -8,
+        "max": -2,
+        "start_value": -8
+    },
+    "aot": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 16,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:tamed"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:wolf"
+                        }
+                    ]
+                }
+            },
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:grant_power",
+                            "power": "tepids_origins:origins/lycan/kinship_wolf_dmgbuff",
+                            "source": "tepids_origins:lycan/kinship"
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/lycan/u1"
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:grant_power",
+                                "power": "tepids_origins:origins/lycan/kinship_wolf_lifesteal",
+                                "source": "tepids_origins:lycan/kinship"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/lycan/d1"
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:grant_power",
+                                "power": "tepids_origins:origins/lycan/kinship_wolf_crit",
+                                "source": "tepids_origins:lycan/kinship"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "wolf_dmgbuff": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:tamed"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:wolf"
+                },
+                {
+                    "type": "origins:command",
+                    "command": "power has @e[distance=..16] tepids_origins:origins/lycan/kinship",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.2
+        }
+    },
+    "maxhp1": {
+        "condition": {
+            "type": "origins:command",
+            "command": "power has @e[distance=..16,type=minecraft:wolf] tepids_origins:origins/lycan/kinship_wolf_dmgbuff",
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/lycan/kinship_maxhp_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 2
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/lycan/kinship_maxhp_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -2
+            }
+        }
+    },
+    "maxhp2": {
+        "condition": {
+            "type": "origins:command",
+            "command": "power has @e[distance=..16,type=minecraft:wolf] tepids_origins:origins/lycan/kinship_wolf_dmgbuff",
+            "comparison": ">=",
+            "compare_to": 2
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/lycan/kinship_maxhp_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 2
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/lycan/kinship_maxhp_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -2
+            }
+        }
+    },
+    "maxhp3": {
+        "condition": {
+            "type": "origins:command",
+            "command": "power has @e[distance=..16,type=minecraft:wolf] tepids_origins:origins/lycan/kinship_wolf_dmgbuff",
+            "comparison": ">=",
+            "compare_to": 3
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/lycan/kinship_maxhp_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 2
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/lycan/kinship_maxhp_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -2
+            }
+        }
+    },
+    "wolf_lifesteal": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:tamed"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:wolf"
+                },
+                {
+                    "type": "origins:command",
+                    "command": "power has @e[distance=..16] tepids_origins:skills/lycan/u1",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:self_action_on_hit",
+        "target_condition": {
+            "type": "origins:power",
+            "power": "tepids_origins:origins/lycan/preyontheweak_debuff"
+        },
+        "entity_action": {
+            "type": "origins:heal",
+            "amount": 2
+        },
+        "cooldown": 10
+    },
+    "wolf_crit": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:tamed"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:wolf"
+                },
+                {
+                    "type": "origins:command",
+                    "command": "power has @e[distance=..16] tepids_origins:skills/lycan/d1",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "eggolib:chance",
+                    "chance": 0.5
+                }
+            ]
+        },
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.5
+        }
+    }
+}

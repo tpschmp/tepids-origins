@@ -1,0 +1,19 @@
+{
+    "hidden": true,
+    "type": "origins:modify_damage_dealt",
+    "bientity_condition": {
+        "type": "origins:relative_rotation",
+        "actor_rotation": "head",
+        "target_rotation": "body",
+        "comparison": ">=",
+        "compare_to": -0.2
+    },
+    "damage_condition": {
+        "type": "origins:name",
+        "name": "player"
+    },
+    "modifier": {
+        "operation": "addition",
+        "value": 2
+    }
+}

@@ -1,0 +1,90 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "conduitpower": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/cooldowns_merrow_equip",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:items/cooldowns_merrow_equip"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:conduit_power",
+                        "duration": 400,
+                        "amplifier": 0,
+                        "is_ambient": true,
+                        "show_particles": true,
+                        "show_icon": true
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:merrow.item.equip",
+                    "volume": 0.6,
+                    "pitch": 1
+                }
+            ]
+        }
+    },
+    "waterwalk": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:swimming"
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "<=",
+                    "compare_to": 0.4
+                }
+            ]
+        },
+        "type": "origins:walk_on_fluid",
+        "fluid": "minecraft:water"
+    },
+    "movespd": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                },
+                {
+                    "type": "origins:on_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:in_tag",
+                            "tag": "minecraft:water"
+                        }
+                    }
+                }
+            ]
+        },
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.33
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "Creeper",
+    "description": "Experienced in the art of camouflage, Creepers tend to explode first, ask questions later.\n　",
+    "powers": [
+        "tepids_origins:labels/dimensions/overworld",
+        "tepids_origins:labels/archetypes/combat",
+        "tepids_origins:origins/creeper/skills",
+        "tepids_origins:origins/creeper/shortlimbs",
+        "tepids_origins:origins/creeper/selfignition",
+        "tepids_origins:origins/creeper/gunpowderconversion",
+        "tepids_origins:origins/creeper/shortfuse",
+        "tepids_origins:origins/creeper/blendin",
+        "tepids_origins:origins/creeper/lightfuse",
+        "tepids_origins:origins/creeper/detonate",
+        "tepids_origins:origins/creeper/recharge",
+        "tepids_origins:origins/creeper/blast"
+    ],
+    "icon": {
+        "item": "tepids_origins:supercharged_flint_and_steel"
+    },
+    "order": 7,
+    "impact": 3,
+    "loading_priority": 0
+}

@@ -1,0 +1,87 @@
+{
+    "name": "One With Nature",
+    "description": "You gain more experience when near tilled land or recently-placed saplings, but lose the ability to naturally regenerate health otherwise.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Range: 16 blocks\n",
+                "XP Gain: +20%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "xpgain": {
+        "condition": {
+            "type": "origins:block_in_radius",
+            "block_condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:block",
+                        "block": "minecraft:farmland"
+                    },
+                    {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:crops"
+                    },
+                    {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:saplings"
+                    }
+                ]
+            },
+            "radius": 16,
+            "shape": "sphere",
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_xpgain_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_xpgain_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        }
+    },
+    "preventregen": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:block_in_radius",
+            "block_condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:block",
+                        "block": "minecraft:farmland"
+                    },
+                    {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:crops"
+                    },
+                    {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:saplings"
+                    }
+                ]
+            },
+            "radius": 16,
+            "shape": "sphere",
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "type": "origins:disable_regen"
+    }
+}

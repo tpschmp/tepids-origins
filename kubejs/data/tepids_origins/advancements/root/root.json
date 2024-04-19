@@ -1,0 +1,18 @@
+{
+    "display": {
+        "icon": {
+            "item": "tepids_origins:origin_essence"
+        },
+        "title": "tepid's origins",
+        "description": "Welcome home",
+        "frame": "challenge",
+        "background": "tepids_origins:textures/icons/bg/overworld.png",
+        "show_toast": false,
+        "announce_to_chat": false
+    },
+    "criteria": {
+        "criteria": {
+            "trigger": "minecraft:tick"
+        }
+    }
+}

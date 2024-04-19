@@ -1,0 +1,203 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "effectres": {
+        "condition": {
+            "type": "eggolib:chance",
+            "chance": 0.66
+        },
+        "type": "origins:effect_immunity",
+        "effects": [
+            "minecraft:slowness",
+            "minecraft:mining_fatigue",
+            "minecraft:nausea",
+            "minecraft:blindness",
+            "minecraft:hunger",
+            "minecraft:weakness",
+            "minecraft:poison",
+            "minecraft:wither",
+            "minecraft:levitation",
+            "minecraft:unluck",
+            "minecraft:darkness",
+            "minecraft:bad_omen",
+            "tepids_origins:sight_of_a_warden"
+        ]
+    },
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/cooldowns_druid_4pc",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:items/druid/4pc_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/cooldowns_druid_4pc",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:items/druid/4pc_boolean",
+            "value": 1
+        }
+    },
+    "onability_actions": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_druid_4pc",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/druid/4pc_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 235
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/villager/takemystuff_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 195
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/allay/search_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 595
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/allay/delivery_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 55
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:items/cooldowns_druid_4pc"
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/druid/4pc_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:druid.item.4pc",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 16,
+                    "include_target": true,
+                    "bientity_condition": {
+                        "inverted": true,
+                        "type": "origins:undirected",
+                        "condition": {
+                            "type": "origins:attack_target"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:heal",
+                                    "amount": 1
+                                },
+                                {
+                                    "type": "origins:delay",
+                                    "action": {
+                                        "type": "origins:heal",
+                                        "amount": 1
+                                    },
+                                    "ticks": 20
+                                },
+                                {
+                                    "type": "origins:delay",
+                                    "action": {
+                                        "type": "origins:heal",
+                                        "amount": 1
+                                    },
+                                    "ticks": 40
+                                },
+                                {
+                                    "type": "origins:delay",
+                                    "action": {
+                                        "type": "origins:heal",
+                                        "amount": 1
+                                    },
+                                    "ticks": 60
+                                },
+                                {
+                                    "type": "origins:delay",
+                                    "action": {
+                                        "type": "origins:heal",
+                                        "amount": 1
+                                    },
+                                    "ticks": 80
+                                },
+                                {
+                                    "type": "origins:delay",
+                                    "action": {
+                                        "type": "origins:heal",
+                                        "amount": 1
+                                    },
+                                    "ticks": 100
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "name": "Fish out of Water",
+    "description": "Air drowns you and reduces mining speed. Slip on blocks above water.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Mining Speed: -60%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "onblock_slip": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        },
+        "type": "origins:modify_slipperiness",
+        "block_condition": {
+            "type": "origins:slipperiness",
+            "comparison": "<",
+            "compare_to": 0.98
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.7
+        }
+    },
+    "minespd": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_minespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -60
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_minespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 60
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+{
+    "type": "origins:action_on_callback",
+    "execute_chosen_when_orb": true,
+    "entity_action_gained": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": 20
+                }
+            },
+            {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_projectile_dmgdealt_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": 20
+                }
+            },
+            {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_magic_dmgdealt_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": 20
+                }
+            },
+            {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_incendiary_dmgdealt_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": 20
+                }
+            }
+        ]
+    },
+    "entity_action_lost": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": -20
+                }
+            },
+            {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_projectile_dmgdealt_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": -20
+                }
+            },
+            {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_magic_dmgdealt_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": -20
+                }
+            },
+            {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_incendiary_dmgdealt_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": -20
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,259 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_druid_active_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/druid/active_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_druid_active_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/druid/active_duration",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/druid/active_duration",
+                    "value": 100
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/cooldowns_druid_active_boolean",
+                    "value": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:items/cooldowns_druid_active"
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                }
+            ]
+        }
+    },
+    "failsafe": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_druid_active_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:items/cooldowns_druid_active"
+                    },
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/cooldowns_druid_active_boolean",
+                        "value": 1
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "activate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_druid_active",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_druid_active_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/cooldowns_druid_active_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/druid/active_duration",
+                    "value": 100
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:druid.item.active",
+                    "volume": 0.6,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "tepids_origins:enhanced_sower_of_life"
+                                    }
+                                }
+                            },
+                            "action": {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 10
+                                }
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "offhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "tepids_origins:enhanced_sower_of_life"
+                                    }
+                                }
+                            },
+                            "action": {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "offhand",
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 10
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.use"
+        }
+    },
+    "xplifesteal": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/druid/active_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_druid_active_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:heal",
+                                "amount": 1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "summon experience_orb ~ ~ ~ {Value:3}"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "xp add @s -3 points"
+                    }
+                }
+            ]
+        },
+        "cooldown": 10
+    }
+}

@@ -1,0 +1,276 @@
+{
+    "name": "Light Fuse / Detonate",
+    "description": "Speed yourself up. Lose hunger over time to gain Fuse stacks.\nAfter Lighting Fuse, using this again will launch you and cause an explosion upon landing based on Fuse stacks gained.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                {
+                    "color": "dark_purple",
+                    "text": "Active ability. Activate with "
+                },
+                {
+                    "color": "gold",
+                    "keybind": "key.origins.primary_active"
+                },
+                {
+                    "color": "dark_purple",
+                    "text": "."
+                }
+            ],
+            "sprite": "origins:textures/gui/badge/active.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Light Fuse - Hunger Threshold: 10\n",
+                "Light Fuse - Hunger Cost: 2/Fuse stack\n",
+                "Light Fuse - Fuse Stack Gain: 1/s\n",
+                "Light Fuse - Cooldown: 25 seconds\n \n",
+                "Detonate - Explosive Power: 0.643/1.715/3.143/4.929/7.072\n(at 1/2/3/4/5 Fuse)\n"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 14,
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "inverted": true,
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            }
+        }
+    },
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 500,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 15
+        }
+    },
+    "boolean": {
+        "type": "origins:resource",
+        "min": -1,
+        "max": 1,
+        "start_value": 0
+    },
+    "activate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/creeper/recharge_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 10
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                    "value": 1
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:creeper.origin.light_fuse",
+                    "volume": 0.6,
+                    "pitch": 1
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "stacks": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                    "comparison": "<",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 10
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 1
+                    }
+                },
+                {
+                    "type": "origins:feed",
+                    "food": -2,
+                    "saturation": 0
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:skills/creeper/u3_duration",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:feed",
+                        "food": 2,
+                        "saturation": 0
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "item.flintandsteel.use",
+                    "volume": 0.8,
+                    "pitch": 0.8
+                }
+            ]
+        },
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        }
+    },
+    "detonate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:sneaking"
+                    },
+                    "if_action": {
+                        "type": "origins:add_velocity",
+                        "y": 0.6,
+                        "space": "local",
+                        "client": true,
+                        "server": true
+                    },
+                    "else_action": {
+                        "type": "origins:add_velocity",
+                        "y": 1.6,
+                        "z": 0.8,
+                        "space": "local",
+                        "client": true,
+                        "server": true
+                    }
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                    "value": -1
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:creeper.origin.detonate",
+                    "volume": 0.6,
+                    "pitch": 1
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    }
+}

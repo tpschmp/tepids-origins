@@ -1,0 +1,56 @@
+{
+    "name": "Amphibian Nature",
+    "description": "You have less health and can only fall asleep in contact with water.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Max Health: -6"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "sleepinrain": {
+        "condition": {
+            "type": "origins:in_rain"
+        },
+        "type": "origins:prevent_sleep",
+        "block_condition": {
+            "inverted": true,
+            "type": "origins:exposed_to_sky"
+        },
+        "message": "This area is not humid enough for you to sleep in!",
+        "set_spawn_point": true
+    },
+    "sleepinwater": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:in_rain"
+        },
+        "type": "origins:prevent_sleep",
+        "block_condition": {
+            "inverted": true,
+            "type": "origins:adjacent",
+            "adjacent_condition": {
+                "type": "origins:fluid",
+                "fluid_condition": {
+                    "type": "origins:fluid",
+                    "fluid": "minecraft:water"
+                }
+            },
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "message": "This area is not humid enough for you to sleep in!",
+        "set_spawn_point": true
+    },
+    "hp": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.max_health",
+        "modifier": {
+            "operation": "addition",
+            "value": -6
+        }
+    }
+}

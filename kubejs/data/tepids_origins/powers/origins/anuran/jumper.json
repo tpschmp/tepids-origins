@@ -1,0 +1,51 @@
+{
+    "name": "Jumper",
+    "description": "You jump higher and take less fall damage.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Jump Height: +2 blocks\n",
+                "Fall Damage Taken: -30% & -2"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "jumpheight": {
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "addition",
+            "value": 0.2
+        }
+    },
+    "falldmg": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_gained": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_fall_dmgtaken_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -30
+            }
+        }
+    },
+    "falldmg_modifier": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:from_falling"
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": 0,
+            "resource": "tepids_origins:origins/anuran/jumper_falldmg_tracker"
+        }
+    },
+    "falldmg_tracker": {
+        "type": "origins:resource",
+        "min": -6,
+        "max": -2,
+        "start_value": -2
+    }
+}

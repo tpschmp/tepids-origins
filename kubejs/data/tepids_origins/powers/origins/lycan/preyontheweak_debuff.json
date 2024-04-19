@@ -1,0 +1,62 @@
+{
+    "type": "origins:multiple",
+    "glow": {
+        "type": "origins:self_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "tepids_origins:overworld/lycan"
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1,
+        "green": 0,
+        "blue": 0
+    },
+    "dmgtakendebuff": {
+        "type": "origins:modify_damage_taken",
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:wolf"
+            }
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": 2
+        }
+    },
+    "aot": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/lycan/preyontheweak_debuff_tracker",
+            "modifier": {
+                "operation": "add_base_early",
+                "value": -1
+            }
+        }
+    },
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "min_action": {
+            "type": "origins:revoke_power",
+            "power": "tepids_origins:origins/lycan/preyontheweak_debuff",
+            "source": "tepids_origins:lycan/preyontheweak"
+        }
+    }
+}

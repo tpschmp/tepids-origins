@@ -1,0 +1,456 @@
+{
+    "name": "Sonic Boom",
+    "description": "Consume hunger to release a sonic wave that knocks you back and damages targeted entities. Deal additional damage to entities affected by Sight of a Warden.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                {
+                    "color": "dark_purple",
+                    "text": "Active ability. Activate with "
+                },
+                {
+                    "color": "gold",
+                    "keybind": "key.origins.secondary_active"
+                },
+                {
+                    "color": "dark_purple",
+                    "text": "."
+                }
+            ],
+            "sprite": "origins:textures/gui/badge/active.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Hunger Threshold: 8\n",
+                "Hunger Cost: 4\n",
+                "Range: 16 blocks\n",
+                "Base Damage: 6\n",
+                "Damage Boost: +100%\n",
+                "Cooldown: 7.5 seconds"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 150,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 24
+        }
+    },
+    "dmgboost": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/sculkcritter/sonicboom_boolean",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:modify_damage_dealt",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:status_effect",
+                "effect": "tepids_origins:sight_of_a_warden"
+            }
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 1
+        }
+    },
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "activate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/sculkcritter/sonicboom_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 16,
+            "block": true,
+            "entity": true,
+            "shape_type": "outline",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:set_resource",
+                            "resource": "tepids_origins:origins/sculkcritter/sonicboom_boolean",
+                            "value": 1
+                        }
+                    },
+                    {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "condition": {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c1"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c2"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c3"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c4"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 10,
+                                    "source": {
+                                        "name": "magic",
+                                        "magic": true
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "origins:or",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c1"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c2"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c3"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c1"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c2"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c4"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c1"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c3"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c4"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c2"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c3"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c4"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 9,
+                                    "source": {
+                                        "name": "magic",
+                                        "magic": true
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "origins:or",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c1"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c2"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c1"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c3"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c1"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c4"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c2"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c3"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c2"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c4"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c3"
+                                                    },
+                                                    {
+                                                        "type": "origins:power",
+                                                        "power": "tepids_origins:skills/sculkcritter/c4"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 8,
+                                    "source": {
+                                        "name": "magic",
+                                        "magic": true
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "origins:or",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c1"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c2"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c3"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c4"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 7,
+                                    "source": {
+                                        "name": "magic",
+                                        "magic": true
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "inverted": true,
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c1"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c2"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c3"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "tepids_origins:skills/sculkcritter/c4"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 6,
+                                    "source": {
+                                        "name": "magic",
+                                        "magic": true
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:add_velocity",
+                        "z": 1,
+                        "client": true,
+                        "server": true
+                    }
+                ]
+            },
+            "hit_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:set_resource",
+                            "resource": "tepids_origins:origins/sculkcritter/sonicboom_boolean",
+                            "value": 0
+                        },
+                        "ticks": 1
+                    },
+                    {
+                        "type": "origins:add_velocity",
+                        "z": -1.5,
+                        "space": "local",
+                        "client": true,
+                        "server": true
+                    },
+                    {
+                        "type": "origins:feed",
+                        "food": -4,
+                        "saturation": 0
+                    },
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:origins/sculkcritter/sonicboom_cooldown"
+                    },
+                    {
+                        "type": "origins:play_sound",
+                        "sound": "minecraft:entity.warden.sonic_boom",
+                        "volume": 0.4,
+                        "pitch": 1
+                    },
+                    {
+                        "type": "origins:play_sound",
+                        "sound": "tepids_origins:sculkcritter.origin.sonic_boom",
+                        "volume": 0.6,
+                        "pitch": 1
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:sonic_boom ~ ~ ~ 0 0 0 0.125 15 normal",
+            "command_along_ray_only_on_hit": true
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    }
+}

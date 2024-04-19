@@ -1,0 +1,279 @@
+{
+    "type": "origins:multiple",
+    "disableondmgtaken": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:skills/lycan/u3_buff_boolean_invis",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:skills/lycan/u3_buff_boolean_invis",
+                    "value": 0
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:skills/lycan/u3_buff_boolean_invis",
+                        "value": 1
+                    },
+                    "ticks": 200
+                }
+            ]
+        },
+        "cooldown": 1
+    },
+    "aot": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:skills/lycan/u3_buff_tracker",
+            "modifier": {
+                "operation": "add_base_early",
+                "value": -1
+            }
+        }
+    },
+    "mobignore": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:skills/lycan/u3_buff",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "apugli:mobs_ignore"
+    },
+    "onhit_actions": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:skills/lycan/u3_buff_boolean_invis",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:skills/lycan/u3_buff_boolean_frenzy",
+                        "value": 1
+                    },
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:skills/lycan/u3_buff_boolean_invis",
+                        "value": 0
+                    },
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:set_resource",
+                            "resource": "tepids_origins:skills/lycan/u3_buff_boolean_invis",
+                            "value": 1
+                        },
+                        "ticks": 200
+                    },
+                    {
+                        "type": "origins:play_sound",
+                        "sound": "block.enchantment_table.use",
+                        "volume": 1,
+                        "pitch": 1.2
+                    }
+                ]
+            }
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "mob"
+                }
+            ]
+        },
+        "cooldown": 1
+    },
+    "boolean_invis": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 10
+        }
+    },
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 3,
+        "min_action": {
+            "type": "origins:revoke_power",
+            "power": "tepids_origins:skills/lycan/u3_buff",
+            "source": "tepids_origins:skills/lycan/u3"
+        }
+    },
+    "boolean_frenzy": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "invisibility": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:skills/lycan/u3_buff_boolean_invis",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "render_outline": true
+    },
+    "glow": {
+        "type": "origins:self_glow",
+        "entity_condition": {
+            "type": "origins:power",
+            "power": "tepids_origins:skills/lycan/u3_buff"
+        },
+        "bientity_condition": {
+            "type": "origins:owner"
+        },
+        "use_teams": false,
+        "red": 1,
+        "green": 1,
+        "blue": 0
+    },
+    "frenzy": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/lycan/u3_buff_boolean_frenzy",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/lycan/u3_buff_boolean_invis",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:origin",
+                    "origin": "tepids_origins:overworld/lycan"
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "inverted": true,
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:origins/lycan/preyontheweak_duration",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "inverted": true,
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/lycan/u2"
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
+                                        "comparison": "<",
+                                        "compare_to": 5
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/lycan/u2"
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
+                                        "comparison": "<",
+                                        "compare_to": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 1
+                        }
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 4
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/lycan/d2"
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:modify_resource",
+                                    "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                                    "modifier": {
+                                        "operation": "addition",
+                                        "value": 2
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

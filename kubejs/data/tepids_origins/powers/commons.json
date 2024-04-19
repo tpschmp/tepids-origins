@@ -1,0 +1,183 @@
+{
+    "type": "origins:multiple",
+    "encyclopedia": {
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "tepids_origins:evolution_encyclopedia"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "tepids_origins:evolution_encyclopedia"
+                        }
+                    }
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "puffish_skills skills reset @s tepids_origins:chelonian"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "puffish_skills skills reset @s tepids_origins:druid"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "puffish_skills skills reset @s tepids_origins:anuran"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "puffish_skills skills reset @s tepids_origins:lycan"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "puffish_skills skills reset @s tepids_origins:villager"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "puffish_skills skills reset @s tepids_origins:merrow"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "puffish_skills skills reset @s tepids_origins:creeper"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "puffish_skills skills reset @s tepids_origins:allay"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "puffish_skills skills reset @s tepids_origins:sculkcritter"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revokeall @s tepids_origins:set_bonuses"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "origin gui @s"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "tepids_origins:evolution_encyclopedia"
+                            }
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:equipped_item_action",
+                        "equipment_slot": "mainhand",
+                        "action": {
+                            "type": "origins:consume",
+                            "amount": 1
+                        }
+                    },
+                    "else_action": {
+                        "type": "origins:equipped_item_action",
+                        "equipment_slot": "offhand",
+                        "action": {
+                            "type": "origins:consume",
+                            "amount": 1
+                        }
+                    }
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.use"
+        }
+    },
+    "sculkcritter_elytra": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "chest",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": [
+                    {
+                        "item": "tepids_origins:soulpowered_wingspan"
+                    },
+                    {
+                        "item": "tepids_origins:enhanced_soulpowered_wingspan"
+                    }
+                ]
+            }
+        },
+        "type": "origins:elytra_flight",
+        "render_elytra": true,
+        "texture_location": "tepids_origins:textures/item/sculkcritter/armor/elytra.png"
+    },
+    "sculkcritter_wardensight": {
+        "condition": {
+            "type": "origins:status_effect",
+            "effect": "tepids_origins:sight_of_a_warden",
+            "min_amplifier": 0,
+            "min_duration": 0
+        },
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/sobel.json",
+        "toggleable": false
+    },
+    "orb": {
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "origins:orb_of_origin"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "origins:orb_of_origin"
+                        }
+                    }
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power revokeall @s tepids_origins:set_bonuses"
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.use"
+        }
+    },
+    "preventmovementchecks": {
+        "type": "apugli:prevent_movement_checks"
+    }
+}

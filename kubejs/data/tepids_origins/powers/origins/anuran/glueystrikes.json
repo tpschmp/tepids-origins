@@ -1,0 +1,62 @@
+{
+    "name": "Gluey Strikes",
+    "description": "Melee attacks deal less damage, but can inflict Slowness briefly.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Melee Damage Dealt: -50%\n",
+                "Slowness Chance: 50%\n",
+                "Slowness Duration: 5 seconds"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "meleedmg": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_gained": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -50
+            }
+        }
+    },
+    "slow": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:chance",
+            "chance": 0.5,
+            "action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "duration": 100,
+                        "amplifier": 0,
+                        "show_particles": true,
+                        "show_icon": true
+                    }
+                }
+            }
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "mob"
+                }
+            ]
+        },
+        "cooldown": 10
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "type": "origins:multiple",
+    "aot": {
+        "condition": {
+            "type": "origins:command",
+            "command": "data get entity @e[type=tnt,nbt={Tags:[\"noDamage\"]},distance=..5,limit=1] Fuse",
+            "comparison": "<",
+            "compare_to": 5
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/creeper/failsafe_boolean",
+                    "value": 1
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:origins/creeper/failsafe_boolean",
+                        "value": 0
+                    },
+                    "ticks": 10
+                }
+            ]
+        }
+    },
+    "dmgres": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/creeper/failsafe_boolean",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:explosive"
+        },
+        "modifier": {
+            "operation": "set_total",
+            "value": 0
+        },
+        "self_action": {
+            "type": "origins:delay",
+            "action": {
+                "type": "origins:set_resource",
+                "resource": "tepids_origins:origins/creeper/failsafe_boolean",
+                "value": 0
+            },
+            "ticks": 5
+        }
+    },
+    "boolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    }
+}

@@ -1,0 +1,193 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_guard_2pc_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/generic/guard_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_guard_2pc_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/generic/guard_duration",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -30
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -30
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/generic/guard_duration",
+                    "value": 200
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/cooldowns_guard_2pc_boolean",
+                    "value": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:items/cooldowns_guard_2pc"
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 30
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 30
+                    }
+                }
+            ]
+        }
+    },
+    "hit_actions": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_guard_2pc",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_guard_2pc_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "c:shields"
+                        }
+                    }
+                }
+            ]
+        },
+        "type": "origins:modify_damage_taken",
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/cooldowns_guard_2pc_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/generic/guard_duration",
+                    "value": 200
+                }
+            ]
+        }
+    },
+    "failsafe": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_guard_2pc_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/cooldowns_guard_2pc_boolean",
+                        "value": 1
+                    },
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:items/cooldowns_guard_2pc"
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 30
+                        }
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 30
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

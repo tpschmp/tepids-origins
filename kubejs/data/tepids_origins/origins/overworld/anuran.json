@@ -1,0 +1,20 @@
+{
+    "name": "Anuran",
+    "description": "From the swamps to the plains, Anurans are known for exploiting their slimey nature to jump across the world.\n　",
+    "powers": [
+        "tepids_origins:labels/dimensions/overworld",
+        "tepids_origins:labels/archetypes/exploration",
+        "tepids_origins:origins/anuran/amphibiannature",
+        "tepids_origins:origins/anuran/jumper",
+        "tepids_origins:origins/anuran/glueystrikes",
+        "tepids_origins:origins/anuran/lick",
+        "tepids_origins:origins/anuran/naturalhabitat",
+        "tepids_origins:origins/anuran/skills"
+    ],
+    "icon": {
+        "item": "tepids_origins:sticky_lasso"
+    },
+    "order": 3,
+    "impact": 1,
+    "loading_priority": 0
+}

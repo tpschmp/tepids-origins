@@ -1,0 +1,40 @@
+{
+    "type": "origins:multiple",
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 50,
+        "min_action": {
+            "type": "origins:revoke_power",
+            "power": "tepids_origins:origins/sculkcritter/sculksense_debuff",
+            "source": "tepids_origins:origins/sculkcritter/sculksense"
+        }
+    },
+    "aot": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/sculkcritter/sculksense_debuff_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        }
+    },
+    "glow": {
+        "type": "origins:self_glow",
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "tepids_origins:overworld/sculkcritter"
+            }
+        },
+        "use_teams": false,
+        "red": 0,
+        "green": 0.411,
+        "blue": 0.502
+    }
+}

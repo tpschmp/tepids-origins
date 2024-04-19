@@ -1,0 +1,72 @@
+{
+    "name": "No Man is an Island",
+    "description": "Gain different bonuses from nearby entities based on your relationship with them.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Range: 35 blocks\n",
+                "Hostile Entity Boost: Speed I\n",
+                "Friendly Entity Boost: Haste I"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "aot": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 35,
+                    "bientity_condition": {
+                        "type": "origins:undirected",
+                        "condition": {
+                            "type": "origins:attack_target"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:apply_effect",
+                            "effect": {
+                                "effect": "minecraft:speed",
+                                "duration": 30,
+                                "amplifier": 0,
+                                "show_particles": false,
+                                "show_icon": true
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 35,
+                    "bientity_condition": {
+                        "inverted": true,
+                        "type": "origins:undirected",
+                        "condition": {
+                            "type": "origins:attack_target"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:apply_effect",
+                            "effect": {
+                                "effect": "minecraft:haste",
+                                "duration": 30,
+                                "amplifier": 0,
+                                "show_particles": false,
+                                "show_icon": true
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

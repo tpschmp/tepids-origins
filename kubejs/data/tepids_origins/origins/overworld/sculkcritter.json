@@ -1,0 +1,22 @@
+{
+    "name": "Sculkcritter",
+    "description": "Born from a parasitic relation with what lies in the dark, Sculkcritters are masters of their limited senses.\n　",
+    "powers": [
+        "tepids_origins:labels/dimensions/overworld",
+        "tepids_origins:labels/archetypes/exploration",
+        "tepids_origins:origins/sculkcritter/skills",
+        "tepids_origins:origins/sculkcritter/wardensight",
+        "tepids_origins:origins/sculkcritter/silentsteps",
+        "tepids_origins:origins/sculkcritter/batanatomy",
+        "tepids_origins:origins/sculkcritter/echolocation",
+        "tepids_origins:origins/sculkcritter/sculksense",
+        "tepids_origins:origins/sculkcritter/takeflight",
+        "tepids_origins:origins/sculkcritter/sonicboom"
+    ],
+    "icon": {
+        "item": "tepids_origins:colony_of_a_thousand_ears"
+    },
+    "order": 9,
+    "impact": 3,
+    "loading_priority": 0
+}

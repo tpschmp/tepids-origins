@@ -1,0 +1,255 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_anuran_active_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/anuran/active_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_anuran_active_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/anuran/active_duration",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/anuran/active_duration",
+                    "value": 200
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:items/cooldowns_anuran_active_boolean",
+                    "value": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:items/cooldowns_anuran_active"
+                }
+            ]
+        }
+    },
+    "bouncyblocks": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/anuran/active_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_anuran_active_boolean",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "eggolib:modify_bounciness"
+    },
+    "launch": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_anuran_active",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_anuran_active_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 32,
+            "block": true,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:damage",
+                        "amount": 6,
+                        "source": {
+                            "name": "player"
+                        }
+                    },
+                    {
+                        "type": "origins:add_velocity",
+                        "z": -4,
+                        "client": true,
+                        "server": true
+                    }
+                ]
+            },
+            "hit_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:raycast",
+                            "distance": 32,
+                            "block": false,
+                            "entity": true,
+                            "shape_type": "collider",
+                            "fluid_handling": "none"
+                        },
+                        "if_action": {
+                            "type": "origins:nothing"
+                        },
+                        "else_action": {
+                            "type": "origins:add_velocity",
+                            "z": 3,
+                            "space": "local",
+                            "client": true,
+                            "server": true
+                        }
+                    },
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/cooldowns_anuran_active_boolean",
+                        "value": 0
+                    },
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/anuran/active_duration",
+                        "value": 200
+                    },
+                    {
+                        "type": "origins:play_sound",
+                        "sound": "tepids_origins:anuran.item.active",
+                        "volume": 0.6,
+                        "pitch": 1
+                    },
+                    {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "condition": {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "mainhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "tepids_origins:enhanced_sticky_lasso"
+                                        }
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:damage",
+                                        "amount": 10
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "offhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "tepids_origins:enhanced_sticky_lasso"
+                                        }
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "offhand",
+                                    "action": {
+                                        "type": "origins:damage",
+                                        "amount": 10
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:crit ~ ~ ~ 0 0.625 0.625 0.125 15 normal",
+            "command_along_ray_only_on_hit": true
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.use"
+        }
+    },
+    "failsafe": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_anuran_active_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:items/cooldowns_anuran_active"
+                    },
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/cooldowns_anuran_active_boolean",
+                        "value": 1
+                    }
+                ]
+            }
+        }
+    }
+}

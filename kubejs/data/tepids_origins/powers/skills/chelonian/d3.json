@@ -1,0 +1,26 @@
+{
+    "condition": {
+        "type": "origins:resource",
+        "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+        "comparison": "==",
+        "compare_to": 1
+    },
+    "type": "origins:action_over_time",
+    "interval": 20,
+    "rising_action": {
+        "type": "origins:modify_resource",
+        "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+        "modifier": {
+            "operation": "addition",
+            "value": 30
+        }
+    },
+    "falling_action": {
+        "type": "origins:modify_resource",
+        "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+        "modifier": {
+            "operation": "addition",
+            "value": -30
+        }
+    }
+}

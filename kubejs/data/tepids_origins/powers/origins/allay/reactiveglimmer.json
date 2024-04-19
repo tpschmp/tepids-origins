@@ -1,0 +1,277 @@
+{
+    "name": "Reactive Glimmer",
+    "description": "Gain movement speed and become a light source when moving near dropped items.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Movement Speed: +20%\n",
+                "Light Level: 5/10/15\n(when near 3/6/10+ drops)"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "lighttracker": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @e[type=item,distance=..16]",
+                                        "comparison": ">=",
+                                        "compare_to": 3
+                                    },
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @e[type=item,distance=..16]",
+                                        "comparison": "<",
+                                        "compare_to": 6
+                                    },
+                                    {
+                                        "type": "origins:in_block_anywhere",
+                                        "block_condition": {
+                                            "type": "origins:fluid",
+                                            "fluid_condition": {
+                                                "inverted": true,
+                                                "type": "origins:empty"
+                                            }
+                                        },
+                                        "comparison": "==",
+                                        "compare_to": 0
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:block_action_at",
+                                        "block_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:if_else",
+                                                    "condition": {
+                                                        "type": "origins:block",
+                                                        "block": "minecraft:air"
+                                                    },
+                                                    "if_action": {
+                                                        "type": "origins:set_block",
+                                                        "block": "minecraft:light"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:modify_block_state",
+                                                    "property": "level",
+                                                    "operation": "set",
+                                                    "change": 5
+                                                },
+                                                {
+                                                    "type": "origins:delay",
+                                                    "action": {
+                                                        "type": "origins:if_else",
+                                                        "condition": {
+                                                            "type": "origins:block",
+                                                            "block": "minecraft:light"
+                                                        },
+                                                        "if_action": {
+                                                            "type": "origins:set_block",
+                                                            "block": "minecraft:air"
+                                                        }
+                                                    },
+                                                    "ticks": 40
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @e[type=item,distance=..16]",
+                                        "comparison": ">=",
+                                        "compare_to": 6
+                                    },
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @e[type=item,distance=..16]",
+                                        "comparison": "<",
+                                        "compare_to": 10
+                                    },
+                                    {
+                                        "type": "origins:in_block_anywhere",
+                                        "block_condition": {
+                                            "type": "origins:fluid",
+                                            "fluid_condition": {
+                                                "inverted": true,
+                                                "type": "origins:empty"
+                                            }
+                                        },
+                                        "comparison": "==",
+                                        "compare_to": 0
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:block_action_at",
+                                        "block_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:if_else",
+                                                    "condition": {
+                                                        "type": "origins:block",
+                                                        "block": "minecraft:air"
+                                                    },
+                                                    "if_action": {
+                                                        "type": "origins:set_block",
+                                                        "block": "minecraft:light"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:modify_block_state",
+                                                    "property": "level",
+                                                    "operation": "set",
+                                                    "change": 10
+                                                },
+                                                {
+                                                    "type": "origins:delay",
+                                                    "action": {
+                                                        "type": "origins:if_else",
+                                                        "condition": {
+                                                            "type": "origins:block",
+                                                            "block": "minecraft:light"
+                                                        },
+                                                        "if_action": {
+                                                            "type": "origins:set_block",
+                                                            "block": "minecraft:air"
+                                                        }
+                                                    },
+                                                    "ticks": 40
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @e[type=item,distance=..16]",
+                                        "comparison": ">=",
+                                        "compare_to": 10
+                                    },
+                                    {
+                                        "type": "origins:in_block_anywhere",
+                                        "block_condition": {
+                                            "type": "origins:fluid",
+                                            "fluid_condition": {
+                                                "inverted": true,
+                                                "type": "origins:empty"
+                                            }
+                                        },
+                                        "comparison": "==",
+                                        "compare_to": 0
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:block_action_at",
+                                        "block_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:if_else",
+                                                    "condition": {
+                                                        "type": "origins:block",
+                                                        "block": "minecraft:air"
+                                                    },
+                                                    "if_action": {
+                                                        "type": "origins:set_block",
+                                                        "block": "minecraft:light"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:modify_block_state",
+                                                    "property": "level",
+                                                    "operation": "set",
+                                                    "change": 15
+                                                },
+                                                {
+                                                    "type": "origins:delay",
+                                                    "action": {
+                                                        "type": "origins:if_else",
+                                                        "condition": {
+                                                            "type": "origins:block",
+                                                            "block": "minecraft:light"
+                                                        },
+                                                        "if_action": {
+                                                            "type": "origins:set_block",
+                                                            "block": "minecraft:air"
+                                                        }
+                                                    },
+                                                    "ticks": 40
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "movespd": {
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @e[type=item,distance=..16]",
+            "comparison": ">=",
+            "compare_to": 3
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_movespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        }
+    }
+}

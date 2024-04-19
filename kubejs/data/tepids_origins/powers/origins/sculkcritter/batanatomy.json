@@ -1,0 +1,45 @@
+{
+    "name": "Bat-like Anatomy",
+    "description": "You have less health, but can glide without an Elytra and receive less kinetic damage. \n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Max Health: -6\n",
+                "Kinetic Damage Taken: -90%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "lesshp": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.max_health",
+        "modifier": {
+            "operation": "addition",
+            "value": 0,
+            "resource": "tepids_origins:origins/sculkcritter/batanatomy_tracker"
+        }
+    },
+    "tracker": {
+        "type": "origins:resource",
+        "min": -6,
+        "max": -2,
+        "start_value": -6
+    },
+    "elytra": {
+        "type": "origins:elytra_flight",
+        "render_elytra": false
+    },
+    "kineticdmg": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "flyIntoWall"
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.9
+        }
+    }
+}

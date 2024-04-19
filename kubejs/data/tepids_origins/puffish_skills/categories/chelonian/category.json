@@ -1,0 +1,12 @@
+{
+    "title": "Chelonian",
+    "icon": {
+        "type": "texture",
+        "data": {
+            "texture": "tepids_origins:textures/item/chelonian/item.png"
+        }
+    },
+    "background": "tepids_origins:textures/icons/bg/overworld.png",
+    "unlocked_by_default": false,
+    "spent_points_limit": 35
+}

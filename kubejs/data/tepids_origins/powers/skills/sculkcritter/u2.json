@@ -1,0 +1,64 @@
+{
+    "type": "origins:multiple",
+    "listener": {
+        "type": "eggolib:game_event_listener",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:origins/sculkcritter/takeflight_cooldown",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    },
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:origins/sculkcritter/sonicboom_cooldown",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:origins/sculkcritter/takeflight_duration",
+                                    "comparison": ">",
+                                    "compare_to": 0
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "tepids_origins:origins/sculkcritter/d2"
+                                }
+                            ]
+                        },
+                        "if_action": {
+                            "type": "origins:modify_resource",
+                            "resource": "tepids_origins:origins/sculkcritter/takeflight_duration",
+                            "modifier": {
+                                "operation": "addition",
+                                "value": 30
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:exists"
+            }
+        },
+        "range": 16,
+        "cooldown": 10
+    }
+}

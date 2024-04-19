@@ -1,0 +1,59 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "callback": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": false,
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "c:pickaxes"
+                    }
+                }
+            },
+            "if_action": {
+                "type": "origins:modify_resource",
+                "resource": "tepids_origins:stats_minespd_tracker",
+                "modifier": {
+                    "operation": "addition",
+                    "value": -30
+                }
+            }
+        }
+    },
+    "aot": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "c:pickaxes"
+                }
+            }
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_minespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 30
+            }
+        },
+        "falling_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_minespd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -30
+            }
+        }
+    }
+}

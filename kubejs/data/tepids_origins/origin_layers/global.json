@@ -1,0 +1,9 @@
+{
+    "origins": [
+        "tepids_origins:global"
+    ],
+    "enabled": true,
+    "default_origin": "tepids_origins:global",
+    "auto_choose": true,
+    "hidden": true
+}

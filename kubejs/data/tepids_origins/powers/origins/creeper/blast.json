@@ -1,0 +1,185 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "blast": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @e tepids_origins:origins/creeper/failsafe tepids_origins:origins/creeper/failsafe"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:fire_projectile",
+                        "entity_type": "minecraft:tnt",
+                        "count": 1,
+                        "speed": 0.5,
+                        "divergence": 1,
+                        "tag": "{Fuse:40,Tags:[\"noDamage\"]}"
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                            "comparison": ">=",
+                            "compare_to": 2
+                        },
+                        "if_action": {
+                            "type": "origins:fire_projectile",
+                            "entity_type": "minecraft:tnt",
+                            "count": 1,
+                            "speed": 0.5,
+                            "divergence": 1,
+                            "tag": "{Fuse:35,Tags:[\"noDamage\"]}"
+                        }
+                    },
+                    "ticks": 5
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                            "comparison": ">=",
+                            "compare_to": 3
+                        },
+                        "if_action": {
+                            "type": "origins:fire_projectile",
+                            "entity_type": "minecraft:tnt",
+                            "count": 1,
+                            "speed": 0.5,
+                            "divergence": 1,
+                            "tag": "{Fuse:30,Tags:[\"noDamage\"]}"
+                        }
+                    },
+                    "ticks": 10
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                            "comparison": ">=",
+                            "compare_to": 4
+                        },
+                        "if_action": {
+                            "type": "origins:fire_projectile",
+                            "entity_type": "minecraft:tnt",
+                            "count": 1,
+                            "speed": 0.5,
+                            "divergence": 1,
+                            "tag": "{Fuse:25,Tags:[\"noDamage\"]}"
+                        }
+                    },
+                    "ticks": 15
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                            "comparison": "==",
+                            "compare_to": 5
+                        },
+                        "if_action": {
+                            "type": "origins:fire_projectile",
+                            "entity_type": "minecraft:tnt",
+                            "count": 1,
+                            "speed": 0.5,
+                            "divergence": 1,
+                            "tag": "{Fuse:20,Tags:[\"noDamage\"]}"
+                        }
+                    },
+                    "ticks": 20
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/creeper/u3"
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/creeper/u3_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/creeper/u3_boolean",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:skills/creeper/u3_boolean",
+                        "value": 1
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:origins/creeper/lightfuse_tracker",
+                        "value": 0
+                    },
+                    "ticks": 20
+                },
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:origins/creeper/lightfuse_boolean",
+                    "value": 0
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:origins/creeper/lightfuse_cooldown"
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "???",
+    "description": "",
+    "powers": [
+        "tepids_origins:labels/dimensions/nether",
+        "tepids_origins:labels/archetypes/combat"
+    ],
+    "order": 13,
+    "impact": 2,
+    "loading_priority": 0
+}

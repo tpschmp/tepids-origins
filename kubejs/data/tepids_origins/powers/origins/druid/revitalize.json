@@ -1,0 +1,583 @@
+{
+    "name": "Revitalize",
+    "description": "Consume hunger to heal and dispel all debuffs from a target.\nUse while sneaking to target yourself, at a lower effectiveness.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                {
+                    "color": "dark_purple",
+                    "text": "Active ability. Activate with "
+                },
+                {
+                    "color": "gold",
+                    "keybind": "key.origins.primary_active"
+                },
+                {
+                    "color": "dark_purple",
+                    "text": "."
+                }
+            ],
+            "sprite": "origins:textures/gui/badge/active.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Hunger Threshold: 8\n",
+                "Hunger Cost: 6\n",
+                "Healing: 6\n",
+                "Self Healing Effectiveness: 50%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "entitycleanse": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 16,
+            "block": false,
+            "entity": true,
+            "shape_type": "outline",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/druid/u2"
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                                        "comparison": ">=",
+                                        "compare_to": 40
+                                    }
+                                ]
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:heal",
+                                        "amount": 9
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": -40
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "else_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:heal",
+                                        "amount": 6
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:feed",
+                                        "food": -6,
+                                        "saturation": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/druid/u3"
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:grant_power",
+                                        "power": "tepids_origins:skills/druid/u3_buff",
+                                        "source": "tepids_origins:skills/druid/u3_buff"
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:actor_condition",
+                                        "condition": {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/druid/d3"
+                                        }
+                                    },
+                                    "if_action": {
+                                        "type": "origins:target_action",
+                                        "action": {
+                                            "type": "origins:set_resource",
+                                            "resource": "tepids_origins:skills/druid/u3_buff_duration",
+                                            "value": 60
+                                        }
+                                    },
+                                    "else_action": {
+                                        "type": "origins:target_action",
+                                        "action": {
+                                            "type": "origins:set_resource",
+                                            "resource": "tepids_origins:skills/druid/u3_buff_duration",
+                                            "value": 30
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:slowness"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:mining_fatigue"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:nausea"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:blindness"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:hunger"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:weakness"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:poison"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:wither"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:levitation"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:unluck"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:darkness"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "minecraft:bad_omen"
+                                },
+                                {
+                                    "type": "origins:clear_effect",
+                                    "effect": "tepids_origins:sight_of_a_warden"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "hit_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:play_sound",
+                        "sound": "tepids_origins:druid.origin.revitalize",
+                        "volume": 0.8,
+                        "pitch": 1
+                    },
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:origins/druid/revitalize_cooldown"
+                    },
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/druid/c1"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": -20
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/druid/c2"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": -20
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/druid/c3"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": -20
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "tepids_origins:skills/druid/c4"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:modify_resource",
+                                        "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                                        "modifier": {
+                                            "operation": "addition",
+                                            "value": -20
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "ticks": 5
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:spore_blossom_air ~ ~ ~ 0 0.375 0.375 0.125 25 normal @a",
+            "command_along_ray_only_on_hit": true
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "selfcleanse": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:slowness"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:mining_fatigue"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:nausea"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:blindness"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:hunger"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:weakness"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:poison"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:wither"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:levitation"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:unluck"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:darkness"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:bad_omen"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "tepids_origins:sight_of_a_warden"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/druid/u2"
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                                "comparison": ">=",
+                                "compare_to": 40
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:heal",
+                                "amount": 4.5
+                            },
+                            {
+                                "type": "origins:modify_resource",
+                                "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                                "modifier": {
+                                    "operation": "addition",
+                                    "value": -40
+                                }
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:heal",
+                                "amount": 3
+                            },
+                            {
+                                "type": "origins:feed",
+                                "food": -6,
+                                "saturation": 0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/druid/u3"
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:grant_power",
+                                "power": "tepids_origins:skills/druid/u3_buff",
+                                "source": "tepids_origins:skills/druid/u3_buff"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:power",
+                                    "power": "tepids_origins:skills/druid/d3"
+                                },
+                                "if_action": {
+                                    "type": "origins:set_resource",
+                                    "resource": "tepids_origins:skills/druid/u3_buff_duration",
+                                    "value": 60
+                                },
+                                "else_action": {
+                                    "type": "origins:set_resource",
+                                    "resource": "tepids_origins:skills/druid/u3_buff_duration",
+                                    "value": 30
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:druid.origin.revitalize",
+                    "volume": 0.8,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:spore_blossom_air ~ ~1 ~ 0 0 0 0.25 50 normal @a"
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "tepids_origins:origins/druid/revitalize_cooldown"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/druid/c1"
+                    },
+                    "if_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/druid/c2"
+                    },
+                    "if_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/druid/c3"
+                    },
+                    "if_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/druid/c4"
+                    },
+                    "if_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:origins/druid/revitalize_cooldown",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    }
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 240,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 3
+        }
+    }
+}

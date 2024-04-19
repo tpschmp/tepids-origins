@@ -1,0 +1,22 @@
+{
+    "name": "Allay",
+    "description": "With items as their guiding light, Allays make of the little space they have an emporium.\n　",
+    "powers": [
+        "tepids_origins:labels/dimensions/overworld",
+        "tepids_origins:labels/archetypes/utility",
+        "tepids_origins:origins/allay/skills",
+        "tepids_origins:origins/allay/tinywings",
+        "tepids_origins:origins/allay/etherealstorage",
+        "tepids_origins:origins/allay/hoarder",
+        "tepids_origins:origins/allay/reactiveglimmer",
+        "tepids_origins:origins/allay/collectthemall",
+        "tepids_origins:origins/allay/search",
+        "tepids_origins:origins/allay/delivery"
+    ],
+    "icon": {
+        "item": "tepids_origins:collectors_special"
+    },
+    "order": 8,
+    "impact": 3,
+    "loading_priority": 0
+}

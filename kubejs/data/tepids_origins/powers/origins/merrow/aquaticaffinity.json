@@ -1,0 +1,153 @@
+{
+    "name": "Aquatic Affinity",
+    "description": "Aquatic mobs are neutral towards you.\nWater does not impede breathing, movement, or mining speed.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Swimming Speed: +0.02"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "mobsignore": {
+        "type": "apugli:mobs_ignore",
+        "mob_condition": {
+            "type": "origins:entity_group",
+            "group": "aquatic"
+        },
+        "bientity_condition": {
+            "type": "origins:undirected",
+            "condition": {
+                "inverted": true,
+                "type": "origins:attack_target"
+            }
+        }
+    },
+    "water_break1": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:submerged_in",
+                    "fluid": "minecraft:water"
+                },
+                {
+                    "type": "origins:enchantment",
+                    "enchantment": "minecraft:aqua_affinity",
+                    "calculation": "sum",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 4
+        }
+    },
+    "water_break2": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:on_block"
+                }
+            ]
+        },
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 4
+        }
+    },
+    "breathing_rain": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/merrow/tightfit_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:submerged_in",
+                    "fluid": "minecraft:water"
+                },
+                {
+                    "type": "origins:in_rain"
+                }
+            ]
+        },
+        "type": "eggolib:modify_breathing",
+        "breathable_block_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:fluid",
+                    "fluid_condition": {
+                        "type": "origins:empty"
+                    }
+                },
+                {
+                    "type": "origins:fluid",
+                    "fluid_condition": {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:water"
+                    }
+                }
+            ]
+        },
+        "priority": 1,
+        "breathing_status_effects": [
+            "minecraft:water_breathing",
+            "minecraft:conduit_power"
+        ]
+    },
+    "breathing_water": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/merrow/tightfit_boolean",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "eggolib:modify_breathing",
+        "breathable_block_condition": {
+            "type": "origins:fluid",
+            "fluid_condition": {
+                "type": "origins:in_tag",
+                "tag": "minecraft:water"
+            }
+        },
+        "breathing_status_effects": [
+            "minecraft:water_breathing",
+            "minecraft:conduit_power"
+        ]
+    },
+    "nightvision": {
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        },
+        "type": "origins:night_vision",
+        "strength": 1
+    },
+    "swimspd": {
+        "type": "origins:modify_swim_speed",
+        "modifier": {
+            "operation": "addition",
+            "value": 0.02
+        }
+    }
+}

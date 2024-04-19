@@ -1,0 +1,433 @@
+{
+    "name": "Lick",
+    "description": "Spend hunger to grapple towards blocks or entities, pulling them toward you. \nSlimes die and Magma Cubes drop Froglights when Licked.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                {
+                    "color": "dark_purple",
+                    "text": "Active ability. Activate with "
+                },
+                {
+                    "color": "gold",
+                    "keybind": "key.origins.primary_active"
+                },
+                {
+                    "color": "dark_purple",
+                    "text": "."
+                }
+            ],
+            "sprite": "origins:textures/gui/badge/active.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Hunger Threshold: 8\n",
+                "Hunger Cost: 5\n",
+                "Range: 16 blocks\n",
+                "Damage: 3\n",
+                "Cooldown: 10 seconds"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "grapple": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/anuran/lick_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:stats_distance",
+                            "comparison": "<=",
+                            "compare_to": 160
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/anuran/c1"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/anuran/c2"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/anuran/c3"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/anuran/c4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 200
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c2"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c3"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c4"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 240
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c1"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c3"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c2"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c3"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "tepids_origins:skills/anuran/c4"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 280
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/anuran/c1"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/anuran/c2"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/anuran/c3"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "tepids_origins:skills/anuran/c4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "tepids_origins:stats_distance",
+                                    "comparison": "<=",
+                                    "compare_to": 320
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 32,
+            "block": true,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:damage",
+                        "amount": 3,
+                        "source": {
+                            "name": "player"
+                        }
+                    },
+                    {
+                        "type": "origins:add_velocity",
+                        "z": -1,
+                        "client": true,
+                        "server": true
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:if_else",
+                            "condition": {
+                                "type": "origins:in_tag",
+                                "tag": "minecraft:frog_food"
+                            },
+                            "if_action": {
+                                "type": "origins:execute_command",
+                                "command": "/kill @s"
+                            }
+                        }
+                    }
+                ]
+            },
+            "hit_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:biome",
+                            "biomes": [
+                                "minecraft:swamp",
+                                "minecraft:mangrove_swamp",
+                                "terralith:orchid_swamp",
+                                "terralith:ice_marsh",
+                                "byg:white_mangrove_marshes",
+                                "byg:cypress_swamplands",
+                                "byg:bayou"
+                            ]
+                        },
+                        "if_action": {
+                            "type": "origins:heal",
+                            "amount": 3
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:power",
+                            "power": "tepids_origins:skills/anuran/u3"
+                        },
+                        "if_action": {
+                            "type": "origins:if_else",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/anuran/d3"
+                            },
+                            "if_action": {
+                                "type": "origins:set_resource",
+                                "resource": "tepids_origins:skills/anuran/u3_tracker",
+                                "value": 4
+                            },
+                            "else_action": {
+                                "type": "origins:set_resource",
+                                "resource": "tepids_origins:skills/anuran/u3_tracker",
+                                "value": 3
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:add_velocity",
+                        "z": 2,
+                        "space": "local",
+                        "client": true,
+                        "server": true
+                    },
+                    {
+                        "type": "origins:feed",
+                        "food": -5,
+                        "saturation": 0
+                    },
+                    {
+                        "type": "origins:play_sound",
+                        "sound": "tepids_origins:anuran.origin.lick",
+                        "volume": 0.6,
+                        "pitch": 1
+                    },
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "tepids_origins:origins/anuran/lick_cooldown"
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:crit ~ ~ ~ 0 0.625 0.625 0.125 15 normal",
+            "command_along_ray_only_on_hit": true
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 6
+        }
+    }
+}

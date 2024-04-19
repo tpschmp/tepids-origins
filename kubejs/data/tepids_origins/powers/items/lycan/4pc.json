@@ -1,0 +1,183 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "meleedmg_buff": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_gained": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        },
+        "entity_action_lost": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        }
+    },
+    "meleedmg_aot": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/cooldowns_lycan_4pc",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        }
+    },
+    "failsafe": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "tepids_origins:items/cooldowns_lycan_4pc",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    },
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/cooldowns_lycan_4pc",
+                        "value": 0
+                    }
+                ]
+            }
+        }
+    },
+    "onmeleehit_actions": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/cooldowns_lycan_4pc",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:modify_damage_dealt",
+        "self_action": {
+            "type": "origins:delay",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": -20
+                        }
+                    },
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/cooldowns_lycan_4pc",
+                        "value": 0
+                    }
+                ]
+            },
+            "ticks": 1
+        }
+    },
+    "overlay": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/cooldowns_lycan_4pc",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:overlay",
+        "texture": "tepids_origins:textures/icons/overlays/lycan_armor.png",
+        "strength": 0.4,
+        "draw_mode": "nausea",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": false
+    },
+    "onability_actions": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/cooldowns_lycan_4pc",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/chelonian/fortify_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 55
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/lycan/pounce_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 595
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/creeper/lightfuse_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 495
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "tepids_origins:origins/creeper/recharge_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 45
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:items/cooldowns_lycan_4pc",
+                        "value": 1
+                    },
+                    "ticks": 1
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "tepids_origins:lycan.item.4pc",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+}

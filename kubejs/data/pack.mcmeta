@@ -1,0 +1,10 @@
+{
+    "pack": {
+        "name": "tepid's origins",
+        "id": "tepids_origins",
+        "pack_format": 15,
+        "authors": [
+            "tepid"
+        ]
+    }
+}

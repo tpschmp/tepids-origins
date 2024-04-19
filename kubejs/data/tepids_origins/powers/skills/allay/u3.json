@@ -1,0 +1,93 @@
+{
+    "type": "origins:multiple",
+    "clear": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/allay/search_tracker",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "clear @s minecraft:barrier{display:{Name:'{\"text\":\"Inaccessible Slot\"}'},Tags:[\"noPickups\"]}"
+        }
+    },
+    "aot_1": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:power",
+                    "power": "tepids_origins:skills/allay/d3"
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/allay/search_tracker",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 80,
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 12,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:item"
+                }
+            },
+            "bientity_action": {
+                "type": "origins:add_velocity",
+                "z": -1,
+                "client": true,
+                "server": true
+            }
+        }
+    },
+    "aot_2": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power",
+                    "power": "tepids_origins:skills/allay/d3"
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/allay/search_tracker",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 12,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:item"
+                }
+            },
+            "bientity_action": {
+                "type": "origins:add_velocity",
+                "z": -1,
+                "client": true,
+                "server": true
+            }
+        }
+    }
+}

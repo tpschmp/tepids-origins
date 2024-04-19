@@ -1,0 +1,11 @@
+{
+    "name": "???",
+    "description": "",
+    "powers": [
+        "tepids_origins:labels/dimensions/end",
+        "tepids_origins:labels/archetypes/exploration"
+    ],
+    "order": 27,
+    "impact": 3,
+    "loading_priority": 0
+}

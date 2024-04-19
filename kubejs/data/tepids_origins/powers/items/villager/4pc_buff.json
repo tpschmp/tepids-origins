@@ -1,0 +1,107 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100
+    },
+    "aot": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:items/villager/4pc_buff_duration",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/villager/4pc_buff_duration",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_projectile_dmgdealt_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_magic_dmgdealt_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_incendiary_dmgdealt_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 20
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:revoke_power",
+                    "power": "tepids_origins:items/villager/4pc_buff",
+                    "source": "tepids_origins:items/villager/4pc"
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_projectile_dmgdealt_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_magic_dmgdealt_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:stats_incendiary_dmgdealt_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -20
+                    }
+                }
+            ]
+        }
+    }
+}

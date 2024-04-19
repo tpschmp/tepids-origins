@@ -1,0 +1,129 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "buff_aot": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:wolf"
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 16,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:tamed"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:wolf"
+                        }
+                    ]
+                }
+            },
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:grant_power",
+                            "power": "tepids_origins:items/lycan/equip",
+                            "source": "tepids_origins:items/lycan/equip"
+                        },
+                        {
+                            "type": "origins:set_resource",
+                            "resource": "tepids_origins:items/lycan/equip_wolf_timer",
+                            "value": 3
+                        }
+                    ]
+                }
+            }
+        },
+        "rising_action": {
+            "type": "origins:play_sound",
+            "sound": "tepids_origins:lycan.item.equip",
+            "volume": 0.6,
+            "pitch": 1
+        }
+    },
+    "wolf_timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 3,
+        "min_action": {
+            "type": "origins:revoke_power",
+            "power": "tepids_origins:items/lycan/equip",
+            "source": "tepids_origins:items/lycan/equip"
+        }
+    },
+    "wolf_aot": {
+        "condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:wolf"
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:items/lycan/equip_wolf_timer",
+            "modifier": {
+                "operation": "addition",
+                "value": -1
+            }
+        }
+    },
+    "wolf_hpbuff": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:wolf"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/lycan/equip_wolf_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:modify_attribute",
+        "attribute": "generic.max_health",
+        "modifier": {
+            "operation": "addition",
+            "value": 4
+        }
+    },
+    "wolf_atkbuff": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:wolf"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:items/lycan/equip_wolf_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:modify_attribute",
+        "attribute": "generic.attack_damage",
+        "modifier": {
+            "operation": "addition",
+            "value": 2
+        }
+    }
+}

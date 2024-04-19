@@ -1,0 +1,89 @@
+{
+    "type": "origins:multiple",
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "bar_index": 7,
+            "condition": {
+                "inverted": true,
+                "type": "origins:resource",
+                "resource": "tepids_origins:skills/anuran/u3_tracker",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "actions_onland": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:skills/anuran/u3_tracker",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:skills/anuran/u3_tracker",
+            "value": 0
+        }
+    },
+    "jump": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/anuran/u3_tracker",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:on_block"
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "y": 0.6,
+                    "z": 0.8,
+                    "space": "local_horizontal",
+                    "client": true,
+                    "server": true,
+                    "set": true
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:skills/anuran/u3_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -1
+                    }
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/anuran/lick_cooldown",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -30
+                    }
+                }
+            ]
+        },
+        "cooldown": 5,
+        "key": {
+            "key": "key.jump"
+        }
+    }
+}

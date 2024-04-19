@@ -1,0 +1,317 @@
+{
+    "chelonian.item.4pc_proc": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/chelonian/4pc_proc"
+            }
+        ]
+    },
+    "chelonian.item.4pc_release": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/chelonian/4pc_release"
+            }
+        ]
+    },
+    "chelonian.item.equip": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/chelonian/equip"
+            }
+        ]
+    },
+    "chelonian.item.active": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/chelonian/active"
+            }
+        ]
+    },
+    "chelonian.origin.fortify_activate": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/chelonian/fortify_activate"
+            }
+        ]
+    },
+    "chelonian.origin.fortify_deactivate": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/chelonian/fortify_deactivate"
+            }
+        ]
+    },
+    "druid.item.4pc": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/druid/4pc"
+            }
+        ]
+    },
+    "druid.item.equip": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/druid/equip"
+            }
+        ]
+    },
+    "druid.item.active": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/druid/active"
+            }
+        ]
+    },
+    "druid.origin.revitalize": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/druid/revitalize"
+            }
+        ]
+    },
+    "anuran.item.4pc": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/anuran/4pc"
+            }
+        ]
+    },
+    "anuran.item.equip": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/anuran/equip"
+            }
+        ]
+    },
+    "anuran.item.active": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/anuran/active"
+            }
+        ]
+    },
+    "anuran.origin.lick": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/anuran/lick"
+            }
+        ]
+    },
+    "lycan.item.4pc": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/lycan/4pc"
+            }
+        ]
+    },
+    "lycan.item.equip": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/lycan/equip"
+            }
+        ]
+    },
+    "lycan.item.active": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/lycan/active"
+            }
+        ]
+    },
+    "lycan.origin.pounce": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/lycan/pounce"
+            }
+        ]
+    },
+    "lycan.origin.ambush": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/lycan/ambush"
+            }
+        ]
+    },
+    "villager.item.4pc": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/villager/4pc"
+            }
+        ]
+    },
+    "villager.item.equip": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/villager/equip"
+            }
+        ]
+    },
+    "villager.item.active": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/villager/active"
+            }
+        ]
+    },
+    "villager.origin.take_my_stuff": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/villager/take_my_stuff"
+            }
+        ]
+    },
+    "merrow.item.equip": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/merrow/equip"
+            }
+        ]
+    },
+    "merrow.item.active": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/merrow/active"
+            }
+        ]
+    },
+    "merrow.origin.propel": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/merrow/propel"
+            }
+        ]
+    },
+    "creeper.item.4pc_buildclock": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/creeper/4pc_buildclock"
+            }
+        ]
+    },
+    "creeper.item.4pc_buildstatic": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/creeper/4pc_buildstatic"
+            }
+        ]
+    },
+    "creeper.item.4pc_release": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/creeper/4pc_release"
+            }
+        ]
+    },
+    "creeper.origin.light_fuse": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/creeper/light_fuse"
+            }
+        ]
+    },
+    "creeper.origin.detonate": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/creeper/detonate"
+            }
+        ]
+    },
+    "creeper.origin.recharge": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/creeper/recharge"
+            }
+        ]
+    },
+    "allay.item.4pc": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/allay/4pc"
+            }
+        ]
+    },
+    "allay.item.active": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/allay/active"
+            }
+        ]
+    },
+    "allay.origin.the_search_begins": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/allay/the_search_begins"
+            }
+        ]
+    },
+    "allay.origin.the_search_begins_break": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/allay/the_search_begins_break"
+            }
+        ]
+    },
+    "allay.origin.the_search_begins_buff_1": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/allay/the_search_begins_buff_1"
+            }
+        ]
+    },
+    "allay.origin.the_search_begins_buff_2": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/allay/the_search_begins_buff_2"
+            }
+        ]
+    },
+    "allay.origin.the_search_begins_buff_3": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/allay/the_search_begins_buff_3"
+            }
+        ]
+    },
+    "allay.origin.express_delivery": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/allay/express_delivery"
+            }
+        ]
+    },
+    "sculkcritter.item.4pc": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/sculkcritter/4pc"
+            }
+        ]
+    },
+    "sculkcritter.item.active": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:item/sculkcritter/active"
+            }
+        ]
+    },
+    "sculkcritter.origin.take_flight": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/sculkcritter/take_flight"
+            }
+        ]
+    },
+    "sculkcritter.origin.take_flight_sonar": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/sculkcritter/take_flight_sonar"
+            }
+        ]
+    },
+    "sculkcritter.origin.sonic_boom": {
+        "sounds": [
+            {  
+                "name": "tepids_origins:origin/sculkcritter/sonic_boom"
+            }
+        ]
+    }
+}

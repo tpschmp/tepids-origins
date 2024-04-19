@@ -1,0 +1,155 @@
+{
+    "name": "Sight of a Warden",
+    "description": "Your vision is greatly impaired. \nNearby sounds will briefly weaken the effect, but standing still for too long will strengthen it.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Sound Range: 16 blocks\n",
+                "Movement Check Timer: 5 seconds"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "badvision": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": 1,
+        "max_stacks": 1,
+        "duration_per_stack": 20,
+        "tick_rate": 1,
+        "effect": {
+            "effect": "tepids_origins:sight_of_a_warden",
+            "duration": 40,
+            "amplifier": 0,
+            "show_particles": false,
+            "show_icon": true
+        }
+    },
+    "tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0
+    },
+    "baddervision": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/sculkcritter/wardensight_silent",
+            "comparison": "==",
+            "compare_to": 60
+        },
+        "type": "origins:stacking_status_effect",
+        "min_stacks": 1,
+        "max_stacks": 1,
+        "duration_per_stack": 20,
+        "tick_rate": 1,
+        "effect": {
+            "effect": "minecraft:darkness",
+            "duration": 40,
+            "amplifier": 255,
+            "show_particles": false,
+            "show_icon": true
+        }
+    },
+    "silent": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0
+    },
+    "evenbaddervision": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:moving"
+                },
+                {
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:creative_flying"
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/sculkcritter/wardensight_tracker",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": 1
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "tepids_origins:origins/sculkcritter/wardensight_tracker",
+                        "comparison": "==",
+                        "compare_to": 100
+                    },
+                    "if_action": {
+                        "type": "origins:apply_effect",
+                        "effect": {
+                            "effect": "minecraft:blindness",
+                            "duration": 60,
+                            "amplifier": 0,
+                            "show_particles": true,
+                            "show_icon": true
+                        }
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:set_resource",
+            "resource": "tepids_origins:origins/sculkcritter/wardensight_tracker",
+            "value": 0
+        }
+    },
+    "bettervisiontimer": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/sculkcritter/wardensight_silent",
+            "comparison": "==",
+            "compare_to": 60
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:origins/sculkcritter/wardensight_silent",
+            "modifier": {
+                "operation": "addition",
+                "value": 1
+            }
+        }
+    },
+    "listener": {
+        "type": "eggolib:game_event_listener",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:set_resource",
+                "resource": "tepids_origins:origins/sculkcritter/wardensight_silent",
+                "value": 0
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:exists"
+            }
+        },
+        "range": 16,
+        "cooldown": 10
+    }
+}

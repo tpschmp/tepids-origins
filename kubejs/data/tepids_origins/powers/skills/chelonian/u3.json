@@ -1,0 +1,191 @@
+{
+    "type": "origins:multiple",
+    "dmg_helmet": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "head",
+                    "item_condition": {
+                        "type": "origins:armor_value",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                }
+            ]
+        },
+        "type": "origins:modify_damage_dealt",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "mob"
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": 0.5
+        }
+    },
+    "dmg_chestplate": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "chest",
+                    "item_condition": {
+                        "type": "origins:armor_value",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                }
+            ]
+        },
+        "type": "origins:modify_damage_dealt",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "mob"
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": 1.5
+        }
+    },
+    "dmg_leggings": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "legs",
+                    "item_condition": {
+                        "type": "origins:armor_value",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                }
+            ]
+        },
+        "type": "origins:modify_damage_dealt",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "mob"
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": 1
+        }
+    },
+    "dmg_boots": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "feet",
+                    "item_condition": {
+                        "type": "origins:armor_value",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                }
+            ]
+        },
+        "type": "origins:modify_damage_dealt",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "mob"
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": 0.5
+        }
+    },
+    "dmg_thorns": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/chelonian/fortify_boolean",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:modify_damage_taken",
+        "attacker_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:damage",
+                    "amount": 2,
+                    "source": {
+                        "name": "thorns"
+                    }
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": -0.75,
+                    "space": "local",
+                    "client": true,
+                    "server": true
+                }
+            ]
+        }
+    }
+}

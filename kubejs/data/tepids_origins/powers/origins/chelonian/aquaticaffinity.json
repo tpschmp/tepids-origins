@@ -1,0 +1,70 @@
+{
+    "name": "Aquatic Affinity",
+    "description": "Aquatic mobs are neutral towards you. You can swim faster and for longer underwater.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Drowning Rate: -33%\n",
+                "Swimming Speed: +20%"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "neutrality": {
+        "type": "apugli:mobs_ignore",
+        "mob_condition": {
+            "type": "origins:entity_group",
+            "group": "aquatic"
+        },
+        "bientity_condition": {
+            "type": "origins:undirected",
+            "condition": {
+                "inverted": true,
+                "type": "origins:attack_target"
+            }
+        }
+    },
+    "nightvision": {
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        },
+        "type": "origins:night_vision",
+        "strength": 0.25
+    },
+    "stats": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_swimspd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": -20
+            }
+        },
+        "entity_action_gained": {
+            "type": "origins:modify_resource",
+            "resource": "tepids_origins:stats_swimspd_tracker",
+            "modifier": {
+                "operation": "addition",
+                "value": 20
+            }
+        }
+    },
+    "drownrate": {
+        "condition": {
+            "type": "origins:air",
+            "comparison": "<=",
+            "compare_to": 300
+        },
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:gain_air",
+            "value": 6
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "display": {
+        "icon": {
+            "item": "tepids_origins:shelled_sword"
+        },
+        "title": "What Age Is This?",
+        "description": "Obtain an Origin item",
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "parent": "tepids_origins:root/obtain_origin",
+    "requirements": [
+        [
+            "item"
+        ]
+    ],
+    "criteria": {
+        "item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "tepids_origins:origin_items"
+                    }
+                ],
+                "player": {}
+            }
+        }
+    }
+}

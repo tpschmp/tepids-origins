@@ -1,0 +1,8 @@
+{
+    "hidden": true,
+    "type": "apugli:modify_breeding_cooldown",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -0.8
+    }
+}

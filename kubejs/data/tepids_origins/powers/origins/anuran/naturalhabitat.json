@@ -1,0 +1,57 @@
+{
+    "name": "Natural Habitat",
+    "description": "In swamps, gain more health and jump height, and regenerate health from Licking blocks or entities.\n　",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": [
+                "Jump Height: +1 block\n",
+                "Max Health: +2\n",
+                "Healing from Lick: 3"
+            ],
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "jumpheight": {
+        "condition": {
+            "type": "origins:biome",
+            "biomes": [
+                "minecraft:swamp",
+                "minecraft:mangrove_swamp",
+                "terralith:orchid_swamp",
+                "terralith:ice_marsh",
+                "byg:white_mangrove_marshes",
+                "byg:cypress_swamplands",
+                "byg:bayou"
+            ]
+        },
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "addition",
+            "value": 0.1
+        }
+    },
+    "hp": {
+        "condition": {
+            "type": "origins:biome",
+            "biomes": [
+                "minecraft:swamp",
+                "minecraft:mangrove_swamp",
+                "terralith:orchid_swamp",
+                "terralith:ice_marsh",
+                "byg:white_mangrove_marshes",
+                "byg:cypress_swamplands",
+                "byg:bayou"
+            ]
+        },
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "operation": "addition",
+            "value": 2
+        },
+        "tick_rate": 1,
+        "update_health": true
+    }
+}

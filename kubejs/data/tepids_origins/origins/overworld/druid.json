@@ -1,0 +1,20 @@
+{
+    "name": "Druid",
+    "description": "Born from the most primitive roots, Druids are encharged with the maintenance of nature.\n　",
+    "powers": [
+        "tepids_origins:labels/dimensions/overworld",
+        "tepids_origins:labels/archetypes/utility",
+        "tepids_origins:origins/druid/metabolicdemand",
+        "tepids_origins:origins/druid/onewithnature",
+        "tepids_origins:origins/druid/rudimentaryexpertise",
+        "tepids_origins:origins/druid/greenthumb",
+        "tepids_origins:origins/druid/revitalize",
+        "tepids_origins:origins/druid/skills"
+    ],
+    "icon": {
+        "item": "tepids_origins:sower_of_life"
+    },
+    "order": 2,
+    "impact": 1,
+    "loading_priority": 0
+}
