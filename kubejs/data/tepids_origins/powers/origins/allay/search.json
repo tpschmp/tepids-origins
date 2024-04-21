@@ -1,6 +1,6 @@
 {
     "name": "The Search Begins",
-    "description": "Enter the Block Hunter state for a period of time. While in this state, you will be able to mine multiple blocks at once.\nWhen the effect expires, consume all Collector Meter points to grant additional Hunger, Damage, and Movement Speed to nearby friendly entities based on the amount of points in each Collector Meter.\n　",
+    "description": "Enter the Block Hunter state for a period of time. While in this state, you will be able to mine multiple blocks at once.\nWhen the effect expires, consume all Collector Meter points to grant additional Damage, Hunger, and Movement Speed to nearby friendly entities based on the amount of points in each Collector Meter.\n　",
     "badges": [
         {
             "type": "origins:tooltip",

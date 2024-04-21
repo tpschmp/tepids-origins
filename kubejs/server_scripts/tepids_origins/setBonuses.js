@@ -1,14 +1,14 @@
 PlayerEvents.tick(e => {
 
     const { headArmorItem, chestArmorItem, legsArmorItem, feetArmorItem, mainHandItem, offHandItem } = e.player
-    const { player, player: username } = e
+    const { player, player: {username} } = e
 
     let checkInterval = 1
     // IMPORTANT: The number above means the code below runs once every X ticks, or X/20 seconds. If the server you're running is struggling, bumping this number up could help.
     // Do note that longer intervals may make this feel unresponsive.
 
     if (player.age % checkInterval == 0) {
-
+        
         for (let item in infoOrigin) {
 
             switch (headArmorItem.id) {
@@ -49,18 +49,21 @@ PlayerEvents.tick(e => {
             infoOrigin[item].set.half = infoOrigin[item].components.head.set.half + infoOrigin[item].components.body.set.half + infoOrigin[item].components.legs.set.half + infoOrigin[item].components.feet.set.half
             infoOrigin[item].set.full = infoOrigin[item].components.head.set.full + infoOrigin[item].components.body.set.full + infoOrigin[item].components.legs.set.full + infoOrigin[item].components.feet.set.full
             infoOrigin[item].set.item = infoOrigin[item].components.sign.set.equip + infoOrigin[item].components.sign.set.active
-            
-            if (infoOrigin[item].set.half >= 2) {e.server.runCommandSilent("execute as " + player.username + " run power grant @s tepids_origins:items/" + infoOrigin[item].name + "/2pc tepids_origins:set_bonuses")}
-            else if (infoOrigin[item].set.half < 2) {e.server.runCommandSilent("execute as " + player.username + " run power revoke @s tepids_origins:items/" + infoOrigin[item].name + "/2pc tepids_origins:set_bonuses")}
-    
-            if (infoOrigin[item].set.full == 4 && e.player.runCommandSilent("power has @s tepids_origins:labels/archetypes/" + infoOrigin[item].archetype)) {e.server.runCommandSilent("execute as " + player.username + " run power grant @s tepids_origins:items/" + infoOrigin[item].name + "/4pc tepids_origins:set_bonuses")}
-            else if (infoOrigin[item].set.full != 4 || !e.player.runCommandSilent("power has @s tepids_origins:labels/archetypes/" + infoOrigin[item].archetype)) {e.server.runCommandSilent("execute as " + player.username + " run power revoke @s tepids_origins:items/" + infoOrigin[item].name + "/4pc tepids_origins:set_bonuses")}
+           
+            let archetypeCheck = e.server.runCommandSilent("power has " + `${username}` + " tepids_origins:labels/archetypes/" + infoOrigin[item].archetype)
+            let originCheck = e.server.runCommandSilent("origin has " + `${username}` + " origins:origin tepids_origins:" + infoOrigin[item].dimension + "/" + infoOrigin[item].name)
 
-            if (infoOrigin[item].set.item >= 1 && e.player.runCommandSilent("power has @s tepids_origins:labels/archetypes/" + infoOrigin[item].archetype)) {e.server.runCommandSilent("execute as " + player.username + " run power grant @s tepids_origins:items/" + infoOrigin[item].name + "/equip tepids_origins:set_bonuses")}
-            else if (infoOrigin[item].set.item < 1 || !e.player.runCommandSilent("power has @s tepids_origins:labels/archetypes/" + infoOrigin[item].archetype)) {e.server.runCommandSilent("execute as " + player.username + " run power revoke @s tepids_origins:items/" + infoOrigin[item].name + "/equip tepids_origins:set_bonuses")}
+            if (infoOrigin[item].set.half >= 2) {e.server.runCommandSilent("execute as " + `${username}` + " run power grant @s tepids_origins:items/" + infoOrigin[item].name + "/2pc tepids_origins:set_bonuses")}
+            else if (infoOrigin[item].set.half < 2) {e.server.runCommandSilent("execute as " + `${username}` + " run power revoke @s tepids_origins:items/" + infoOrigin[item].name + "/2pc tepids_origins:set_bonuses")}
     
-            if (infoOrigin[item].set.item >= 2 && e.player.runCommandSilent("origin has @s origins:origin tepids_origins:overworld/" + infoOrigin[item].name)) {e.server.runCommandSilent("execute as " + player.username + " run power grant @s tepids_origins:items/" + infoOrigin[item].name + "/active tepids_origins:set_bonuses")}
-            else if (infoOrigin[item].set.item < 2 || !e.player.runCommandSilent("origin has @s origins:origin tepids_origins:overworld/" + infoOrigin[item].name)) {e.server.runCommandSilent("execute as " + player.username + " run power revoke @s tepids_origins:items/" + infoOrigin[item].name + "/active tepids_origins:set_bonuses")}
+            if (infoOrigin[item].set.full == 4 && archetypeCheck == 1) {e.server.runCommandSilent("execute as " + `${username}` + " run power grant @s tepids_origins:items/" + infoOrigin[item].name + "/4pc tepids_origins:set_bonuses")}
+            else if (infoOrigin[item].set.full != 4 || archetypeCheck != 1) {e.server.runCommandSilent("execute as " + `${username}` + " run power revoke @s tepids_origins:items/" + infoOrigin[item].name + "/4pc tepids_origins:set_bonuses")}
+
+            if (infoOrigin[item].set.item >= 1 && archetypeCheck == 1) {e.server.runCommandSilent("execute as " + `${username}` + " run power grant @s tepids_origins:items/" + infoOrigin[item].name + "/equip tepids_origins:set_bonuses")}
+            else if (infoOrigin[item].set.item < 1 || archetypeCheck != 1) {e.server.runCommandSilent("execute as " + `${username}` + " run power revoke @s tepids_origins:items/" + infoOrigin[item].name + "/equip tepids_origins:set_bonuses")}
+    
+            if (infoOrigin[item].set.item >= 2 && originCheck == 1) {e.server.runCommandSilent("execute as " + `${username}` + " run power grant @s tepids_origins:items/" + infoOrigin[item].name + "/active tepids_origins:set_bonuses")}
+            else if (infoOrigin[item].set.item < 2 || originCheck != 1) {e.server.runCommandSilent("execute as " + `${username}` + " run power revoke @s tepids_origins:items/" + infoOrigin[item].name + "/active tepids_origins:set_bonuses")}
 
         }
 
@@ -85,8 +88,8 @@ PlayerEvents.tick(e => {
     
             infoGeneric[item].set = infoGeneric[item].components.head.set + infoGeneric[item].components.body.set + infoGeneric[item].components.legs.set + infoGeneric[item].components.feet.set
             
-            if (infoGeneric[item].set >= 2) {e.server.runCommandSilent("execute as " + player.username + " run power grant @s tepids_origins:items/generic/" + infoGeneric[item].name + " tepids_origins:set_bonuses")}
-            else if (infoGeneric[item].set < 2) {e.server.runCommandSilent("execute as " + player.username + " run power revoke @s tepids_origins:items/generic/" + infoGeneric[item].name + " tepids_origins:set_bonuses")}
+            if (infoGeneric[item].set >= 2) {e.server.runCommandSilent("execute as " + `${username}` + " run power grant @s tepids_origins:items/generic/" + infoGeneric[item].name + " tepids_origins:set_bonuses")}
+            else if (infoGeneric[item].set < 2) {e.server.runCommandSilent("execute as " + `${username}` + " run power revoke @s tepids_origins:items/generic/" + infoGeneric[item].name + " tepids_origins:set_bonuses")}
     
         }
 

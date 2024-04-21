@@ -28,7 +28,7 @@
                 "Range: 16 blocks\n",
                 "Base Damage: 6\n",
                 "Damage Boost: +100%\n",
-                "Cooldown: 7.5 seconds"
+                "Cooldown: 12.5 seconds"
             ],
             "sprite": "origins:textures/gui/badge/info.png"
         }
@@ -36,7 +36,7 @@
     "type": "origins:multiple",
     "cooldown": {
         "type": "origins:cooldown",
-        "cooldown": 150,
+        "cooldown": 250,
         "hud_render": {
             "should_render": true,
             "sprite_location": "tepids_origins:textures/icons/bars/1.png",

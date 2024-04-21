@@ -9,7 +9,7 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 300,
+        "max": 240,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -65,12 +65,12 @@
                     "if_action": {
                         "type": "origins:set_resource",
                         "resource": "tepids_origins:skills/creeper/u3_duration",
-                        "value": 300
+                        "value": 240
                     },
                     "else_action": {
                         "type": "origins:set_resource",
                         "resource": "tepids_origins:skills/creeper/u3_duration",
-                        "value": 200
+                        "value": 140
                     }
                 },
                 {
