@@ -24,6 +24,7 @@
             "type": "origins:tooltip",
             "text": [
                 "Recharge - Cooldown Reduction: -2 seconds/s\n",
+                "Recharge - Movement Speed: -80%\n",
                 "Recharge - Cooldown: 2.5 seconds\n \n",
                 "Blast - TNTs Launched: 1/2/3/4/5\n(at 1/2/3/4/5 Fuse)\n"
             ],
