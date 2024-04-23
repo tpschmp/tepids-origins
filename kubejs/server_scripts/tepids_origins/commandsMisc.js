@@ -11,7 +11,7 @@ ServerEvents.commandRegistry (e => {
     
     // Trial command
     e.register(
-        Commands.litersal('trial')
+        Commands.literal('trial')
         .then(Commands.argument('help> | <origin', Arguments.STRING.create(e))
             .executes(ctx => {
                 const origin = Arguments.STRING.getResult(ctx, 'help> | <origin')
