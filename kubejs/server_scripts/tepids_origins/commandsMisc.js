@@ -5,13 +5,13 @@ ServerEvents.commandRegistry (e => {
 
     let originSuggestions = []
     for (let origin in infoOrigin) {
-        originSuggestions.push(origin.name)
+        originSuggestions.push(infoOrigin[origin].name)
     }
     const {commands: Commands, arguments: Arguments, builtinSuggestions: Suggestions} = e
     
     // Trial command
     e.register(
-        Commands.literal('trial')
+        Commands.litersal('trial')
         .then(Commands.argument('help> | <origin', Arguments.STRING.create(e))
             .executes(ctx => {
                 const origin = Arguments.STRING.getResult(ctx, 'help> | <origin')
