@@ -2,27 +2,37 @@
     "type": "origins:multiple",
     "encyclopedia": {
         "condition": {
-            "type": "origins:or",
+            "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "item": "tepids_origins:evolution_encyclopedia"
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "tepids_origins:evolution_encyclopedia"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "tepids_origins:evolution_encyclopedia"
+                                }
+                            }
                         }
-                    }
+                    ]
                 },
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "offhand",
-                    "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "item": "tepids_origins:evolution_encyclopedia"
-                        }
-                    }
+                    "inverted": true,
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"inTrial\"]}"
                 }
             ]
         },
@@ -164,6 +174,11 @@
                             "item": "origins:orb_of_origin"
                         }
                     }
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"inTrial\"]}"
                 }
             ]
         },
@@ -175,6 +190,19 @@
         "cooldown": 1,
         "key": {
             "key": "key.use"
+        }
+    },
+    "preventorb": {
+        "condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"inTrial\"]}"
+        },
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "origins:orb_of_origin"
+            }
         }
     },
     "preventmovementchecks": {
