@@ -181,7 +181,7 @@
                                 },
                                 {
                                     "type": "origins:nbt",
-                                    "nbt": "Items[{tag: {Tags: [\"noPickups\"]}}]"
+                                    "nbt": "{Items[{tag: {Tags: [\"noPickups\"]}}]}"
                                 }
                             ]
                         },
