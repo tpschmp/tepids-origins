@@ -120,37 +120,6 @@
             "key": "key.use"
         }
     },
-    "sculkcritter_elytra": {
-        "condition": {
-            "type": "origins:equipped_item",
-            "equipment_slot": "chest",
-            "item_condition": {
-                "type": "origins:ingredient",
-                "ingredient": [
-                    {
-                        "item": "tepids_origins:soulpowered_wingspan"
-                    },
-                    {
-                        "item": "tepids_origins:enhanced_soulpowered_wingspan"
-                    }
-                ]
-            }
-        },
-        "type": "origins:elytra_flight",
-        "render_elytra": true,
-        "texture_location": "tepids_origins:textures/item/sculkcritter/armor/elytra.png"
-    },
-    "sculkcritter_wardensight": {
-        "condition": {
-            "type": "origins:status_effect",
-            "effect": "tepids_origins:sight_of_a_warden",
-            "min_amplifier": 0,
-            "min_duration": 0
-        },
-        "type": "origins:shader",
-        "shader": "minecraft:shaders/post/sobel.json",
-        "toggleable": false
-    },
     "orb": {
         "condition": {
             "type": "origins:or",
@@ -191,6 +160,96 @@
         "key": {
             "key": "key.use"
         }
+    },
+    "allay_failsafe": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:block_action_at",
+                    "block_action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 16,
+                        "shape": "sphere",
+                        "block_action": {
+                            "type": "origins:execute_command",
+                            "command": "data remove block ~ ~ ~ Items[{tag: {Tags: [\"noPickups\"]}}]"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "inverted": true,
+                        "type": "origins:origin",
+                        "origin": "tepids_origins:overworld/allay"
+                    },
+                    "if_action": {
+                        "type": "origins:modify_inventory",
+                        "inventory_type": "inventory",
+                        "item_action": {
+                            "type": "origins:consume",
+                            "amount": 1
+                        },
+                        "item_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:[\"noPickups\"]}"
+                                },
+                                {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:barrier"
+                                    }
+                                }
+                            ]
+                        },
+                        "slots": [],
+                        "process_mode": "items",
+                        "limit": 0
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[type=item,nbt={Item:{tag:{Tags:[\"noPickups\"]}}}]"
+                }
+            ]
+        }
+    },
+    "sculkcritter_elytra": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "chest",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": [
+                    {
+                        "item": "tepids_origins:soulpowered_wingspan"
+                    },
+                    {
+                        "item": "tepids_origins:enhanced_soulpowered_wingspan"
+                    }
+                ]
+            }
+        },
+        "type": "origins:elytra_flight",
+        "render_elytra": true,
+        "texture_location": "tepids_origins:textures/item/sculkcritter/armor/elytra.png"
+    },
+    "sculkcritter_wardensight": {
+        "condition": {
+            "type": "origins:status_effect",
+            "effect": "tepids_origins:sight_of_a_warden",
+            "min_amplifier": 0,
+            "min_duration": 0
+        },
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/sobel.json",
+        "toggleable": false
     },
     "preventorb": {
         "condition": {

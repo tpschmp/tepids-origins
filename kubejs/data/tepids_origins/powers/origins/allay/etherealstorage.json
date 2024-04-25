@@ -133,14 +133,11 @@
                         "inventory.23",
                         "inventory.24",
                         "inventory.25",
-                        "inventory.26"
+                        "inventory.26",
+                        "weapon.offhand"
                     ],
                     "process_mode": "items",
                     "limit": 0
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "kill @e[type=item,nbt={Item:{tag:{Tags:[\"noPickups\"]}}}]"
                 }
             ]
         }
