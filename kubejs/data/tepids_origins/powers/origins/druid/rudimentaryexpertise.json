@@ -44,7 +44,7 @@
     "hoedmg_tracker": {
         "type": "origins:resource",
         "min": 99,
-        "max": 139,
+        "max": 179,
         "start_value": 99
     },
     "hoedmg_modifier": {
