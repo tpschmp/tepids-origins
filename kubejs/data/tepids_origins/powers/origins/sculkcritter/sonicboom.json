@@ -39,8 +39,8 @@
         "cooldown": 250,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 24
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/7.png",
+            "bar_index": 10
         }
     },
     "dmgboost": {

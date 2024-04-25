@@ -7,8 +7,8 @@
         "start_value": 30,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 5
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/7.png",
+            "bar_index": 1
         },
         "min_action": {
             "type": "origins:and",

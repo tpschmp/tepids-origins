@@ -38,8 +38,8 @@
         "cooldown": 60,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 2
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/1.png",
+            "bar_index": 0
         }
     },
     "boolean": {
@@ -49,8 +49,8 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 2,
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/1.png",
+            "bar_index": 0,
             "condition": {
                 "type": "origins:resource",
                 "resource": "tepids_origins:origins/chelonian/fortify_boolean",

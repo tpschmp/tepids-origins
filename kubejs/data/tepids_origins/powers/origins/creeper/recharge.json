@@ -39,8 +39,8 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 16,
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/1.png",
+            "bar_index": 2,
             "condition": {
                 "type": "origins:resource",
                 "resource": "tepids_origins:origins/creeper/recharge_boolean",
@@ -54,8 +54,8 @@
         "cooldown": 50,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 16
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/1.png",
+            "bar_index": 2
         }
     },
     "activate": {

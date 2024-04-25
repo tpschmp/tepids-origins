@@ -37,8 +37,8 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 23,
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/1.png",
+            "bar_index": 3,
             "condition": {
                 "inverted": true,
                 "type": "origins:resource",
@@ -53,8 +53,8 @@
         "cooldown": 300,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 23
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/1.png",
+            "bar_index": 3
         }
     },
     "activate": {
