@@ -67,7 +67,57 @@
         },
         "only_when_harvested": true
     },
-    "plant": {
+    "plant_seeds": {
+        "type": "origins:action_on_block_use",
+        "block_condition": {
+            "type": "origins:block",
+            "block": "minecraft:farmland"
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "tepids_origins:seeds"
+            }
+        },
+        "directions": [
+            "up"
+        ],
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/druid/d2"
+                    },
+                    "if_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 2
+                        }
+                    },
+                    "else_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 1
+                        }
+                    }
+                },
+                {
+                    "type": "origins:feed",
+                    "food": 0,
+                    "saturation": 0.025
+                }
+            ]
+        },
+        "action_result": "success"
+    },
+    "plant_saplings": {
         "type": "origins:action_on_block_use",
         "block_condition": {
             "type": "origins:in_tag",
@@ -75,14 +125,9 @@
         },
         "item_condition": {
             "type": "origins:ingredient",
-            "ingredient": [
-                {
-                    "tag": "minecraft:saplings"
-                },
-                {
-                    "tag": "tepids_origins:seeds"
-                }
-            ]
+            "ingredient": {
+                "tag": "minecraft:saplings"
+            }
         },
         "directions": [
             "up"
