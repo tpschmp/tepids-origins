@@ -70,8 +70,21 @@
     "plant_seeds": {
         "type": "origins:action_on_block_use",
         "block_condition": {
-            "type": "origins:block",
-            "block": "minecraft:farmland"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:block",
+                    "block": "minecraft:farmland"
+                },
+                {
+                    "type": "origins:offset",
+                    "condition": {
+                        "type": "origins:block",
+                        "block": "minecraft:air"
+                    },
+                    "y": 1
+                }
+            ]
         },
         "item_condition": {
             "type": "origins:ingredient",
@@ -120,8 +133,21 @@
     "plant_saplings": {
         "type": "origins:action_on_block_use",
         "block_condition": {
-            "type": "origins:in_tag",
-            "tag": "minecraft:dirt"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:dirt"
+                },
+                {
+                    "type": "origins:offset",
+                    "condition": {
+                        "type": "origins:block",
+                        "block": "minecraft:air"
+                    },
+                    "y": 1
+                }
+            ]
         },
         "item_condition": {
             "type": "origins:ingredient",
