@@ -47,10 +47,19 @@
             }
         },
         "rising_action": {
-            "type": "origins:play_sound",
-            "sound": "tepids_origins:lycan.item.equip",
-            "volume": 0.6,
-            "pitch": 1
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:command",
+                "command": "power has @e[distance=..16,type=minecraft:wolf] tepids_origins:origins/lycan/kinship_wolf_dmgbuff",
+                "comparison": ">=",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:play_sound",
+                "sound": "tepids_origins:lycan.item.equip",
+                "volume": 0.4,
+                "pitch": 1
+            }
         }
     },
     "wolf_timer": {
