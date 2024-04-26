@@ -21,10 +21,14 @@
         }
     },
     "durabilitybuff": {
+        "condition": {
+            "type": "eggolib:chance",
+            "chance": "0.5"
+        },
         "type": "apugli:modify_durability_change",
         "modifier": {
-            "operation": "multiply_total",
-            "value": -0.5
+            "operation": "addition",
+            "value": -1
         }
     },
     "repairbuff": {
