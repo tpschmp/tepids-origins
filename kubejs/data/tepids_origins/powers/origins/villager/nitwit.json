@@ -7,7 +7,7 @@
             "text": [
                 "XP Gain: -60%\n",
                 "Whitelisted Enchantments: Silk Touch, Fortune\n",
-                "Durability Modifier: +50%"
+                "Durability Modifier: +66%"
             ],
             "sprite": "origins:textures/gui/badge/info.png"
         }
@@ -23,12 +23,12 @@
     "durabilitybuff": {
         "condition": {
             "type": "eggolib:chance",
-            "chance": "0.5"
+            "chance": "0.66"
         },
         "type": "apugli:modify_durability_change",
         "modifier": {
-            "operation": "addition",
-            "value": -1
+            "operation": "set_total",
+            "value": 0
         }
     },
     "repairbuff": {
