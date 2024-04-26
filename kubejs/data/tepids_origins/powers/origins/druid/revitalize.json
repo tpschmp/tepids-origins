@@ -26,7 +26,8 @@
                 "Hunger Threshold: 8\n",
                 "Hunger Cost: 6\n",
                 "Healing: 6\n",
-                "Self Healing Effectiveness: 50%"
+                "Self Healing Effectiveness: 50%\n",
+                "Cooldown: 15 seconds"
             ],
             "sprite": "origins:textures/gui/badge/info.png"
         }
@@ -573,7 +574,7 @@
     },
     "cooldown": {
         "type": "origins:cooldown",
-        "cooldown": 240,
+        "cooldown": 300,
         "hud_render": {
             "should_render": true,
             "sprite_location": "tepids_origins:textures/icons/bars/overworld/7.png",

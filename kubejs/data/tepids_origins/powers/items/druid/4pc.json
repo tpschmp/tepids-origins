@@ -89,7 +89,7 @@
                             "type": "origins:resource",
                             "resource": "tepids_origins:origins/druid/revitalize_cooldown",
                             "comparison": ">=",
-                            "compare_to": 235
+                            "compare_to": 295
                         },
                         {
                             "type": "origins:resource",
