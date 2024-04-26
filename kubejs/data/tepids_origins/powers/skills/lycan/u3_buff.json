@@ -113,8 +113,8 @@
         "start_value": 1,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 10
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/1.png",
+            "bar_index": 1
         }
     },
     "tracker": {

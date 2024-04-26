@@ -27,7 +27,7 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "sprite_location": "tepids_origins:textures/icons/bars/items/7.png",
             "bar_index": 1,
             "condition": {
                 "type": "origins:resource",

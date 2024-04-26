@@ -27,7 +27,7 @@
                 "Light Fuse - Hunger Cost: 2/Fuse stack\n",
                 "Light Fuse - Fuse Stack Gain: 1/s\n",
                 "Light Fuse - Cooldown: 25 seconds\n \n",
-                "Detonate - Explosive Power: 0.643/1.715/3.143/4.929/7.072\n(at 1/2/3/4/5 Fuse)\n"
+                "Detonate - Explosive Power: 1/2/3/4/5\n(at 1/2/3/4/5 Fuse)\n"
             ],
             "sprite": "origins:textures/gui/badge/info.png"
         }
@@ -40,8 +40,8 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 14,
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/5.png",
+            "bar_index": 1,
             "condition": {
                 "type": "origins:or",
                 "conditions": [
@@ -67,8 +67,8 @@
         "cooldown": 500,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 15
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/7.png",
+            "bar_index": 6
         }
     },
     "boolean": {

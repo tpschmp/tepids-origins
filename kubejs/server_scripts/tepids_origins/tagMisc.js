@@ -12,7 +12,7 @@ ServerEvents.tags("item", e => {
     e.add("tepids_origins:diamond_tier", [Ingredient.of("/.*diamond.*/").itemIds])
     e.add("tepids_origins:netherite_tier", [Ingredient.of("/.*netherite.*/").itemIds])
 
-    e.add("tepids_origins:seeds", [Ingredient.of("/.*seeds.*/").itemIds, Ingredient.of("/.*carrot.*/").itemIds, Ingredient.of("/.*potato.*/").itemIds])
+    e.add("tepids_origins:seeds", [Ingredient.of("/.*seeds.*/").itemIds, "minecraft:carrot", "minecraft:potato"])
 
 })
 

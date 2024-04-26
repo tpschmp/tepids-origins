@@ -2,27 +2,37 @@
     "type": "origins:multiple",
     "encyclopedia": {
         "condition": {
-            "type": "origins:or",
+            "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "item": "tepids_origins:evolution_encyclopedia"
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "tepids_origins:evolution_encyclopedia"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "tepids_origins:evolution_encyclopedia"
+                                }
+                            }
                         }
-                    }
+                    ]
                 },
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "offhand",
-                    "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "item": "tepids_origins:evolution_encyclopedia"
-                        }
-                    }
+                    "inverted": true,
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"inTrial\"]}"
                 }
             ]
         },
@@ -110,6 +120,123 @@
             "key": "key.use"
         }
     },
+    "orb": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "origins:orb_of_origin"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "origins:orb_of_origin"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"inTrial\"]}"
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power revokeall @s tepids_origins:set_bonuses"
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.use"
+        }
+    },
+    "allay_failsafe": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:block_action_at",
+                    "block_action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 16,
+                        "shape": "sphere",
+                        "block_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:block_entity"
+                                },
+                                {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Items: [{tag: {Tags: [\"noPickups\"]}}]}"
+                                }
+                            ]
+                        },
+                        "block_action": {
+                            "type": "origins:execute_command",
+                            "command": "data remove block ~ ~ ~ Items[{tag: {Tags: [\"noPickups\"]}}]"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "inverted": true,
+                        "type": "origins:origin",
+                        "origin": "tepids_origins:overworld/allay"
+                    },
+                    "if_action": {
+                        "type": "origins:modify_inventory",
+                        "inventory_type": "inventory",
+                        "item_action": {
+                            "type": "origins:consume",
+                            "amount": 1
+                        },
+                        "item_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:[\"noPickups\"]}"
+                                },
+                                {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:barrier"
+                                    }
+                                }
+                            ]
+                        },
+                        "slots": [],
+                        "process_mode": "items",
+                        "limit": 0
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[type=item,nbt={Item:{tag:{Tags:[\"noPickups\"]}}}]"
+                }
+            ]
+        }
+    },
     "sculkcritter_elytra": {
         "condition": {
             "type": "origins:equipped_item",
@@ -141,40 +268,17 @@
         "shader": "minecraft:shaders/post/sobel.json",
         "toggleable": false
     },
-    "orb": {
+    "preventorb": {
         "condition": {
-            "type": "origins:or",
-            "conditions": [
-                {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "item": "origins:orb_of_origin"
-                        }
-                    }
-                },
-                {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "offhand",
-                    "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "item": "origins:orb_of_origin"
-                        }
-                    }
-                }
-            ]
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"inTrial\"]}"
         },
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "power revokeall @s tepids_origins:set_bonuses"
-        },
-        "cooldown": 1,
-        "key": {
-            "key": "key.use"
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "origins:orb_of_origin"
+            }
         }
     },
     "preventmovementchecks": {

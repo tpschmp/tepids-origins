@@ -5,7 +5,7 @@ ServerEvents.commandRegistry (e => {
 
     let originSuggestions = []
     for (let origin in infoOrigin) {
-        originSuggestions.push(origin.name)
+        originSuggestions.push(infoOrigin[origin].name)
     }
     const {commands: Commands, arguments: Arguments, builtinSuggestions: Suggestions} = e
     

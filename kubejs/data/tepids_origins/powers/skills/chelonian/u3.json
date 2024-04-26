@@ -168,6 +168,12 @@
             "compare_to": 1
         },
         "type": "origins:modify_damage_taken",
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:exists"
+            }
+        },
         "attacker_action": {
             "type": "origins:and",
             "actions": [

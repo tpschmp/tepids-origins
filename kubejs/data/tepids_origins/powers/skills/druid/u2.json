@@ -7,8 +7,8 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
-            "bar_index": 4
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/5.png",
+            "bar_index": 0
         }
     },
     "harvest": {
@@ -67,22 +67,93 @@
         },
         "only_when_harvested": true
     },
-    "plant": {
+    "plant_seeds": {
         "type": "origins:action_on_block_use",
         "block_condition": {
-            "type": "origins:in_tag",
-            "tag": "minecraft:dirt"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:block",
+                    "block": "minecraft:farmland"
+                },
+                {
+                    "type": "origins:offset",
+                    "condition": {
+                        "type": "origins:block",
+                        "block": "minecraft:air"
+                    },
+                    "y": 1
+                }
+            ]
         },
         "item_condition": {
             "type": "origins:ingredient",
-            "ingredient": [
+            "ingredient": {
+                "tag": "tepids_origins:seeds"
+            }
+        },
+        "directions": [
+            "up"
+        ],
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
                 {
-                    "tag": "minecraft:saplings"
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "tepids_origins:skills/druid/d2"
+                    },
+                    "if_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 2
+                        }
+                    },
+                    "else_action": {
+                        "type": "origins:modify_resource",
+                        "resource": "tepids_origins:skills/druid/u2_harvestmeter",
+                        "modifier": {
+                            "operation": "addition",
+                            "value": 1
+                        }
+                    }
                 },
                 {
-                    "tag": "tepids_origins:seeds"
+                    "type": "origins:feed",
+                    "food": 0,
+                    "saturation": 0.025
                 }
             ]
+        },
+        "action_result": "success"
+    },
+    "plant_saplings": {
+        "type": "origins:action_on_block_use",
+        "block_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:dirt"
+                },
+                {
+                    "type": "origins:offset",
+                    "condition": {
+                        "type": "origins:block",
+                        "block": "minecraft:air"
+                    },
+                    "y": 1
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "minecraft:saplings"
+            }
         },
         "directions": [
             "up"

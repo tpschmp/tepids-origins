@@ -1,6 +1,6 @@
 {
     "name": "A Long Story",
-    "description": "Gain different bonuses from nearby entities based on your relationship with them.\n　",
+    "description": "Getting hit by the undead inflicts Hunger. Getting hit by Pillagers inflicts Weakness.\n　",
     "badges": [
         {
             "type": "origins:tooltip",

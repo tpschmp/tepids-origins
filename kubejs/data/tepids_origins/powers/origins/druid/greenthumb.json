@@ -108,7 +108,7 @@
                 },
                 "slots": [],
                 "process_mode": "items",
-                "limit": 0
+                "limit": 1
             }
         },
         "action_result": "success"

@@ -30,7 +30,7 @@
         "start_value": 1,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/1.png",
+            "sprite_location": "tepids_origins:textures/icons/bars/items/7.png",
             "bar_index": 1,
             "condition": {
                 "type": "origins:and",
@@ -89,7 +89,7 @@
                             "type": "origins:resource",
                             "resource": "tepids_origins:origins/druid/revitalize_cooldown",
                             "comparison": ">=",
-                            "compare_to": 235
+                            "compare_to": 295
                         },
                         {
                             "type": "origins:resource",
