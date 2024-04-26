@@ -1,11 +1,13 @@
 {
     "name": "Nitwit",
-    "description": "You gain less XP and cannot use Enchanting Tables. \nUsing enchanted items is as good as using nothing at all.\n　",
+    "description": "You gain less XP and cannot use Enchanting Tables. \nItems last longer and cost less to repair, but most enchantments have adverse effects.\n　",
     "badges": [
         {
             "type": "origins:tooltip",
             "text": [
-                "XP Gain: -60%"
+                "XP Gain: -60%\n",
+                "Whitelisted Enchantments: Silk Touch, Fortune\n",
+                "Durability Modifier: +50%"
             ],
             "sprite": "origins:textures/gui/badge/info.png"
         }
@@ -16,6 +18,28 @@
         "modifier": {
             "operation": "multiply_total",
             "value": -0.6
+        }
+    },
+    "durabilitybuff": {
+        "type": "apugli:modify_durability_change",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        }
+    },
+    "repairbuff": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "inventory_type": "inventory",
+            "item_action": {
+                "type": "origins:merge_nbt",
+                "nbt": "{RepairCost: 0}"
+            },
+            "slots": [],
+            "process_mode": "items",
+            "limit": 0
         }
     },
     "preventenchant": {
@@ -30,9 +54,64 @@
             "type": "origins:equipped_item",
             "equipment_slot": "mainhand",
             "item_condition": {
-                "type": "eggolib:enchantment",
-                "comparison": ">=",
-                "compare_to": 1
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "eggolib:enchantment",
+                                "comparison": ">=",
+                                "compare_to": 1
+                            },
+                            {
+                                "inverted": true,
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:fortune",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    },
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:silk_touch",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "eggolib:enchantment",
+                                "comparison": ">=",
+                                "compare_to": 2
+                            },
+                            {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:fortune",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    },
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:silk_touch",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "type": "origins:modify_attribute",
@@ -47,9 +126,64 @@
             "type": "origins:equipped_item",
             "equipment_slot": "mainhand",
             "item_condition": {
-                "type": "eggolib:enchantment",
-                "comparison": ">=",
-                "compare_to": 1
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "eggolib:enchantment",
+                                "comparison": ">=",
+                                "compare_to": 1
+                            },
+                            {
+                                "inverted": true,
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:fortune",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    },
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:silk_touch",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "eggolib:enchantment",
+                                "comparison": ">=",
+                                "compare_to": 2
+                            },
+                            {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:fortune",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    },
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:silk_touch",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "type": "origins:modify_break_speed",
@@ -108,9 +242,64 @@
             "type": "origins:equipped_item",
             "equipment_slot": "mainhand",
             "item_condition": {
-                "type": "eggolib:enchantment",
-                "comparison": ">=",
-                "compare_to": 1
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "eggolib:enchantment",
+                                "comparison": ">=",
+                                "compare_to": 1
+                            },
+                            {
+                                "inverted": true,
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:fortune",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    },
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:silk_touch",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "eggolib:enchantment",
+                                "comparison": ">=",
+                                "compare_to": 2
+                            },
+                            {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:fortune",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    },
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:silk_touch",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "type": "origins:modify_harvest",
@@ -121,9 +310,64 @@
             "type": "origins:equipped_item",
             "equipment_slot": "mainhand",
             "item_condition": {
-                "type": "eggolib:enchantment",
-                "comparison": ">=",
-                "compare_to": 1
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "eggolib:enchantment",
+                                "comparison": ">=",
+                                "compare_to": 1
+                            },
+                            {
+                                "inverted": true,
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:fortune",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    },
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:silk_touch",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "eggolib:enchantment",
+                                "comparison": ">=",
+                                "compare_to": 2
+                            },
+                            {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:fortune",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    },
+                                    {
+                                        "type": "eggolib:enchantment",
+                                        "enchantment": "minecraft:silk_touch",
+                                        "comparison": ">=",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "type": "origins:modify_projectile_damage",
