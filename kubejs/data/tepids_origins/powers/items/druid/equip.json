@@ -18,10 +18,33 @@
                     "power": "tepids_origins:items/cooldowns_druid_equip"
                 },
                 {
-                    "type": "origins:play_sound",
-                    "sound": "tepids_origins:druid.item.equip",
-                    "volume": 0.6,
-                    "pitch": 1
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:block_in_radius",
+                        "block_condition": {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:in_tag",
+                                    "tag": "minecraft:crops"
+                                },
+                                {
+                                    "type": "origins:in_tag",
+                                    "tag": "minecraft:saplings"
+                                }
+                            ]
+                        },
+                        "radius": 16,
+                        "shape": "sphere",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:play_sound",
+                        "sound": "tepids_origins:druid.item.equip",
+                        "volume": 0.2,
+                        "pitch": 1
+                    }
                 },
                 {
                     "type": "origins:block_action_at",
