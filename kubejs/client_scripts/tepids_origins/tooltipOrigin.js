@@ -56,6 +56,7 @@ ItemEvents.tooltip(e => {
                 } else if (item.hasTag("tepids_origins:" + set.origin + "_item")) {
                     text.add(7, Text.white("  ▼ Equip Bonus"))
                     text.add(8, [Text.darkGray("    "), Text.gray(set.equip)])
+                    text.add(9, [Text.darkGray("    Archetype Requirement: "), Text.gray(set.archetype.charAt(0).toUpperCase() + set.archetype.slice(1))])
                 } 
             }
 
@@ -73,11 +74,13 @@ ItemEvents.tooltip(e => {
                 if (item.hasTag("tepids_origins:" + set.origin + "_armor")) {
                     text.add(11, Text.white("  ▼ Full Set Bonus"))
                     text.add(12, [Text.darkGray("    "), Text.gray(set.full)])
-                    text.add(13, Text.gray(" "))
+                    text.add(13, [Text.darkGray("    Archetype Requirement: "), Text.gray(set.archetype.charAt(0).toUpperCase() + set.archetype.slice(1))])
+                    text.add(14, Text.gray(" "))
                 } else if (item.hasTag("tepids_origins:" + set.origin + "_item")) {
                     text.add(11, Text.white("  ▼ Active Ability"))
                     text.add(12, [Text.darkGray("    "), Text.gray(set.active)])
-                    text.add(13, Text.gray(" "))
+                    text.add(13, [Text.darkGray("    Origin Requirement: "), Text.gray(set.origin.charAt(0).toUpperCase() + set.origin.slice(1))])
+                    text.add(14, Text.gray(" "))
                 } 
             }
             
