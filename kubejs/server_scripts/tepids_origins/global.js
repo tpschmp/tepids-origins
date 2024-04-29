@@ -197,6 +197,8 @@ const goldTable = [
     "minecraft:emerald",
     "minecraft:lapis_lazuli",
     "minecraft:redstone",
+    Ingredient.of("/.*smithing.*/").itemIds,
+    Ingredient.of("/.*disc.*/").itemIds,
     Ingredient.of("/.*map.*/").itemIds,
     Ingredient.of("/.*ingot.*/").itemIds,
     Ingredient.of("/.*helmet.*/").itemIds,
