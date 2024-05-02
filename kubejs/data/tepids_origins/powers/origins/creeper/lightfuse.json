@@ -27,7 +27,7 @@
                 "Light Fuse - Hunger Cost: 2/Fuse stack\n",
                 "Light Fuse - Fuse Stack Gain: 1/s\n",
                 "Light Fuse - Cooldown: 25 seconds\n \n",
-                "Detonate - Explosive Power: 1/2/3/4/5\n(at 1/2/3/4/5 Fuse)\n"
+                "Detonate - Explosive Power: 1/1.75/2.5/3.25/4\n(at 1/2/3/4/5 Fuse)\n"
             ],
             "sprite": "origins:textures/gui/badge/info.png"
         }
