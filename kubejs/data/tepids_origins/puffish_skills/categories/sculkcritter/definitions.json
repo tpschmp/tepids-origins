@@ -456,7 +456,7 @@
             }
         },
         "description": "Costs 9 Skill Points.\n \nWhile Taking Flight, you are able to phase through blocks, turning them into Sculk. Proximity to any sculk-related block reduces the effects of Sight of a Warden.\n \n▼ Hold Shift for details",
-        "extra_description": "\nToggle Keybind: [Save Toolbar Activator]",
+        "extra_description": "\nToggle Keybind: [Save Hotbar Activator]",
         "size": 1.5,
         "rewards": [
             {

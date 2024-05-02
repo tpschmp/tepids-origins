@@ -456,7 +456,7 @@
             }
         },
         "description": "Costs 9 Skill Points.\n \nGain Invisibility when near tamed wolves.\nWhen ambushing entities in this state, continuously gain stacks of Prey on the Weak's buffs.\n \n▼ Hold Shift for details",
-        "extra_description": "\nWolf Requirement: 3\nStack Gain Rate: 2/second\nToggle Keybind: [Save Toolbar Activator]",
+        "extra_description": "\nWolf Requirement: 3\nStack Gain Rate: 2/second\nToggle Keybind: [Save Hotbar Activator]",
         "size": 1.5,
         "rewards": [
             {
