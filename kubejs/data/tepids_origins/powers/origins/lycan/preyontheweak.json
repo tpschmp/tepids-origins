@@ -8,7 +8,7 @@
                 "Mark Duration: 5 seconds\n",
                 "Wolf Damage Taken: +2\n",
                 "Buff Duration: 10 seconds\n",
-                "Max Stacks: 5\n",
+                "Max Stacks: 4\n",
                 "Melee Damage Dealt: +4%/stack\n",
                 "Attack Speed: +0.1/stack"
             ],
@@ -19,7 +19,7 @@
     "dmg_tracker": {
         "type": "origins:resource",
         "min": 0,
-        "max": 10,
+        "max": 7,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -181,7 +181,7 @@
                                                     "type": "origins:resource",
                                                     "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
                                                     "comparison": "<",
-                                                    "compare_to": 5
+                                                    "compare_to": 4
                                                 }
                                             ]
                                         },
@@ -196,7 +196,7 @@
                                                     "type": "origins:resource",
                                                     "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
                                                     "comparison": "<",
-                                                    "compare_to": 10
+                                                    "compare_to": 7
                                                 }
                                             ]
                                         }
@@ -582,129 +582,6 @@
                                                     "modifier": {
                                                         "operation": "addition",
                                                         "value": -14
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
-                                "comparison": "==",
-                                "compare_to": 8
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:modify_resource",
-                                        "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
-                                        "modifier": {
-                                            "operation": "addition",
-                                            "value": -32
-                                        }
-                                    },
-                                    {
-                                        "type": "origins:if_else",
-                                        "condition": {
-                                            "type": "origins:power",
-                                            "power": "tepids_origins:skills/lycan/d2"
-                                        },
-                                        "if_action": {
-                                            "type": "origins:and",
-                                            "actions": [
-                                                {
-                                                    "type": "origins:modify_resource",
-                                                    "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
-                                                    "modifier": {
-                                                        "operation": "addition",
-                                                        "value": -16
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
-                                "comparison": "==",
-                                "compare_to": 9
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:modify_resource",
-                                        "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
-                                        "modifier": {
-                                            "operation": "addition",
-                                            "value": -36
-                                        }
-                                    },
-                                    {
-                                        "type": "origins:if_else",
-                                        "condition": {
-                                            "type": "origins:power",
-                                            "power": "tepids_origins:skills/lycan/d2"
-                                        },
-                                        "if_action": {
-                                            "type": "origins:and",
-                                            "actions": [
-                                                {
-                                                    "type": "origins:modify_resource",
-                                                    "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
-                                                    "modifier": {
-                                                        "operation": "addition",
-                                                        "value": -18
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
-                                "comparison": "==",
-                                "compare_to": 10
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:modify_resource",
-                                        "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
-                                        "modifier": {
-                                            "operation": "addition",
-                                            "value": -40
-                                        }
-                                    },
-                                    {
-                                        "type": "origins:if_else",
-                                        "condition": {
-                                            "type": "origins:power",
-                                            "power": "tepids_origins:skills/lycan/d2"
-                                        },
-                                        "if_action": {
-                                            "type": "origins:and",
-                                            "actions": [
-                                                {
-                                                    "type": "origins:modify_resource",
-                                                    "resource": "tepids_origins:stats_melee_dmgdealt_tracker",
-                                                    "modifier": {
-                                                        "operation": "addition",
-                                                        "value": -20
                                                     }
                                                 }
                                             ]
