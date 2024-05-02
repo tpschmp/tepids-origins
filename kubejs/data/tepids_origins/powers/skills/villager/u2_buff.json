@@ -2,7 +2,7 @@
     "type": "origins:multiple",
     "cooldown": {
         "type": "origins:cooldown",
-        "cooldown": 50
+        "cooldown": 30
     },
     "proc": {
         "condition": {
@@ -71,7 +71,7 @@
                             },
                             {
                                 "type": "origins:area_of_effect",
-                                "radius": 16,
+                                "radius": 8,
                                 "include_target": true,
                                 "bientity_condition": {
                                     "inverted": true,
