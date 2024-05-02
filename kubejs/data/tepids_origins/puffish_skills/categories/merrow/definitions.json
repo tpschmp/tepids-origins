@@ -393,8 +393,8 @@
                 "texture": "tepids_origins:textures/icons/skills/merrow/u1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nDepth no longer affects buff strength, which will be at its maximum, permanently.",
+        "description": "Costs 3 Skill Points.\n \nDepth no longer affects buff strength, which will be at its maximum, permanently.",
+        "extra_description": "",
         "size": 1.5,
         "rewards": [
             {
@@ -424,8 +424,8 @@
                 "texture": "tepids_origins:textures/icons/skills/merrow/u2.png"
             }
         },
-        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nUsing Propel will grant nearby entities (including yourself) Dolphin's Grace.",
+        "description": "Costs 6 Skill Points.\n \nUsing Propel will grant nearby entities (including yourself) Dolphin's Grace\n \n▼ Hold Shift for details",
+        "extra_description": "\nEffect Amplifier: I\nEffect Duration: 5 seconds\nRange: 16 blocks",
         "size": 1.5,
         "rewards": [
             {
@@ -455,8 +455,8 @@
                 "texture": "tepids_origins:textures/icons/skills/merrow/u3.png"
             }
         },
-        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nPropelling periodically grants Conduit Power to nearby entities and allows you to stand on the water's surface.\nWalking on water Propels you.",
+        "description": "Costs 9 Skill Points.\n \nPropelling periodically grants Conduit Power to nearby entities and allows you to stand on the water's surface.\nWalking on water Propels you.\n \n▼ Hold Shift for details",
+        "extra_description": "\nEffect Amplifier: I\nEffect Duration: 5 seconds\nRange: 16 blocks",
         "size": 1.5,
         "rewards": [
             {
@@ -486,8 +486,8 @@
                 "texture": "tepids_origins:textures/icons/skills/merrow/d1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nGain Luck when swimming in any body of water.",
+        "description": "Costs 3 Skill Points.\n \nGain Luck when swimming in any body of water.\n \n▼ Hold Shift for details",
+        "extra_description": "\nLuck: +1",
         "size": 1.25,
         "rewards": [
             {
@@ -517,8 +517,8 @@
                 "texture": "tepids_origins:textures/icons/skills/merrow/d2.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe effect granted is improved and lasts longer.",
+        "description": "Costs 3 Skill Points.\n \nThe effect granted is improved and lasts longer.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Effect Amplifier: II\nNew Effect Duration: 10 seconds",
         "size": 1.25,
         "rewards": [
             {
@@ -548,8 +548,8 @@
                 "texture": "tepids_origins:textures/icons/skills/merrow/d3.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nConduit Power lets you swim in mid-air.",
+        "description": "Costs 3 Skill Points.\n \nConduit Power lets you swim in mid-air.",
+        "extra_description": "",
         "size": 1.25,
         "rewards": [
             {

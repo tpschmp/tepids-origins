@@ -393,8 +393,8 @@
                 "texture": "tepids_origins:textures/icons/skills/sculkcritter/u1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nTake Flight periodically emits vibrations if you're not sneaking at the time of casting.",
+        "description": "Costs 3 Skill Points.\n \nTake Flight periodically emits vibrations if you're not sneaking at the time of casting.\n \n▼ Hold Shift for details",
+        "extra_description": "\nVibration Emission Rate: 2 seconds",
         "size": 1.5,
         "rewards": [
             {
@@ -424,8 +424,8 @@
                 "texture": "tepids_origins:textures/icons/skills/sculkcritter/u2.png"
             }
         },
-        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nNearby vibrations decrease all ability cooldowns.",
+        "description": "Costs 6 Skill Points.\n \nNearby vibrations decrease all ability cooldowns.\n \n▼ Hold Shift for details",
+        "extra_description": "Cooldown Reduction: -1 second\nRange: 16 blocks\nCooldown: 0.5 seconds",
         "size": 1.5,
         "rewards": [
             {
@@ -455,8 +455,8 @@
                 "texture": "tepids_origins:textures/icons/skills/sculkcritter/u3.png"
             }
         },
-        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nWhile Taking Flight, you are able to phase through blocks, turning them into Sculk. Proximity to any sculk-related block reduces the effects of Sight of a Warden and occasionally triggers Auditory Instinct.",
+        "description": "Costs 9 Skill Points.\n \nWhile Taking Flight, you are able to phase through blocks, turning them into Sculk. Proximity to any sculk-related block reduces the effects of Sight of a Warden.\n \n▼ Hold Shift for details",
+        "extra_description": "\nToggle Keybind: [Save Toolbar Activator]",
         "size": 1.5,
         "rewards": [
             {
@@ -486,8 +486,8 @@
                 "texture": "tepids_origins:textures/icons/skills/sculkcritter/d1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe vibrations emitted by Take Flight mark all nearby entities.",
+        "description": "Costs 3 Skill Points.\n \nThe vibrations emitted by Take Flight mark all nearby entities.\n \n▼ Hold Shift for details",
+        "extra_description": "\nRange: 64 blocks",
         "size": 1.25,
         "rewards": [
             {
@@ -517,8 +517,8 @@
                 "texture": "tepids_origins:textures/icons/skills/sculkcritter/d2.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nIf Take Flight is active, its duration is extended by vibrations.",
+        "description": "Costs 3 Skill Points.\n \nIf Take Flight is active, its duration is extended by vibrations.\n \n▼ Hold Shift for details",
+        "extra_description": "\nDuration Extension: +1.5 seconds",
         "size": 1.25,
         "rewards": [
             {
@@ -548,8 +548,8 @@
                 "texture": "tepids_origins:textures/icons/skills/sculkcritter/d3.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nProximity to any sculk-related block negates Sight of a Warden.",
+        "description": "Costs 3 Skill Points.\n \nProximity to any sculk-related block negates Sight of a Warden.",
+        "extra_description": "",
         "size": 1.25,
         "rewards": [
             {

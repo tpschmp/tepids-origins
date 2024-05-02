@@ -393,8 +393,8 @@
                 "texture": "tepids_origins:textures/icons/skills/anuran/u1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nMining while sneaking can drop Slime Balls, which can be eaten to restore hunger.",
+        "description": "Costs 3 Skill Points.\n \nMining while sneaking can drop Slime Balls, which can be eaten to restore hunger.\n \n▼ Hold Shift for details",
+        "extra_description": "\nDrop Chance: 20%\nSlime Ball Hunger: 4\nSlime Ball Saturation: 0",
         "size": 1.5,
         "rewards": [
             {
@@ -424,8 +424,8 @@
                 "texture": "tepids_origins:textures/icons/skills/anuran/u2.png"
             }
         },
-        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nYou can slide on walls. Jumping off of walls boosts you forward.",
+        "description": "Costs 6 Skill Points.\n \nYou can slide on walls. Jumping off of walls boosts you forward.\n \n▼ Hold Shift for details",
+        "extra_description": "\nToggle Keybind: [Save Toolbar Activator]",
         "size": 1.5,
         "rewards": [
             {
@@ -455,8 +455,8 @@
                 "texture": "tepids_origins:textures/icons/skills/anuran/u3.png"
             }
         },
-        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nAfter Licking, temporarily gain extra jumps in mid-air until landing. Jumping this way decreases Lick cooldown.",
+        "description": "Costs 9 Skill Points.\n \nAfter Licking, temporarily gain extra jumps in mid-air until landing. Jumping this way decreases Lick cooldown.\n \n▼ Hold Shift for details",
+        "extra_description": "\nJump Amount: 3\nCooldown Reduction: -1.5 seconds",
         "size": 1.5,
         "rewards": [
             {
@@ -486,8 +486,8 @@
                 "texture": "tepids_origins:textures/icons/skills/anuran/d1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nSlime Balls additionally regenerate health.",
+        "description": "Costs 3 Skill Points.\n \nSlime Balls additionally regenerate health.\n \n▼ Hold Shift for details",
+        "extra_description": "\nHealth Restored: 4",
         "size": 1.25,
         "rewards": [
             {
@@ -517,8 +517,8 @@
                 "texture": "tepids_origins:textures/icons/skills/anuran/d2.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nSliding is faster and grants you a burst of Movement Speed after jumping off.",
+        "description": "Costs 3 Skill Points.\n \nSliding is faster and grants you Speed after jumping off.\n \n▼ Hold Shift for details",
+        "extra_description": "\nSlide Velocity: +50%\nSpeed Amplifier: II\nSpeed Duration: 1 second",
         "size": 1.25,
         "rewards": [
             {
@@ -548,8 +548,8 @@
                 "texture": "tepids_origins:textures/icons/skills/anuran/d3.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe amount of extra jumps is increased.",
+        "description": "Costs 3 Skill Points.\n \nThe amount of extra jumps is increased.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Jump Amount: 4",
         "size": 1.25,
         "rewards": [
             {
