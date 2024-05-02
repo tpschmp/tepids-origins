@@ -3,7 +3,7 @@
     "boolean": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1,
+        "max": 2,
         "start_value": 0
     },
     "blockcheck": {
@@ -46,6 +46,13 @@
                 {
                     "inverted": true,
                     "type": "origins:sneaking"
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:resource",
+                    "resource": "tepids_origins:skills/anuran/u2_boolean",
+                    "comparison": "==",
+                    "compare_to": 2
                 }
             ]
         },
@@ -142,5 +149,64 @@
             "x",
             "z"
         ]
+    },
+    "toggle_on": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:resource",
+            "resource": "tepids_origins:skills/anuran/u2_boolean",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_resource",
+                    "resource": "tepids_origins:skills/anuran/u2_boolean",
+                    "value": 2
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar \"Sticky Slide has been toggled off.\""
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.saveToolbarActivator"
+        }
+    },
+    "toggle_off": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:skills/anuran/u2_boolean",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:delay",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:skills/anuran/u2_boolean",
+                        "value": 0
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar \"Sticky Slide has been toggled on.\""
+                    }
+                ]
+            },
+            "ticks": 1
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.saveToolbarActivator"
+        }
     }
 }

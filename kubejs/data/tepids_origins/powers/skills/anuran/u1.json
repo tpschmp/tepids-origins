@@ -90,7 +90,7 @@
             "type": "origins:if_else",
             "condition": {
                 "type": "origins:power",
-                "power": "0:skills/anuran/d1"
+                "power": "tepids_origins:skills/anuran/d1"
             },
             "if_action": {
                 "type": "origins:heal",
