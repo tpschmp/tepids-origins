@@ -414,7 +414,7 @@ const itemOrigin = {
                 type: "helmet",
                 stats: {
                     attributePrimary: "additionalentityattributes:water_speed",
-                    valuePrimary: [0.1, 0.1],
+                    valuePrimary: [0.05, 0.05],
                     operationPrimary: $AM$Operation.MULTIPLY_TOTAL,
                     attributeSecondary: "undefined",
                     valueSecondary: [0, 0],
@@ -427,7 +427,7 @@ const itemOrigin = {
                 type: "chestplate",
                 stats: {
                     attributePrimary: "additionalentityattributes:water_speed",
-                    valuePrimary: [0.1, 0.1],
+                    valuePrimary: [0.05, 0.05],
                     operationPrimary: $AM$Operation.MULTIPLY_TOTAL,
                     attributeSecondary: "undefined",
                     valueSecondary: [0, 0],
@@ -440,7 +440,7 @@ const itemOrigin = {
                 type: "leggings",
                 stats: {
                     attributePrimary: "additionalentityattributes:water_speed",
-                    valuePrimary: [0.1, 0.1],
+                    valuePrimary: [0.05, 0.05],
                     operationPrimary: $AM$Operation.MULTIPLY_TOTAL,
                     attributeSecondary: "undefined",
                     valueSecondary: [0, 0],
@@ -453,7 +453,7 @@ const itemOrigin = {
                 type: "boots",
                 stats: {
                     attributePrimary: "additionalentityattributes:water_speed",
-                    valuePrimary: [0.1, 0.1],
+                    valuePrimary: [0.05, 0.05],
                     operationPrimary: $AM$Operation.MULTIPLY_TOTAL,
                     attributeSecondary: "undefined",
                     valueSecondary: [0, 0],
