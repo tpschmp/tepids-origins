@@ -393,8 +393,8 @@
                 "texture": "tepids_origins:textures/icons/skills/creeper/u1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nRegenerate hunger for every enemy hit by Detonate, with a cap.",
+        "description": "Costs 3 Skill Points.\n \nRegenerate hunger for every enemy hit by Detonate, with a cap.\n \n▼ Hold Shift for details",
+        "extra_description": "\nHunger Restored: 1/hit\nTarget Cap: 4",
         "size": 1.5,
         "rewards": [
             {
@@ -424,8 +424,8 @@
                 "texture": "tepids_origins:textures/icons/skills/creeper/u2.png"
             }
         },
-        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nEntities hit by Detonate will create additional explosions.",
+        "description": "Costs 6 Skill Points.\n \nEntities hit by Detonate will create additional explosions.\n \n▼ Hold Shift for details",
+        "extra_description": "\nRange: 16 blocks\nExplosions: 3\nDamage: 4/explosion",
         "size": 1.5,
         "rewards": [
             {
@@ -455,8 +455,8 @@
                 "texture": "tepids_origins:textures/icons/skills/creeper/u3.png"
             }
         },
-        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nAfter promoting an explosion with your abilities, immediately Light Fuse and become Supercharged.\nWhile Supercharged, Fuse stacks are obtained faster and do not cost hunger.",
+        "description": "Costs 9 Skill Points.\n \nAfter promoting an explosion with your abilities, immediately Light Fuse and become Supercharged.\nWhile Supercharged, Fuse stacks are obtained faster and do not cost hunger.\n \n▼ Hold Shift for details",
+        "extra_description": "\nSupercharged Duration: 7 seconds",
         "size": 1.5,
         "rewards": [
             {
@@ -486,8 +486,8 @@
                 "texture": "tepids_origins:textures/icons/skills/creeper/d1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe target cap is increased.",
+        "description": "Costs 3 Skill Points.\n \nThe target cap is increased.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Target Cap: 6",
         "size": 1.25,
         "rewards": [
             {
@@ -517,8 +517,8 @@
                 "texture": "tepids_origins:textures/icons/skills/creeper/d2.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nAn extra chain explosion is triggered on each entity hit.",
+        "description": "Costs 3 Skill Points.\n \nAn extra chain explosion is triggered on each entity hit.",
+        "extra_description": "",
         "size": 1.25,
         "rewards": [
             {
@@ -548,8 +548,8 @@
                 "texture": "tepids_origins:textures/icons/skills/creeper/d3.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe Supercharged state lasts for longer.",
+        "description": "Costs 3 Skill Points.\n \nThe Supercharged state lasts for longer.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Supercharged Duration: 12 seconds",
         "size": 1.25,
         "rewards": [
             {

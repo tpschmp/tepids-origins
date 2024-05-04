@@ -5,128 +5,97 @@
             "type": "origins:sneaking"
         },
         "type": "origins:action_on_block_break",
-        "entity_action": {
+        "block_action": {
             "type": "origins:chance",
-            "chance": 0.05,
+            "chance": 0.2,
             "action": {
-                "type": "origins:give",
-                "stack": {
-                    "item": "slime_ball",
-                    "amount": 1
-                }
+                "type": "origins:choice",
+                "actions": [
+                    {
+                        "weight": 1,
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon item ~ ~ ~ {Item: {id: \"minecraft:slime_ball\", Count: 1b}, Motion: [0d, 0.1d, 0.1d]}"
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon item ~ ~ ~ {Item: {id: \"minecraft:slime_ball\", Count: 1b}, Motion: [0d, 0.1d, -0.1d]}"
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon item ~ ~ ~ {Item: {id: \"minecraft:slime_ball\", Count: 1b}, Motion: [0.1d, 0.1d, 0d]}"
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon item ~ ~ ~ {Item: {id: \"minecraft:slime_ball\", Count: 1b}, Motion: [-0.1d, 0.1d, 0d]}"
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon item ~ ~ ~ {Item: {id: \"minecraft:slime_ball\", Count: 1b}, Motion: [0.1d, 0.1d, 0.1d]}"
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon item ~ ~ ~ {Item: {id: \"minecraft:slime_ball\", Count: 1b}, Motion: [0.1d, 0.1d, -0.1d]}"
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon item ~ ~ ~ {Item: {id: \"minecraft:slime_ball\", Count: 1b}, Motion: [-0.1d, 0.1d, 0.1d]}"
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon item ~ ~ ~ {Item: {id: \"minecraft:slime_ball\", Count: 1b}, Motion: [-0.1d, 0.1d, -0.1d]}"
+                        }
+                    }
+                ]
             }
         },
         "only_when_harvested": true
     },
     "slime": {
-        "condition": {
-            "type": "origins:food_level",
-            "comparison": "<",
-            "compare_to": 20
+        "type": "apugli:edible_item",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:slime_ball"
+            }
         },
-        "type": "origins:active_self",
+        "food_component": {
+            "hunger": 4,
+            "saturation": 0,
+            "meat": false
+        },
+        "use_action": "eat",
         "entity_action": {
-            "type": "origins:if_else_list",
-            "actions": [
-                {
-                    "condition": {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:ingredient",
-                            "ingredient": {
-                                "item": "minecraft:slime_ball"
-                            }
-                        }
-                    },
-                    "action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:equipped_item_action",
-                                "equipment_slot": "mainhand",
-                                "action": {
-                                    "type": "origins:consume",
-                                    "amount": 1
-                                }
-                            },
-                            {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:power",
-                                    "power": "tepids_origins:skills/anuran/d1"
-                                },
-                                "if_action": {
-                                    "type": "origins:heal",
-                                    "amount": 4
-                                }
-                            },
-                            {
-                                "type": "origins:feed",
-                                "food": 4,
-                                "saturation": 0
-                            },
-                            {
-                                "type": "origins:play_sound",
-                                "sound": "entity.generic.eat",
-                                "volume": 1,
-                                "pitch": 1
-                            }
-                        ]
-                    }
-                },
-                {
-                    "condition": {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "offhand",
-                        "item_condition": {
-                            "type": "origins:ingredient",
-                            "ingredient": {
-                                "item": "minecraft:slime_ball"
-                            }
-                        }
-                    },
-                    "action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:equipped_item_action",
-                                "equipment_slot": "offhand",
-                                "action": {
-                                    "type": "origins:consume",
-                                    "amount": 1
-                                }
-                            },
-                            {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:power",
-                                    "power": "tepids_origins:skills/anuran/d1"
-                                },
-                                "if_action": {
-                                    "type": "origins:heal",
-                                    "amount": 4
-                                }
-                            },
-                            {
-                                "type": "origins:feed",
-                                "food": 4,
-                                "saturation": 0
-                            },
-                            {
-                                "type": "origins:play_sound",
-                                "sound": "entity.generic.eat",
-                                "volume": 1,
-                                "pitch": 1
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "cooldown": 5,
-        "key": {
-            "key": "key.use"
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:power",
+                "power": "tepids_origins:skills/anuran/d1"
+            },
+            "if_action": {
+                "type": "origins:heal",
+                "amount": 4
+            }
         }
     }
 }

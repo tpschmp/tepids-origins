@@ -182,7 +182,7 @@
             ]
         },
         "type": "origins:action_over_time",
-        "interval": 5,
+        "interval": 10,
         "entity_action": {
             "type": "origins:if_else",
             "condition": {
@@ -210,7 +210,7 @@
                                         "type": "origins:resource",
                                         "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
                                         "comparison": "<",
-                                        "compare_to": 5
+                                        "compare_to": 4
                                     }
                                 ]
                             },
@@ -225,7 +225,7 @@
                                         "type": "origins:resource",
                                         "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
                                         "comparison": "<",
-                                        "compare_to": 10
+                                        "compare_to": 7
                                     }
                                 ]
                             }

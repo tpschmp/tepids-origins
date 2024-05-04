@@ -58,7 +58,7 @@
                             },
                             "action": {
                                 "type": "origins:explode",
-                                "power": 2,
+                                "power": 1.625,
                                 "destruction_type": "none",
                                 "damage_self": false
                             }
@@ -72,7 +72,7 @@
                             },
                             "action": {
                                 "type": "origins:explode",
-                                "power": 3,
+                                "power": 2.25,
                                 "destruction_type": "none",
                                 "damage_self": false
                             }
@@ -86,7 +86,7 @@
                             },
                             "action": {
                                 "type": "origins:explode",
-                                "power": 4,
+                                "power": 2.875,
                                 "destruction_type": "none",
                                 "damage_self": false
                             }
@@ -100,7 +100,7 @@
                             },
                             "action": {
                                 "type": "origins:explode",
-                                "power": 5,
+                                "power": 3.5,
                                 "destruction_type": "none",
                                 "damage_self": false
                             }

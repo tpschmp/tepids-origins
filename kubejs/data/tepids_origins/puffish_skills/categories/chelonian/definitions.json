@@ -393,8 +393,8 @@
                 "texture": "tepids_origins:textures/icons/skills/chelonian/u1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nRaw Kelp can be consumed instantly. Dried Kelp restores more hunger and saturation.",
+        "description": "Costs 3 Skill Points.\n \nRaw Kelp can be consumed instantly. Dried Kelp restores more hunger and saturation.\n \n▼ Hold Shift for details",
+        "extra_description": "\nRaw Kelp Hunger: 4\nRaw Kelp Saturation: 0\nDried Kelp Boost: +2 Hunger",
         "size": 1.5,
         "rewards": [
             {
@@ -424,8 +424,8 @@
                 "texture": "tepids_origins:textures/icons/skills/chelonian/u2.png"
             }
         },
-        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nFortify's damage mitigation effects increase over time during use.",
+        "description": "Costs 6 Skill Points.\n \nFortify's damage mitigation effects increase over time during use.\n \n▼ Hold Shift for details",
+        "extra_description": "\nIncrease: -3% Damage Taken\nMaximum Increase: -30%\nIncrease Interval: 1 second",
         "size": 1.5,
         "rewards": [
             {
@@ -455,8 +455,8 @@
                 "texture": "tepids_origins:textures/icons/skills/chelonian/u3.png"
             }
         },
-        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nWhile Fortified, your armor boosts damage dealt. Attacking entities receive retaliatory damage and knockback.",
+        "description": "Costs 9 Skill Points.\n \nWhile Fortified, your armor boosts damage dealt. Attacking entities receive retaliatory damage and knockback.\n \n▼ Hold Shift for details",
+        "extra_description": "\nHelmet Damage Increase: 0.5\nChestplate Damage Increase: 1.5\nLeggings Damage Increase: 1\nBoots Damage Increase: 0.5\nRetaliatory Damage: 2",
         "size": 1.5,
         "rewards": [
             {
@@ -486,8 +486,8 @@
                 "texture": "tepids_origins:textures/icons/skills/chelonian/d1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nRaw Kelp and Dried Kelp additionally restore hunger over time.",
+        "description": "Costs 3 Skill Points.\n \nRaw Kelp and Dried Kelp additionally restore hunger over time.\n \n▼ Hold Shift for details",
+        "extra_description": "\nRaw Kelp Hunger: +2 over 1 second\nDried Kelp Hunger: +4 over 2 seconds",
         "size": 1.25,
         "rewards": [
             {
@@ -517,8 +517,8 @@
                 "texture": "tepids_origins:textures/icons/skills/chelonian/d2.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe interval between instances of Fortify's mitigation effect strengthening is reduced.",
+        "description": "Costs 3 Skill Points.\n \nThe interval between instances of Fortify's mitigation effect strengthening is reduced.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Increase Interval: 0.5 seconds",
         "size": 1.25,
         "rewards": [
             {
@@ -548,8 +548,8 @@
                 "texture": "tepids_origins:textures/icons/skills/chelonian/d3.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nMelee Damage Dealt while Fortified is increased.",
+        "description": "Costs 3 Skill Points.\n \nMelee Damage Dealt while Fortified is increased.\n \n▼ Hold Shift for details",
+        "extra_description": "\nMelee Damage Dealt: +20%",
         "size": 1.25,
         "rewards": [
             {

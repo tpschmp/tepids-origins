@@ -1683,20 +1683,6 @@
                     }
                 },
                 {
-                    "type": "origins:set_resource",
-                    "resource": "tepids_origins:origins/allay/search_dmgboolean",
-                    "value": 1
-                },
-                {
-                    "type": "origins:delay",
-                    "action": {
-                        "type": "origins:set_resource",
-                        "resource": "tepids_origins:origins/allay/search_dmgboolean",
-                        "value": 0
-                    },
-                    "ticks": 5
-                },
-                {
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:resource",
@@ -1784,27 +1770,5 @@
         "key": {
             "key": "key.origins.primary_active"
         }
-    },
-    "iframes": {
-        "condition": {
-            "type": "origins:resource",
-            "resource": "tepids_origins:origins/allay/search_dmgboolean",
-            "comparison": "==",
-            "compare_to": 1
-        },
-        "type": "origins:modify_damage_taken",
-        "damage_condition": {
-            "type": "origins:explosive"
-        },
-        "modifier": {
-            "operation": "set_total",
-            "value": 0
-        }
-    },
-    "dmgboolean": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 1,
-        "start_value": 0
     }
 }

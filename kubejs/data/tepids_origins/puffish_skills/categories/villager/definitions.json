@@ -393,8 +393,8 @@
                 "texture": "tepids_origins:textures/icons/skills/villager/u1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nInteracting with villagers repeatedly will gradually increase bonuses incurred by The Basics of Trading.",
+        "description": "Costs 3 Skill Points.\n \nInteracting with villagers repeatedly will gradually increase bonuses incurred by The Basics of Trading.\n \n▼ Hold Shift for details",
+        "extra_description": "\nDiscount Increase: +50/100%",
         "size": 1.5,
         "rewards": [
             {
@@ -424,8 +424,8 @@
                 "texture": "tepids_origins:textures/icons/skills/villager/u2.png"
             }
         },
-        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nEntities affected by Here! Take my Stuff! have a chance of restoring hunger for nearby players when attacking enemies.",
+        "description": "Costs 6 Skill Points.\n \nEntities affected by Here! Take my Stuff! have a chance of restoring hunger for nearby players when attacking enemies.\n \n▼ Hold Shift for details",
+        "extra_description": "\nChance: 40%\nHunger Restored: +2\nRange: 8 blocks\nCooldown: 1.5 seconds",
         "size": 1.5,
         "rewards": [
             {
@@ -455,8 +455,8 @@
                 "texture": "tepids_origins:textures/icons/skills/villager/u3.png"
             }
         },
-        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nDouble Attack Damage inherited by entities affected by Here! Take my Stuff!\nWhen the entity kills in this state, all entities nearby receive Hero of the Village.",
+        "description": "Costs 9 Skill Points.\n \nDouble Attack Damage inherited by entities affected by Here! Take my Stuff!\nWhen the entity kills in this state, all entities nearby receive Hero of the Village.\n \n▼ Hold Shift for details",
+        "extra_description": "\nEffect Range: 32 blocks\nEffect Duration: 30 seconds",
         "size": 1.5,
         "rewards": [
             {
@@ -486,8 +486,8 @@
                 "texture": "tepids_origins:textures/icons/skills/villager/d1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nNetworking happens faster. Reaching the maximum discount applies a discount to all players.",
+        "description": "Costs 3 Skill Points.\n \nNetworking happens faster. Reaching the maximum discount applies a discount to all players.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNetworking Rate: +100%",
         "size": 1.25,
         "rewards": [
             {
@@ -517,8 +517,8 @@
                 "texture": "tepids_origins:textures/icons/skills/villager/d2.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe hunger regeneration chance and area of effect is increased.",
+        "description": "Costs 3 Skill Points.\n \nThe hunger regeneration chance and area of effect is increased.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Chance: 80%\nNew Range: 16 blocks",
         "size": 1.25,
         "rewards": [
             {
@@ -548,8 +548,8 @@
                 "texture": "tepids_origins:textures/icons/skills/villager/d3.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nEntities affected by Here! Take my Stuff! have their Damage Dealt increased.",
+        "description": "Costs 3 Skill Points.\n \nEntities affected by Here! Take my Stuff! have their Damage Dealt increased.\n \n▼ Hold Shift for details",
+        "extra_description": "\nDamage Dealt: +20%",
         "size": 1.25,
         "rewards": [
             {

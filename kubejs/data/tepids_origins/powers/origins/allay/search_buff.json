@@ -35,12 +35,26 @@
         "type": "origins:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:modify_resource",
-            "resource": "tepids_origins:origins/allay/search_buff_duration",
-            "modifier": {
-                "operation": "addition",
-                "value": -1
-            }
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "resource": "tepids_origins:origins/allay/search_buff_duration",
+                    "modifier": {
+                        "operation": "addition",
+                        "value": -1
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:set_resource",
+                        "resource": "tepids_origins:origins/allay/search_buff_dmgboolean",
+                        "value": 0
+                    },
+                    "ticks": 5
+                }
+            ]
         },
         "rising_action": {
             "type": "origins:and",
@@ -58,7 +72,7 @@
                             "action": {
                                 "type": "origins:feed",
                                 "food": 3,
-                                "saturation": 0.05
+                                "saturation": 0
                             }
                         },
                         {
@@ -71,7 +85,7 @@
                             "action": {
                                 "type": "origins:feed",
                                 "food": 6,
-                                "saturation": 0.1
+                                "saturation": 0
                             }
                         },
                         {
@@ -84,7 +98,7 @@
                             "action": {
                                 "type": "origins:feed",
                                 "food": 9,
-                                "saturation": 0.15
+                                "saturation": 0
                             }
                         },
                         {
@@ -97,7 +111,7 @@
                             "action": {
                                 "type": "origins:feed",
                                 "food": 12,
-                                "saturation": 0.2
+                                "saturation": 0
                             }
                         },
                         {
@@ -110,7 +124,7 @@
                             "action": {
                                 "type": "origins:feed",
                                 "food": 15,
-                                "saturation": 0.25
+                                "saturation": 0
                             }
                         }
                     ]
@@ -291,13 +305,9 @@
                     ]
                 },
                 {
-                    "type": "origins:delay",
-                    "action": {
-                        "type": "origins:revoke_power",
-                        "power": "tepids_origins:origins/allay/search_buff",
-                        "source": "tepids_origins:origins/allay/search_buff"
-                    },
-                    "ticks": 5
+                    "type": "origins:revoke_power",
+                    "power": "tepids_origins:origins/allay/search_buff",
+                    "source": "tepids_origins:origins/allay/search_buff"
                 }
             ]
         }
@@ -328,5 +338,24 @@
                 "command": "execute positioned ~0.25 ~1 ~0.25 run function tepids_origins:origins/allay_2"
             }
         }
+    },
+    "iframes": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tepids_origins:origins/allay/search_buff_dmgboolean",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "set_total",
+            "value": 0
+        }
+    },
+    "dmgboolean": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1
     }
 }

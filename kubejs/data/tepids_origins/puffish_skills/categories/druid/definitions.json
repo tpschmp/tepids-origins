@@ -393,8 +393,8 @@
                 "texture": "tepids_origins:textures/icons/skills/druid/u1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nWhile One With Nature is active, create a Nature Field around you that increases XP Gain and Healing Received.",
+        "description": "Costs 3 Skill Points.\n \nWhile One With Nature is active, create a Nature Field around you that increases XP Gain and Healing Received.\n \n▼ Hold Shift for details",
+        "extra_description": "\nSize: 16 blocks\nXP Gain: +20%\nHealing Received: +20%",
         "size": 1.5,
         "rewards": [
             {
@@ -424,8 +424,8 @@
                 "texture": "tepids_origins:textures/icons/skills/druid/u2.png"
             }
         },
-        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nGain a Harvest Meter, filled by farming actions (planting/harvesting). Restores saturation on fill, and may be used to cast Revitalize instead of consuming hunger for a better effect.",
+        "description": "Costs 6 Skill Points.\n \nGain a Harvest Meter, filled by farming actions (planting/harvesting). Restores saturation on fill, and may be used to cast Revitalize instead of consuming hunger for a better effect.\n \n▼ Hold Shift for details",
+        "extra_description": "\nHarvest Meter Points: 200\nMeter Fill Rate: +1/2\nSaturation Fill Rate:0.05/0.1\n(planting/harvesting)\nRevitalize Point Cost: 40\nRevitalize Healing: 9",
         "size": 1.5,
         "rewards": [
             {
@@ -455,8 +455,8 @@
                 "texture": "tepids_origins:textures/icons/skills/druid/u3.png"
             }
         },
-        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nTargets healed by Revitalize gain a brief speed boost and immunity to debuffs and damage.",
+        "description": "Costs 9 Skill Points.\n \nTargets healed by Revitalize gain a brief speed boost and immunity to debuffs and damage.\n \n▼ Hold Shift for details",
+        "extra_description": "\nImmunity Duration: 1 second",
         "size": 1.5,
         "rewards": [
             {
@@ -486,8 +486,8 @@
                 "texture": "tepids_origins:textures/icons/skills/druid/d1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe size of the Nature Field is increased.",
+        "description": "Costs 3 Skill Points.\n \nThe size of the Nature Field is increased.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Size: 32 blocks",
         "size": 1.25,
         "rewards": [
             {
@@ -517,8 +517,8 @@
                 "texture": "tepids_origins:textures/icons/skills/druid/d2.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe Harvest Meter is filled faster.",
+        "description": "Costs 3 Skill Points.\n \nThe Harvest Meter is filled faster.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Meter Fill Rate: +2/4\n(planting/harvesting)",
         "size": 1.25,
         "rewards": [
             {
@@ -548,8 +548,8 @@
                 "texture": "tepids_origins:textures/icons/skills/druid/d3.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe immunity to damage provided by Revitalize lasts longer.",
+        "description": "Costs 3 Skill Points.\n \nThe immunity to damage provided by Revitalize lasts longer.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Immunity Duration: 2 seconds",
         "size": 1.25,
         "rewards": [
             {

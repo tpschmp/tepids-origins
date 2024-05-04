@@ -14,7 +14,7 @@ const originSets = {
             sign: { id: "shelled_sword", text: "A sword encased by generations of turtle scutes." }
         }, 
         half: "Reduces Melee Damage Taken.", 
-        full: "Reduces Incendiary & Magic Damage Taken.\nTaking a hit reduces the damage of the next hit taken.", 
+        full: "Reduces Incendiary & Magic Damage Taken.\n    Taking a hit reduces the damage of the next hit taken.", 
         equip: "Gain extra Defense Points.", 
         active: "Briefly increases Attack Damage by a portion of current Defense Points."
     },
@@ -31,9 +31,9 @@ const originSets = {
             sign: { id: "sower_of_life", text: "A scythe capable of forming life in even the most desolate places." }
         }, 
         half: "Increases XP Gain.", 
-        full: "Increases Effect Resistance.\nUsing an ability periodically heals nearby allies.", 
-        equip: "Periodically increases nearby plant growth.\nHarvesting crops gives XP.", 
-        active: "Briefly increases Melee Damage Dealt.\nAttacks during this period heal and steal XP."
+        full: "Increases Effect Resistance.\n    Using an ability periodically heals nearby allies.", 
+        equip: "Periodically increases nearby plant growth.\n    Harvesting crops gives XP.", 
+        active: "Briefly increases Melee Damage Dealt.\n    Attacks during this period heal and steal XP."
     },
     anuran: { 
         name: "Slimey Outlaw",
@@ -48,9 +48,9 @@ const originSets = {
             sign: { id: "sticky_lasso", text: "The peacemaker of the wild wild swamps." }
         }, 
         half: "Reduces Fall Damage Taken.", 
-        full: "Increases Movement Speed.\nTaking lethal fall damage briefly boosts this effect and heals instead.", 
+        full: "Increases Movement Speed.\n    Taking lethal fall damage briefly boosts this effect and heals instead.", 
         equip: "Gain a chance to obtain Slime Balls when jumping.", 
-        active: "Briefly makes all blocks bouncy.\nLaunches you in the aimed block's direction.\nDeals damage and pulls aimed entities."
+        active: "Briefly makes all blocks bouncy.\n    Launches you in the aimed block's direction.\nDeals damage and pulls aimed entities."
     },
     lycan: { 
         name: "Fierce Hunter",
@@ -65,9 +65,9 @@ const originSets = {
             sign: { id: "protector_of_a_kin", text: "A sign of love and protection for the pack." }
         }, 
         half: "Increases Attack Speed.", 
-        full: "Increases Melee Damage Dealt.\nUsing an ability further boosts the next melee attack.", 
+        full: "Increases Melee Damage Dealt.\n    Using an ability further boosts the next melee attack.", 
         equip: "Increases the Max HP and Attack Damage of all tamed wolves nearby.", 
-        active: "Dash forward and deal a large amount of damage.\nResets all ability cooldowns."
+        active: "Dash forward and deal a large amount of damage.\n    Resets all ability cooldowns."
     },
     villager: { 
         name: "Ornate Emerald",
@@ -82,8 +82,8 @@ const originSets = {
             sign: { id: "exquisite_stick", text: "The best of its kind. (No returns accepted)" }
         }, 
         half: "Increases Attack Damage.", 
-        full: "Increases Knockback Resistance.\nUsing an ability briefly increases nearby allies' Damage Dealt.", 
-        equip: "During combat, regenerate Saturation for nearby allies. The longer this item is held, the more likely it will additionally restore Hunger.", 
+        full: "Increases Knockback Resistance.\n    Using an ability briefly increases nearby allies' Damage Dealt.", 
+        equip: "During combat, regenerate Saturation for nearby allies.\n    The longer this item is held, the more likely it will additionally restore Hunger.", 
         active: "Briefly increases Attack Damage and reduces Melee Damage Dealt."
     },
     merrow: { 
@@ -99,8 +99,8 @@ const originSets = {
             sign: { id: "archaic_conduit", text: "An activated Heart of the Sea, separated from its outer shell." }
         }, 
         half: "Increases Luck.", 
-        full: "Decreases Drowning Rate.\nOn land, reduce Damage Taken. Under water, increase Melee Damage Dealt.", 
-        equip: "Gain the ability to walk on water.\nPeriodically gain Conduit Power.", 
+        full: "Decreases Drowning Rate.\n    On land, reduce Damage Taken. Under water, increase Melee Damage Dealt.", 
+        equip: "Gain the ability to walk on water.\n    Periodically gain Conduit Power.", 
         active: "Create a temporary field that grants allies Luck and reduced Drowning Rate near water."
     },
     creeper: { 
@@ -116,8 +116,8 @@ const originSets = {
             sign: { id: "supercharged_flint_and_steel", text: "A custom-made firestarter capable of fueling itself." }
         }, 
         half: "Reduces mob detection range.", 
-        full: "Increases Movement Speed.\nIncrease Damage Dealt for every second without dealing damage.", 
-        equip: "While on cooldown, increases Incendiary Damage Dealt.\nOtherwise, increases Movement Speed while sneaking.", 
+        full: "Increases Movement Speed.\n    Increase Damage Dealt for every second without dealing damage.", 
+        equip: "While on cooldown, increases Incendiary Damage Dealt.\n    Otherwise, increases Movement Speed while sneaking.", 
         active: "Summons a lightning bolt and 3 TNT at the aimed block."
     },
     allay: { 
@@ -133,9 +133,9 @@ const originSets = {
             sign: { id: "collectors_special", text: "An amalgamation of all sorts of different tools. It's surprisingly well crafted." }
         }, 
         half: "Increases item pickup range.", 
-        full: "Increases Mining Speed.\nPicking up an item grants one point. At max points, reduce the ability cooldowns of nearby allies.", 
+        full: "Increases Mining Speed.\n    Picking up an item grants one point. At max points, reduce the ability cooldowns of nearby allies.", 
         equip: "Counts as the effective tool for any mineable block.", 
-        active: "Briefly grants Movement Speed.\nEach block mined during this time doubles Mining Speed."
+        active: "Briefly grants Movement Speed.\n    Each block mined during this time doubles Mining Speed."
     },
     sculkcritter: { 
         name: "Warden's Disciple",
@@ -150,7 +150,7 @@ const originSets = {
             sign: { id: "colony_of_a_thousand_ears", text: "A glowing blade that feels oddly spongy. It seems to have a life of its own." }
         }, 
         half: "Increases Flying Speed.", 
-        full: "Increases Damage Dealt.\nBriefly grants the ability to leap and fall slowly upon hearing a sound.", 
+        full: "Increases Damage Dealt.\n    Briefly grants the ability to leap and fall slowly upon hearing a sound.", 
         equip: "Increases Movement Speed after hearing a sound.", 
         active: "Inflicts Magic Damage, Sight of a Warden, and Blindness to entities around you."
     }

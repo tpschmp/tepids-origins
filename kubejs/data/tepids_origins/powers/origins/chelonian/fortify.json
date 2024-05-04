@@ -25,8 +25,8 @@
             "text": [
                 "Hunger Threshold: 8\n",
                 "Hunger Cost: 2/s\n",
-                "Damage Reduction: -33%\n",
-                "Movement Speed: -33%\n",
+                "Damage Reduction: -20%\n",
+                "Movement Speed: -50%\n",
                 "Cooldown: 3 seconds"
             ],
             "sprite": "origins:textures/gui/badge/info.png"
@@ -178,7 +178,7 @@
                     "resource": "tepids_origins:stats_movespd_tracker",
                     "modifier": {
                         "operation": "addition",
-                        "value": -33
+                        "value": -50
                     }
                 },
                 {
@@ -186,7 +186,7 @@
                     "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
                     "modifier": {
                         "operation": "addition",
-                        "value": -33
+                        "value": -20
                     }
                 },
                 {
@@ -194,7 +194,7 @@
                     "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
                     "modifier": {
                         "operation": "addition",
-                        "value": -33
+                        "value": -20
                     }
                 }
             ]
@@ -207,7 +207,7 @@
                     "resource": "tepids_origins:stats_movespd_tracker",
                     "modifier": {
                         "operation": "addition",
-                        "value": 33
+                        "value": 50
                     }
                 },
                 {
@@ -215,7 +215,7 @@
                     "resource": "tepids_origins:stats_melee_dmgtaken_tracker",
                     "modifier": {
                         "operation": "addition",
-                        "value": 33
+                        "value": 20
                     }
                 },
                 {
@@ -223,7 +223,7 @@
                     "resource": "tepids_origins:stats_projectile_dmgtaken_tracker",
                     "modifier": {
                         "operation": "addition",
-                        "value": 33
+                        "value": 20
                     }
                 },
                 {
@@ -260,9 +260,9 @@
     },
     "dmgtaken_tracker": {
         "type": "origins:resource",
-        "min": -5,
-        "max": -1,
-        "start_value": -1
+        "min": -4,
+        "max": 0,
+        "start_value": 0
     },
     "vfx": {
         "condition": {

@@ -724,7 +724,7 @@ const itemGeneric = {
 
         name: "bandit",
         tier: {
-            protection: [1, 2, 3, 1],
+            protection: [1, 4, 5, 2],
             toughness: 2
         },
         components: { 
@@ -788,7 +788,7 @@ const itemGeneric = {
 
         name: "dreamer",
         tier: {
-            protection: [1, 2, 3, 1],
+            protection: [1, 4, 5, 2],
             toughness: 2
         },
         components: { 
@@ -852,7 +852,7 @@ const itemGeneric = {
 
         name: "farmer",
         tier: {
-            protection: [1, 2, 3, 1],
+            protection: [1, 4, 5, 2],
             toughness: 2
         },
         components: { 
@@ -916,7 +916,7 @@ const itemGeneric = {
 
         name: "miner",
         tier: {
-            protection: [1, 2, 3, 1],
+            protection: [1, 4, 5, 2],
             toughness: 2
         },
         components: { 
@@ -980,7 +980,7 @@ const itemGeneric = {
 
         name: "runner",
         tier: {
-            protection: [1, 2, 3, 1],
+            protection: [1, 4, 5, 2],
             toughness: 2
         },
         components: { 

@@ -393,8 +393,8 @@
                 "texture": "tepids_origins:textures/icons/skills/lycan/u1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nNearby tamed wolves gain health when attacking marked entities.",
+        "description": "Costs 3 Skill Points.\n \nNearby tamed wolves gain health when attacking marked entities.\n \n▼ Hold Shift for details",
+        "extra_description": "\nHealing: 2",
         "size": 1.5,
         "rewards": [
             {
@@ -424,8 +424,8 @@
                 "texture": "tepids_origins:textures/icons/skills/lycan/u2.png"
             }
         },
-        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nDouble the maximum stacks of buffs from Prey on the Weak.",
+        "description": "Costs 6 Skill Points.\n \nIncrease the maximum stacks of buffs from Prey on the Weak.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Max Stacks: 7",
         "size": 1.5,
         "rewards": [
             {
@@ -455,8 +455,8 @@
                 "texture": "tepids_origins:textures/icons/skills/lycan/u3.png"
             }
         },
-        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nGain Invisibility when near at least three tamed wolves.\nEnter a Frenzy when ambushing entities in this state.\nWhile Frenzied, gain a buff to speed and continuously gain stacks of Prey on the Weak's buffs.",
+        "description": "Costs 9 Skill Points.\n \nGain Invisibility when near tamed wolves.\nWhen ambushing entities in this state, continuously gain stacks of Prey on the Weak's buffs.\n \n▼ Hold Shift for details",
+        "extra_description": "\nWolf Requirement: 3\nStack Gain Rate: 2/second\nToggle Keybind: [Save Hotbar Activator]",
         "size": 1.5,
         "rewards": [
             {
@@ -486,8 +486,8 @@
                 "texture": "tepids_origins:textures/icons/skills/lycan/d1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nTamed wolves around you can critically strike.",
+        "description": "Costs 3 Skill Points.\n \nTamed wolves around you can critically strike.\n \n▼ Hold Shift for details",
+        "extra_description": "\nCritical Strike Chance: 50%",
         "size": 1.25,
         "rewards": [
             {
@@ -517,8 +517,8 @@
                 "texture": "tepids_origins:textures/icons/skills/lycan/d2.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe Damage Boost provided by each stack of Prey on the Weak is increased.",
+        "description": "Costs 3 Skill Points.\n \nThe Damage Boost provided by each stack of Prey on the Weak is increased.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Melee Damage Dealt: +6%/stack",
         "size": 1.25,
         "rewards": [
             {
@@ -548,8 +548,8 @@
                 "texture": "tepids_origins:textures/icons/skills/lycan/d3.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe wolf requirement for this upgrade is reduced to one.",
+        "description": "Costs 3 Skill Points.\n \nThe wolf requirement for this upgrade is reduced.\n \n▼ Hold Shift for details",
+        "extra_description": "New Wolf Requirement: 1",
         "size": 1.25,
         "rewards": [
             {

@@ -393,8 +393,8 @@
                 "texture": "tepids_origins:textures/icons/skills/allay/u1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nGaining points above the limit makes the next block mined break more blocks around it and pull items towards you.",
+        "description": "Costs 3 Skill Points.\n \nGaining points above the limit makes the next block mined break more blocks around it and pull items towards you.\n \n▼ Hold Shift for details",
+        "extra_description": "\nItem Pull Range: 6 blocks\nCooldown: 3 seconds",
         "size": 1.5,
         "rewards": [
             {
@@ -424,8 +424,8 @@
                 "texture": "tepids_origins:textures/icons/skills/allay/u2.png"
             }
         },
-        "description": "Costs 6 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nWhile in the Block Hunter state, using Express Delivery gives points to all Collector Meters and extends the duration of the state.",
+        "description": "Costs 6 Skill Points.\n \nWhile in the Block Hunter state, using Express Delivery gives points to all Collector Meters and extends the duration of the state.\n \n▼ Hold Shift for details",
+        "extra_description": "\nPoints Given: +6\nDuration Extension: +1.5 seconds",
         "size": 1.5,
         "rewards": [
             {
@@ -455,8 +455,8 @@
                 "texture": "tepids_origins:textures/icons/skills/allay/u3.png"
             }
         },
-        "description": "Costs 9 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nUsing The Search Begins increases your inventory size and periodically pulls items towards you.",
+        "description": "Costs 9 Skill Points.\n \nUsing The Search Begins increases your inventory size and periodically pulls items towards you.\n \n▼ Hold Shift for details",
+        "extra_description": "\nItem Pull Interval: 4 seconds\nItem Pull Range: 12 blocks",
         "size": 1.5,
         "rewards": [
             {
@@ -486,8 +486,8 @@
                 "texture": "tepids_origins:textures/icons/skills/allay/d1.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe maximum amount of Collector Meter points is increased.",
+        "description": "Costs 3 Skill Points.\n \nThe maximum amount of Collector Meter points is increased.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Point Maximum: 120",
         "size": 1.25,
         "rewards": [
             {
@@ -517,8 +517,8 @@
                 "texture": "tepids_origins:textures/icons/skills/allay/d2.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe amount of points given and state duration extension is increased.",
+        "description": "Costs 3 Skill Points.\n \nThe amount of points given and state duration extension is increased.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Points Given: +12\nNew Duration Extension: +3 seconds",
         "size": 1.25,
         "rewards": [
             {
@@ -548,8 +548,8 @@
                 "texture": "tepids_origins:textures/icons/skills/allay/d3.png"
             }
         },
-        "description": "Costs 3 Skill Points.\nHold Shift for more information.",
-        "extra_description": "\n \nThe interval between instances of pulling items is decreased.",
+        "description": "Costs 3 Skill Points.\n \nThe interval between instances of pulling items is decreased.\n \n▼ Hold Shift for details",
+        "extra_description": "\nNew Item Pull Interval: 1 second",
         "size": 1.25,
         "rewards": [
             {

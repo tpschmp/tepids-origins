@@ -197,6 +197,8 @@ const goldTable = [
     "minecraft:emerald",
     "minecraft:lapis_lazuli",
     "minecraft:redstone",
+    Ingredient.of("/.*smithing.*/").itemIds,
+    Ingredient.of("/.*disc.*/").itemIds,
     Ingredient.of("/.*map.*/").itemIds,
     Ingredient.of("/.*ingot.*/").itemIds,
     Ingredient.of("/.*helmet.*/").itemIds,
@@ -212,7 +214,7 @@ const netheriteTable = [
     Ingredient.of("/.*golden_apple/").itemIds,
     Ingredient.of("/.*diamond.*/").itemIds,
     Ingredient.of("/.*netherite.*/").itemIds
-]
+] 
 
 const goldCrests = [
     "tepids_origins:golden_low_crest",
