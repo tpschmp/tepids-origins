@@ -40,119 +40,7 @@
             }
         ]
     },
-    "projectile_dmgdealt_tracker": {
-        "type": "origins:resource",
-        "min": -999999,
-        "max": 999999,
-        "start_value": 99
-    },
-    "projectile_dmgdealt_modifier": {
-        "type": "origins:modify_projectile_damage",
-        "modifiers": [
-            {
-                "operation": "multiply_total",
-                "value": 0,
-                "resource": "tepids_origins:stats_projectile_dmgdealt_tracker"
-            },
-            {
-                "operation": "multiply_total",
-                "value": -0.99
-            }
-        ]
-    },
-    "magic_dmgdealt_tracker": {
-        "type": "origins:resource",
-        "min": -999999,
-        "max": 999999,
-        "start_value": 99
-    },
-    "magic_dmgdealt_modifier": {
-        "type": "origins:modify_damage_dealt",
-        "damage_condition": {
-            "type": "origins:or",
-            "conditions": [
-                {
-                    "type": "origins:name",
-                    "name": "wither"
-                },
-                {
-                    "type": "origins:name",
-                    "name": "magic"
-                },
-                {
-                    "type": "origins:name",
-                    "name": "indirectMagic"
-                }
-            ]
-        },
-        "modifiers": [
-            {
-                "operation": "multiply_total",
-                "value": 0,
-                "resource": "tepids_origins:stats_magic_dmgdealt_tracker"
-            },
-            {
-                "operation": "multiply_total",
-                "value": -0.99
-            }
-        ]
-    },
-    "incendiary_dmgdealt_tracker": {
-        "type": "origins:resource",
-        "min": -999999,
-        "max": 999999,
-        "start_value": 99
-    },
-    "incendiary_dmgdealt_modifier": {
-        "type": "origins:modify_damage_dealt",
-        "damage_condition": {
-            "type": "origins:or",
-            "conditions": [
-                {
-                    "type": "origins:explosive"
-                },
-                {
-                    "type": "origins:fire"
-                }
-            ]
-        },
-        "modifiers": [
-            {
-                "operation": "multiply_total",
-                "value": 0,
-                "resource": "tepids_origins:stats_incendiary_dmgdealt_tracker"
-            },
-            {
-                "operation": "multiply_total",
-                "value": -0.99
-            }
-        ]
-    },
     "melee_dmgtaken_tracker": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 999999,
-        "start_value": 99
-    },
-    "projectile_dmgtaken_tracker": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 999999,
-        "start_value": 99
-    },
-    "magic_dmgtaken_tracker": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 999999,
-        "start_value": 99
-    },
-    "incendiary_dmgtaken_tracker": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 999999,
-        "start_value": 99
-    },
-    "fall_dmgtaken_tracker": {
         "type": "origins:resource",
         "min": 0,
         "max": 999999,
@@ -194,6 +82,32 @@
             }
         ]
     },
+    "projectile_dmgdealt_tracker": {
+        "type": "origins:resource",
+        "min": -999999,
+        "max": 999999,
+        "start_value": 99
+    },
+    "projectile_dmgdealt_modifier": {
+        "type": "origins:modify_projectile_damage",
+        "modifiers": [
+            {
+                "operation": "multiply_total",
+                "value": 0,
+                "resource": "tepids_origins:stats_projectile_dmgdealt_tracker"
+            },
+            {
+                "operation": "multiply_total",
+                "value": -0.99
+            }
+        ]
+    },
+    "projectile_dmgtaken_tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 999999,
+        "start_value": 99
+    },
     "projectile_dmgtaken_modifier": {
         "type": "origins:modify_damage_taken",
         "damage_condition": {
@@ -211,6 +125,49 @@
             }
         ]
     },
+    "magic_dmgdealt_tracker": {
+        "type": "origins:resource",
+        "min": -999999,
+        "max": 999999,
+        "start_value": 99
+    },
+    "magic_dmgdealt_modifier": {
+        "type": "origins:modify_damage_dealt",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "wither"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "magic"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "indirect_magic"
+                }
+            ]
+        },
+        "modifiers": [
+            {
+                "operation": "multiply_total",
+                "value": 0,
+                "resource": "tepids_origins:stats_magic_dmgdealt_tracker"
+            },
+            {
+                "operation": "multiply_total",
+                "value": -0.99
+            }
+        ]
+    },
+    "magic_dmgtaken_tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 999999,
+        "start_value": 99
+    },
     "magic_dmgtaken_modifier": {
         "type": "origins:modify_damage_taken",
         "damage_condition": {
@@ -226,7 +183,7 @@
                 },
                 {
                     "type": "origins:name",
-                    "name": "indirectMagic"
+                    "name": "indirect_magic"
                 }
             ]
         },
@@ -242,16 +199,57 @@
             }
         ]
     },
+    "incendiary_dmgdealt_tracker": {
+        "type": "origins:resource",
+        "min": -999999,
+        "max": 999999,
+        "start_value": 99
+    },
+    "incendiary_dmgdealt_modifier": {
+        "type": "origins:modify_damage_dealt",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:in_tag",
+                    "tag": "is_explosion"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "is_fire"
+                }
+            ]
+        },
+        "modifiers": [
+            {
+                "operation": "multiply_total",
+                "value": 0,
+                "resource": "tepids_origins:stats_incendiary_dmgdealt_tracker"
+            },
+            {
+                "operation": "multiply_total",
+                "value": -0.99
+            }
+        ]
+    },
+    "incendiary_dmgtaken_tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 999999,
+        "start_value": 99
+    },
     "incendiary_dmgtaken_modifier": {
         "type": "origins:modify_damage_taken",
         "damage_condition": {
             "type": "origins:or",
             "conditions": [
                 {
-                    "type": "origins:fire"
+                    "type": "origins:in_tag",
+                    "tag": "is_explosion"
                 },
                 {
-                    "type": "origins:explosive"
+                    "type": "origins:in_tag",
+                    "tag": "is_fire"
                 }
             ]
         },
@@ -266,6 +264,12 @@
                 "value": -0.99
             }
         ]
+    },
+    "fall_dmgtaken_tracker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 999999,
+        "start_value": 99
     },
     "fall_dmgtaken_modifier": {
         "type": "origins:modify_damage_taken",
@@ -298,6 +302,47 @@
                 "operation": "multiply_total",
                 "value": 0,
                 "resource": "tepids_origins:stats_movespd_tracker"
+            },
+            {
+                "operation": "multiply_total",
+                "value": -0.99
+            }
+        ]
+    },
+    "swimspd_tracker": {
+        "type": "origins:resource",
+        "min": -999999,
+        "max": 999999,
+        "start_value": 99
+    },
+    "swimspd_modifier": {
+        "type": "origins:modify_attribute",
+        "attribute": "additionalentityattributes:water_speed",
+        "modifiers": [
+            {
+                "operation": "multiply_total",
+                "value": 0,
+                "resource": "tepids_origins:stats_swimspd_tracker"
+            },
+            {
+                "operation": "multiply_total",
+                "value": -0.99
+            }
+        ]
+    },
+    "airspd_tracker": {
+        "type": "origins:resource",
+        "min": -999999,
+        "max": 999999,
+        "start_value": 99
+    },
+    "airspd_modifier": {
+        "type": "origins:modify_air_speed",
+        "modifiers": [
+            {
+                "operation": "multiply_total",
+                "value": 0,
+                "resource": "tepids_origins:stats_airspd_tracker"
             },
             {
                 "operation": "multiply_total",
@@ -379,47 +424,6 @@
                 "operation": "multiply_total",
                 "value": 0,
                 "resource": "tepids_origins:stats_healbonus_tracker"
-            },
-            {
-                "operation": "multiply_total",
-                "value": -0.99
-            }
-        ]
-    },
-    "swimspd_tracker": {
-        "type": "origins:resource",
-        "min": -999999,
-        "max": 999999,
-        "start_value": 99
-    },
-    "swimspd_modifier": {
-        "type": "origins:modify_attribute",
-        "attribute": "additionalentityattributes:water_speed",
-        "modifiers": [
-            {
-                "operation": "multiply_total",
-                "value": 0,
-                "resource": "tepids_origins:stats_swimspd_tracker"
-            },
-            {
-                "operation": "multiply_total",
-                "value": -0.99
-            }
-        ]
-    },
-    "airspd_tracker": {
-        "type": "origins:resource",
-        "min": -999999,
-        "max": 999999,
-        "start_value": 99
-    },
-    "airspd_modifier": {
-        "type": "origins:modify_air_speed",
-        "modifiers": [
-            {
-                "operation": "multiply_total",
-                "value": 0,
-                "resource": "tepids_origins:stats_airspd_tracker"
             },
             {
                 "operation": "multiply_total",
