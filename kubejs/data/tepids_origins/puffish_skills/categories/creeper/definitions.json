@@ -425,7 +425,7 @@
             }
         },
         "description": "Costs 6 Skill Points.\n \nEntities hit by Detonate will create additional explosions.\n \n▼ Hold Shift for details",
-        "extra_description": "\nRange: 16 blocks\nExplosions: 3\nDamage: 4/explosion",
+        "extra_description": "\nRange: 16 blocks\nExplosions: 3\nDamage: 4/explosion\nCooldown: 8 seconds",
         "size": 1.5,
         "rewards": [
             {

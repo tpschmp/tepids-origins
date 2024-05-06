@@ -1,4 +1,4 @@
 {
-    "type": "origins:action_on_callback",
-    "execute_chosen_when_orb": true
+    "type": "origins:cooldown",
+    "cooldown": 160
 }

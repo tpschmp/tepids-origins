@@ -140,10 +140,7 @@
                                     "bientity_action": {
                                         "type": "origins:damage",
                                         "amount": 12,
-                                        "source": {
-                                            "name": "explosion.player",
-                                            "fire": true
-                                        }
+                                        "damage_type": "player_explosion"
                                     }
                                 }
                             },
@@ -227,10 +224,7 @@
                                     "bientity_action": {
                                         "type": "origins:damage",
                                         "amount": 9,
-                                        "source": {
-                                            "name": "explosion.player",
-                                            "fire": true
-                                        }
+                                        "damage_type": "player_explosion"
                                     }
                                 }
                             },
@@ -324,10 +318,7 @@
                                     "bientity_action": {
                                         "type": "origins:damage",
                                         "amount": 6,
-                                        "source": {
-                                            "name": "explosion.player",
-                                            "fire": true
-                                        }
+                                        "damage_type": "player_explosion"
                                     }
                                 }
                             },
@@ -359,10 +350,7 @@
                                     "bientity_action": {
                                         "type": "origins:damage",
                                         "amount": 3,
-                                        "source": {
-                                            "name": "explosion.player",
-                                            "fire": true
-                                        }
+                                        "damage_type": "player_explosion"
                                     }
                                 }
                             }
@@ -547,12 +535,27 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:power",
-                        "power": "tepids_origins:skills/creeper/u2"
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "tepids_origins:skills/creeper/u2"
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "tepids_origins:skills/creeper/u2",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        ]
                     },
                     "if_action": {
                         "type": "origins:and",
                         "actions": [
+                            {
+                                "type": "origins:trigger_cooldown",
+                                "power": "tepids_origins:skills/creeper/u2"
+                            },
                             {
                                 "type": "origins:area_of_effect",
                                 "radius": 16,
@@ -583,10 +586,7 @@
                                                                 {
                                                                     "type": "origins:damage",
                                                                     "amount": 4,
-                                                                    "source": {
-                                                                        "name": "explosion",
-                                                                        "fire": true
-                                                                    }
+                                                                    "damage_type": "player_explosion"
                                                                 },
                                                                 {
                                                                     "type": "origins:play_sound",
@@ -597,11 +597,11 @@
                                                                 {
                                                                     "type": "origins:spawn_particles",
                                                                     "particle": "minecraft:explosion_emitter",
-                                                                    "count": 3,
+                                                                    "count": 1,
                                                                     "spread": {
-                                                                        "x": 16,
+                                                                        "x": 1,
                                                                         "y": 1,
-                                                                        "z": 16
+                                                                        "z": 1
                                                                     },
                                                                     "offset_y": 0.5
                                                                 }
@@ -617,10 +617,7 @@
                                                                 {
                                                                     "type": "origins:damage",
                                                                     "amount": 4,
-                                                                    "source": {
-                                                                        "name": "explosion",
-                                                                        "fire": true
-                                                                    }
+                                                                    "damage_type": "player_explosion"
                                                                 },
                                                                 {
                                                                     "type": "origins:play_sound",
@@ -631,11 +628,11 @@
                                                                 {
                                                                     "type": "origins:spawn_particles",
                                                                     "particle": "minecraft:explosion_emitter",
-                                                                    "count": 3,
+                                                                    "count": 1,
                                                                     "spread": {
-                                                                        "x": 16,
+                                                                        "x": 1,
                                                                         "y": 1,
-                                                                        "z": 16
+                                                                        "z": 1
                                                                     },
                                                                     "offset_y": 0.5
                                                                 }
@@ -651,10 +648,7 @@
                                                                 {
                                                                     "type": "origins:damage",
                                                                     "amount": 4,
-                                                                    "source": {
-                                                                        "name": "explosion",
-                                                                        "fire": true
-                                                                    }
+                                                                    "damage_type": "player_explosion"
                                                                 },
                                                                 {
                                                                     "type": "origins:play_sound",
@@ -665,97 +659,90 @@
                                                                 {
                                                                     "type": "origins:spawn_particles",
                                                                     "particle": "minecraft:explosion_emitter",
-                                                                    "count": 3,
+                                                                    "count": 1,
                                                                     "spread": {
-                                                                        "x": 16,
+                                                                        "x": 1,
                                                                         "y": 1,
-                                                                        "z": 16
+                                                                        "z": 1
                                                                     },
                                                                     "offset_y": 0.5
                                                                 }
                                                             ]
                                                         },
                                                         "ticks": 40
+                                                    },
+                                                    {
+                                                        "type": "origins:if_else",
+                                                        "condition": {
+                                                            "type": "origins:and",
+                                                            "conditions": [
+                                                                {
+                                                                    "type": "origins:power",
+                                                                    "power": "tepids_origins:skills/creeper/d2"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "if_action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:area_of_effect",
+                                                                    "radius": 16,
+                                                                    "bientity_action": {
+                                                                        "type": "origins:target_action",
+                                                                        "action": {
+                                                                            "type": "origins:area_of_effect",
+                                                                            "radius": 16,
+                                                                            "include_target": true,
+                                                                            "bientity_condition": {
+                                                                                "inverted": true,
+                                                                                "type": "origins:target_condition",
+                                                                                "condition": {
+                                                                                    "type": "origins:origin",
+                                                                                    "origin": "tepids_origins:overworld/creeper"
+                                                                                }
+                                                                            },
+                                                                            "bientity_action": {
+                                                                                "type": "origins:target_action",
+                                                                                "action": {
+                                                                                    "type": "origins:delay",
+                                                                                    "action": {
+                                                                                        "type": "origins:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "origins:damage",
+                                                                                                "amount": 4,
+                                                                                                "damage_type": "player_explosion"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "origins:play_sound",
+                                                                                                "sound": "entity.generic.explode",
+                                                                                                "volume": 0.1,
+                                                                                                "pitch": 1.2
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "origins:spawn_particles",
+                                                                                                "particle": "minecraft:explosion_emitter",
+                                                                                                "count": 3,
+                                                                                                "spread": {
+                                                                                                    "x": 1,
+                                                                                                    "y": 1,
+                                                                                                    "z": 1
+                                                                                                },
+                                                                                                "offset_y": 0.5
+                                                                                            }
+                                                                                        ]
+                                                                                    },
+                                                                                    "ticks": 50
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
                                                     }
                                                 ]
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:power",
-                                "power": "tepids_origins:skills/creeper/u2"
-                            },
-                            {
-                                "type": "origins:power",
-                                "power": "tepids_origins:skills/creeper/d2"
-                            }
-                        ]
-                    },
-                    "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:area_of_effect",
-                                "radius": 16,
-                                "bientity_action": {
-                                    "type": "origins:target_action",
-                                    "action": {
-                                        "type": "origins:area_of_effect",
-                                        "radius": 16,
-                                        "include_target": true,
-                                        "bientity_condition": {
-                                            "inverted": true,
-                                            "type": "origins:target_condition",
-                                            "condition": {
-                                                "type": "origins:origin",
-                                                "origin": "tepids_origins:overworld/creeper"
-                                            }
-                                        },
-                                        "bientity_action": {
-                                            "type": "origins:target_action",
-                                            "action": {
-                                                "type": "origins:delay",
-                                                "action": {
-                                                    "type": "origins:and",
-                                                    "actions": [
-                                                        {
-                                                            "type": "origins:damage",
-                                                            "amount": 4,
-                                                            "source": {
-                                                                "name": "explosion",
-                                                                "fire": true
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "origins:play_sound",
-                                                            "sound": "entity.generic.explode",
-                                                            "volume": 0.1,
-                                                            "pitch": 1.2
-                                                        },
-                                                        {
-                                                            "type": "origins:spawn_particles",
-                                                            "particle": "minecraft:explosion_emitter",
-                                                            "count": 3,
-                                                            "spread": {
-                                                                "x": 16,
-                                                                "y": 1,
-                                                                "z": 16
-                                                            },
-                                                            "offset_y": 0.5
-                                                        }
-                                                    ]
-                                                },
-                                                "ticks": 50
                                             }
                                         }
                                     }
