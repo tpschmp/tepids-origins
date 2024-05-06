@@ -242,17 +242,28 @@
                     "if_action": {
                         "type": "origins:add_velocity",
                         "y": 0.6,
-                        "space": "local",
+                        "space": "world",
                         "client": true,
                         "server": true
                     },
                     "else_action": {
-                        "type": "origins:add_velocity",
-                        "y": 1.6,
-                        "z": 0.8,
-                        "space": "local",
-                        "client": true,
-                        "server": true
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 0.8,
+                                "space": "local",
+                                "client": true,
+                                "server": true
+                            },
+                            {
+                                "type": "origins:add_velocity",
+                                "y": 1.6,
+                                "space": "world",
+                                "client": true,
+                                "server": true
+                            }
+                        ]
                     }
                 },
                 {
