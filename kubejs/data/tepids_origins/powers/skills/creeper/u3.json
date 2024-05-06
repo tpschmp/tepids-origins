@@ -14,7 +14,7 @@
         "hud_render": {
             "should_render": true,
             "sprite_location": "tepids_origins:textures/icons/bars/overworld/7.png",
-            "bar_index": 7,
+            "bar_index": 8,
             "condition": {
                 "inverted": true,
                 "type": "origins:resource",
