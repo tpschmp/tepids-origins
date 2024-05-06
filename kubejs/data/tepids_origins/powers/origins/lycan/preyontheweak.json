@@ -23,8 +23,8 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "tepids_origins:textures/icons/bars/overworld/10.png",
-            "bar_index": 0,
+            "sprite_location": "tepids_origins:textures/icons/bars/overworld/7.png",
+            "bar_index": 4,
             "condition": {
                 "type": "origins:resource",
                 "resource": "tepids_origins:origins/lycan/preyontheweak_dmg_tracker",
