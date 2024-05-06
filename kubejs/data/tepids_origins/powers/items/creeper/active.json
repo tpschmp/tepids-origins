@@ -102,22 +102,6 @@
                         "command": "summon minecraft:lightning_bolt ~ ~0.5 ~"
                     },
                     {
-                        "type": "origins:delay",
-                        "action": {
-                            "type": "origins:execute_command",
-                            "command": "summon minecraft:lightning_bolt ~ ~0.5 ~"
-                        },
-                        "ticks": 5
-                    },
-                    {
-                        "type": "origins:delay",
-                        "action": {
-                            "type": "origins:execute_command",
-                            "command": "summon minecraft:lightning_bolt ~ ~0.5 ~"
-                        },
-                        "ticks": 10
-                    },
-                    {
                         "type": "origins:execute_command",
                         "command": "summon minecraft:tnt ~ ~0.5 ~ {Fuse:20,Motion:[0.0d,0.33d,0.15d]}"
                     },
