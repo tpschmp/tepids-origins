@@ -456,7 +456,7 @@
             }
         },
         "description": "Costs 9 Skill Points.\n \nAfter promoting an explosion with your abilities, immediately Light Fuse and become Supercharged.\nWhile Supercharged, Fuse stacks are obtained faster and do not cost hunger.\n \n▼ Hold Shift for details",
-        "extra_description": "\nSupercharged Duration: 7 seconds",
+        "extra_description": "\nSupercharged Duration: 7 seconds\nCooldown: 30 seconds",
         "size": 1.5,
         "rewards": [
             {
